@@ -80,7 +80,9 @@ analytics:
 
 # Site Author
 author:
-  name             : "נאָאַה שמיד
+  name             : 
+  avatar           : "CSE-1080.jpg"
+  bio              : "נאָאַה שמיד
 
  نوح سميث
 
@@ -93,8 +95,6 @@ author:
 Ной Смит
 
 노아 스미스"
-  avatar           : "CSE-1080.jpg"
-  bio              : "Researcher in natural language processing, machine learning, and computational social science"
   location         : "Seattle, PNW"
   employer         :  
   pubmed           : # "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
@@ -121,7 +121,7 @@ author:
   stackoverflow    : # http://stackoverflow.com/users/123456/username
   steam            :
   tumblr           :
-  twitter          : # "replacethistwitterhandle"
+  twitter          : "nlpnoah"
   vine             :
   weibo            :
   xing             :
