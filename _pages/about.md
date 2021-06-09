@@ -22,11 +22,14 @@ Smith has served on the editorial boards of the journals [*Computational Linguis
 
 * Elected ACL Fellow "for significant contributions to linguistic structure prediction, computational social sciences, and improving NLP research methodology" (2020)
 * UW's [Sounding Board](https://sounding-board.github.io/) team won the inaugural Amazon Alexa Prize (2017)
-* UW Innovation award (2016&ndash;2018)
-* Finmeccanica career development chair at CMU (2011&ndash;2014),
+* UW Innovation award "to stimulate innovation among faculty from a
+  range of disciplines and to reward some of their most terrific
+  ideas" (2016&ndash;2018)
+* Finmeccanica career development chair at CMU "to  acknowledge promising teaching and research potential in junior
+ faculty members" (2011&ndash;2014)
 * NSF CAREER award (2011&ndash;2016)
 * [Hertz Foundation](http://www.hertzfoundation.org) graduate fellowship (2001&ndash;2006)
-* Papers recognized as outstanding, "best," finalist, honorable mention, or similar at ICLP 2008, ACL 2009, COLING 2010, NAACL 2013, ACL 2014, NAACL 2015, WWW 2016, EACL 2017, NAACL 2018, ACL 2018, ACL 2019, ACL 2020
+* Papers recognized as outstanding, finalist, honorable mention, or sometimes even "best paper" or "best student paper" at ICLP 2008, ACL 2009, COLING 2010, NAACL 2013, ACL 2014, NAACL 2015, WWW 2016, EACL 2017, NAACL 2018, ACL 2018, ACL 2019, ACL 2020
 
 # Teaching
 
