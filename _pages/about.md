@@ -43,4 +43,7 @@ courses on NLP for [undergraduates](https://courses.cs.washington.edu/courses/cs
 
 # Personal
 
-Smith lives in Seattle with his spouse, where they serve two felines.  When he is not working, he is often playing clarinet or saxophone, swimming, running, dancing tango, or mixing cocktails.
+Smith lives in Seattle with his spouse, where they serve two felines.  When he is not working, he is often playing clarinet or saxophone, swimming, running, dancing tango, or mixing cocktails.  He was [interviewed](https://www.youtube.com/watch?v=ZspCLyVTxSo)
+by [Devi Parikh](https://www.cc.gatech.edu/~parikh/) for [*Humans of AI:  Stories, Not Stats*](https://www.cc.gatech.edu/~parikh/humanstoriesai/) on September 23, 2020:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ZspCLyVTxSo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
