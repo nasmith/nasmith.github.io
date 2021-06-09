@@ -2,8 +2,6 @@
 permalink: /contact/
 title: "Contacting Noah Smith"
 author_profile: true
-redirect_from:
-- /contact.html
 ---
 
  I spend a lot of time reading and writing email. I wish I had more time for advising my students, learning new things, thinking about my research, and writing papers. Every message I take the time to read chips away at that time; please respect this fact when writing to me.
