@@ -12,7 +12,7 @@ redirect_from:
 
 Here is a quick, imperfect guide to emailing me.
 
-### Please email me if:
+### Please [email](mailto:nasmith@cs.washington.edu) me if:
 
 * you have specific technical questions about my research (it's always good to CC my coauthors in case they can answer a question faster or better than I can)
 * you're interested in a postdoc and might want to be on my list of people I will notify if I have an opening (please note: at this time, I don't have any open positions, but updates will be posted here)
@@ -31,8 +31,9 @@ AI2, and specifically my team (AllenNLP), has applications online for a variety 
 ### Please do *not* email me if:
 
 * you're interested in taking NLP and need an add code; instead, please use the links on the course website to petition.
+: To find the course website for the current quarter, [start here](https://www.cs.washington.edu/education/courses/).  If there's no link for the quarter you're interested in, or the page says nothing about add codes yet, it's because I don't have the information yet (try again later).
 * you're considering applying for grad school at UW (Ph.D. or masters programs) but don't have any specific technical questions
-: (This is great, and I encourage you to apply! Go for it, and feel free to discuss your research vision and how it would fit into my group in your statement. I can't give any feedback on your application before or after you apply, but I do look for a small number of new Ph.D. advisees each year. Please trust me that emailing me just to tell me that you're applying will make absolutely no difference.)
+: (This is great, and I encourage you to apply! Go for it, and feel free to discuss your research vision and how it would fit into my group in your statement. I can't give any feedback on your application before or after you apply, but I do look for a small number of new Ph.D. advisees each year. Please trust me that emailing me just to tell me that you're applying will make absolutely no difference!)
 * you're considering applying for grad school at CMU
 : (This is great! Because I no longer work there, I can't really help you.)
 * you're a student outside the US looking to be an intern or a student looking to visit my group
