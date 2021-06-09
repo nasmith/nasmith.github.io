@@ -28,15 +28,14 @@ If you are an undergraduate or masters student in Seattle and would like to work
 
 AI2, and specifically my team (AllenNLP), has applications online for a variety of positions, including research internships, engineering internships, predoctoral and postdoctoral researchers, engineers, and scientists. [Find out more here](https://allenai.org/careers#current-openings). 
 
-### Please do *not* email me if:
+### Please do not email me if:
 
-* you're interested in taking NLP and need an add code; instead, please use the links on the course website to petition.
-: To find the course website for the current quarter, [start here](https://www.cs.washington.edu/education/courses/).  If there's no link for the quarter you're interested in, or the page says nothing about add codes yet, it's because I don't have the information yet (try again later).
-* you're considering applying for grad school at UW (Ph.D. or masters programs) but don't have any specific technical questions
-: (This is great, and I encourage you to apply! Go for it, and feel free to discuss your research vision and how it would fit into my group in your statement. I can't give any feedback on your application before or after you apply, but I do look for a small number of new Ph.D. advisees each year. Please trust me that emailing me just to tell me that you're applying will make absolutely no difference!)
-: I've written some [advice](https://docs.google.com/document/d/1lT-bsIP0GKfh8l5sQnM2hCzzR9prt-QLx16rimUOdIM/edit?usp=sharing) for people applying to grad school in computer science.
+* you're looking for an add code to take an NLP course
+: Please use the links on the course website to petition. To find the course website for the current quarter, [start here](https://www.cs.washington.edu/education/courses/).  If there's no link for the quarter you're interested in, or the page says nothing about add codes yet, it's because I don't have the information yet (try again later).
+* you're considering applying for grad school at UW
+: This is great, and I encourage you to apply! Go for it, and feel free to discuss your research vision and how it would fit into my group in your statement. I can't give any feedback on your application before or after you apply, but I do look for a small number of new Ph.D. advisees each year. Please trust me that emailing me just to tell me that you're applying will make absolutely no difference!  If you have specific technical questions, see the "please email me" section above.  Also, I've written some [advice](https://docs.google.com/document/d/1lT-bsIP0GKfh8l5sQnM2hCzzR9prt-QLx16rimUOdIM/edit?usp=sharing) for people applying to grad school in computer science that might be useful to you.
 * you're considering applying for grad school at CMU
-: (This is great! Because I no longer work there, I can't really help you.)
-* you're a student outside the US looking to be an intern or a student looking to visit my group
-: (I'm very sorry, but I cannot host you at this time, and I get a huge number of requests of this kind. If you have a professor who thinks I should find a way to make it work, please ask him/her to contact me on your behalf.)
-* you don't know me personally but would like to invite yourself as a visiting scholar at UW
+: This is great! Because I no longer work there, I can't really help you.
+* you don't know me personally and want to visit or intern with my group 
+: I'm very sorry, but I cannot host you at this time, and I get a huge number of requests of this kind. If you are a student and know a professor who thinks I should find a way to make it work, please ask him/her to contact me on your behalf.
+
