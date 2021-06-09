@@ -82,7 +82,7 @@ analytics:
 author:
   name             : "Noah A. Smith"
   avatar           : "profile.png"
-  bio              : "Your biography for the left-hand sidebar"
+  bio              : # "Your biography for the left-hand sidebar"
   location         : "Seattle, PNW"
   employer         :  
   pubmed           : # "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
@@ -103,7 +103,6 @@ author:
   instagram        :
   impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
   lastfm           :
-  linkedin         : "https://www.linkedin.com/in/noah-smith-0322511a4/"
   orcid            : "https://orcid.org/0000-0002-2310-6380"
   pinterest        :
   soundcloud       :
@@ -116,6 +115,7 @@ author:
   xing             :
   youtube          :
   wikipedia        :
+  linkedin         : "https://www.linkedin.com/in/noah-smith-0322511a4/"
 
 
 # Reading Files
