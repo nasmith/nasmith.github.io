@@ -34,6 +34,7 @@ AI2, and specifically my team (AllenNLP), has applications online for a variety 
 : To find the course website for the current quarter, [start here](https://www.cs.washington.edu/education/courses/).  If there's no link for the quarter you're interested in, or the page says nothing about add codes yet, it's because I don't have the information yet (try again later).
 * you're considering applying for grad school at UW (Ph.D. or masters programs) but don't have any specific technical questions
 : (This is great, and I encourage you to apply! Go for it, and feel free to discuss your research vision and how it would fit into my group in your statement. I can't give any feedback on your application before or after you apply, but I do look for a small number of new Ph.D. advisees each year. Please trust me that emailing me just to tell me that you're applying will make absolutely no difference!)
+: I've written some [advice](https://docs.google.com/document/d/1lT-bsIP0GKfh8l5sQnM2hCzzR9prt-QLx16rimUOdIM/edit?usp=sharing) for people applying to grad school in computer science.
 * you're considering applying for grad school at CMU
 : (This is great! Because I no longer work there, I can't really help you.)
 * you're a student outside the US looking to be an intern or a student looking to visit my group

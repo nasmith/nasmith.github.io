@@ -10,7 +10,7 @@ main:
 #    url: /teaching/    
     
   - title: "ARK"
-    url: https://www.ark.cs.washington.edu    
+    url: http://www.ark.cs.washington.edu    
     
   - title: "Contact"
     url: /contact/    
