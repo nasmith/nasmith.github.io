@@ -8,8 +8,8 @@ redirect_from:
   - /about.html
 ---
 
-[Noah Smith](https://nasmith.github.io) is a computer scientist working at the junction of natural language processing (NLP), machine learning (ML), and computational social science. His research spans core problems in NLP, general-purpose ML methods for NLP, research methodology in NLP, and a wide range of applications.
-You can watch some of his [talks](talks), read his [papers](publications), and learn about his research groups [Noah's ARK](ark) and [AllenNLP](https://allennlp.org/).
+[Noah Smith](https://nasmith.github.io) is a computer scientist working at the junction of natural language processing (NLP), machine learning (ML), and computational social science. His research spans core problems in NLP, general-purpose ML methods for NLP, methodology in NLP, and a wide range of applications.
+You can watch videos of some of his [talks](talks), read his [papers](publications), and learn about his research groups [Noah's ARK](ark) and [AllenNLP](https://allennlp.org/).
 
 # Appointments & Education
 
