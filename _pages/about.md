@@ -22,16 +22,12 @@ Smith has served on the editorial boards of the journals [*Computational Linguis
 
 # Recognition
 
-* Elected ACL Fellow "for significant contributions to linguistic structure prediction, computational social sciences, and improving NLP research methodology" (2020)
-* UW's [Sounding Board](https://sounding-board.github.io/) team, led by Profs. [Mari Ostendorf](https://people.ece.uw.edu/ostendorf/), [Yejin Choi](https://homes.cs.washington.edu/~yejin/), and Noah Smith won the inaugural Amazon Alexa Prize (2017)
-* UW Innovation award "to stimulate innovation among faculty from a
+Smith was elected a Fellow of the Association for Computational Linguistics "for significant contributions to linguistic structure prediction, computational social sciences, and improving NLP research methodology" (2020).  UW's [Sounding Board](https://sounding-board.github.io/) team, led by Profs. [Mari Ostendorf](https://people.ece.uw.edu/ostendorf/), [Yejin Choi](https://homes.cs.washington.edu/~yejin/), and Noah Smith won the inaugural Amazon Alexa Prize in 2017.
+Smith's research was recognized with a UW Innovation award "to stimulate innovation among faculty from a
   range of disciplines and to reward some of their most terrific
-  ideas" (2016&ndash;2018)
-* Finmeccanica career development chair at CMU "to  acknowledge promising teaching and research potential in junior
- faculty members" (2011&ndash;2014)
-* NSF CAREER award (2011&ndash;2016)
-* [Hertz Foundation](http://www.hertzfoundation.org) graduate fellowship (2001&ndash;2006)
-* Papers recognized as outstanding, finalist, honorable mention, or sometimes even "best paper" or "best student paper" at ICLP 2008, ACL 2009, COLING 2010, NAACL 2013, ACL 2014, NAACL 2015, WWW 2016, EACL 2017, NAACL 2018, ACL 2018, ACL 2019, ACL 2020
+  ideas" (2016&ndash;2018), the Finmeccanica career development chair at CMU "to  acknowledge promising teaching and research potential in junior faculty members" (2011&ndash;2014), an NSF CAREER award (2011&ndash;2016),
+a [Hertz Foundation](http://www.hertzfoundation.org) graduate fellowship (2001&ndash;2006).
+He has coauthored conference papers that were cited as outstanding, finalist, honorable mention, and sometimes even "best paper" or "best student paper" at ICLP 2008, ACL 2009, COLING 2010, NAACL 2013, ACL 2014, NAACL 2015, WWW 2016, EACL 2017, NAACL 2018, ACL 2018, ACL 2019, and ACL 2020.
 
 # Teaching
 
@@ -45,3 +41,6 @@ courses on NLP for [undergraduates](https://courses.cs.washington.edu/courses/cs
 * [Translation and sequence-to-sequence models](https://drive.google.com/file/d/18J0RTgezne5rfu5f9ryaA4Yu1V567q28/view?usp=sharing)
 * [Syntax, semantics, and linguistic structure prediction](https://drive.google.com/file/d/1gGXlnv2livCAhH6CK3H-5ij1ZsBNRsOM/view?usp=sharing)
 
+# Personal
+
+Smith lives in Seattle with his spouse, where they serve two felines.  When he is not working, he is often playing clarinet or saxophone, swimming, running, dancing tango, or mixing cocktails.
