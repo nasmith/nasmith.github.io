@@ -16,12 +16,13 @@ He is a Professor in the [Paul G. Allen School of Computer Science & Engineering
 
 # Service
 
-Smith has served on the editorial boards of the journals [*Computational Linguistics*](http://www.mitpressjournals.org/loi/coli) (2009&ndash;2011), *[Journal of Artificial Intelligence Research](http://www.jair.org)* (2011&ndash;present), and [*Transactions of the Association for Computational Linguistics*](http://www.transacl.org) (2012&ndash;present), as the secretary-treasurer of [SIGDAT](http://www.sigdat.org) (2012&ndash;2015 and 2018&ndash;present), and as program co-chair of [ACL 2016](http://acl2016.org/).  He co-organized the [Ninth Annual Conference on New Directions in Analyzing Text as Data (TADA 2018)](https://nlp.washington.edu/tada2018).
+Smith has served on the editorial boards of the journals [*Computational Linguistics*](http://www.mitpressjournals.org/loi/coli) (2009&ndash;2011), *[Journal of Artificial Intelligence Research](http://www.jair.org)* (2011&ndash;present), and [*Transactions of the Association for Computational Linguistics*](http://www.transacl.org) (2012&ndash;present), as the secretary-treasurer of [SIGDAT](http://www.sigdat.org) (2012&ndash;2015 and 2018&ndash;2019), and as program co-chair of [ACL 2016](http://acl2016.org/).  He co-organized the [Ninth Annual Conference on New Directions in Analyzing Text as Data (TADA 2018)](https://nlp.washington.edu/tada2018),
+[Language Technologies and Computational Social Science](http://www.mpi-sws.org/~cristian/LACSS_2014.html) (a workshop at ACL 2014), and [Twenty Years of Bitext](https://sites.google.com/site/20yearsofbitext/) (a workshop at EMNLP 2013).
 
 # Recognition
 
 * Elected ACL Fellow "for significant contributions to linguistic structure prediction, computational social sciences, and improving NLP research methodology" (2020)
-* UW's [Sounding Board](https://sounding-board.github.io/) team won the inaugural Amazon Alexa Prize (2017)
+* UW's [Sounding Board](https://sounding-board.github.io/) team, led by Profs. [Mari Ostendorf](https://people.ece.uw.edu/ostendorf/), [Yejin Choi](https://homes.cs.washington.edu/~yejin/), and Noah Smith won the inaugural Amazon Alexa Prize (2017)
 * UW Innovation award "to stimulate innovation among faculty from a
   range of disciplines and to reward some of their most terrific
   ideas" (2016&ndash;2018)
@@ -42,3 +43,4 @@ courses on NLP for [undergraduates](https://courses.cs.washington.edu/courses/cs
 * [Sequence labeling and conditional random fields](https://drive.google.com/file/d/1NeLhUxWBBbUSeC5oyz0krxppzlG_OB5V/view?usp=sharing)
 * [Translation and sequence-to-sequence models](https://drive.google.com/file/d/18J0RTgezne5rfu5f9ryaA4Yu1V567q28/view?usp=sharing)
 * [Syntax, semantics, and linguistic structure prediction](https://drive.google.com/file/d/1gGXlnv2livCAhH6CK3H-5ij1ZsBNRsOM/view?usp=sharing)
+
