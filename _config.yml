@@ -82,7 +82,7 @@ analytics:
 author:
   name             : "Noah A. Smith"
   avatar           : "profile.png"
-  bio              : # "Your biography for the left-hand sidebar"
+  bio              : "Researcher in natural language processing, machine learning, and computational social science"
   location         : "Seattle, PNW"
   employer         :  
   pubmed           : # "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
