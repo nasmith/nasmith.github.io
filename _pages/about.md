@@ -22,7 +22,7 @@ Smith has served on the editorial boards of the journals [*Computational Linguis
 
 ### Recognition
 
-Smith was elected a Fellow of the Association for Computational Linguistics "for significant contributions to linguistic structure prediction, computational social sciences, and improving NLP research methodology" (2020).  UW's [Sounding Board](https://sounding-board.github.io/) team, led by Profs. [Mari Ostendorf](https://people.ece.uw.edu/ostendorf/), [Yejin Choi](https://homes.cs.washington.edu/~yejin/), and Noah Smith won the inaugural Amazon Alexa Prize in 2017.
+Smith was elected a Fellow of the Association for Computational Linguistics "for significant contributions to linguistic structure prediction, computational social sciences, and improving NLP research methodology" (2020).  UW's [Sounding Board](https://sounding-board.github.io/) team, led by Profs. [Mari Ostendorf](https://people.ece.uw.edu/ostendorf/), [Yejin Choi](https://homes.cs.washington.edu/~yejin/), and Noah Smith, won the inaugural Amazon Alexa Prize in 2017.
 Smith's research was recognized with a UW Innovation award "to stimulate innovation among faculty from a
   range of disciplines and to reward some of their most terrific
   ideas" (2016&ndash;2018), the Finmeccanica career development chair at CMU "to  acknowledge promising teaching and research potential in junior faculty members" (2011&ndash;2014), an NSF CAREER award (2011&ndash;2016),
