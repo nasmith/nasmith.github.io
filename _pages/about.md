@@ -43,9 +43,33 @@ courses on NLP for [undergraduates](https://courses.cs.washington.edu/courses/cs
 * [Translation and sequence-to-sequence models](https://drive.google.com/file/d/18J0RTgezne5rfu5f9ryaA4Yu1V567q28/view?usp=sharing)
 * [Syntax, semantics, and linguistic structure prediction](https://drive.google.com/file/d/1gGXlnv2livCAhH6CK3H-5ij1ZsBNRsOM/view?usp=sharing)
 
+
 ### Personal
 
 Smith lives in Seattle with his spouse, where they serve two felines.  When he is not working, he is often playing clarinet or saxophone, swimming, running, dancing tango, or mixing cocktails.  He was [interviewed](https://www.youtube.com/watch?v=ZspCLyVTxSo)
 by [Devi Parikh](https://www.cc.gatech.edu/~parikh/) for [*Humans of AI:  Stories, Not Stats*](https://www.cc.gatech.edu/~parikh/humanstoriesai/) on September 23, 2020:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ZspCLyVTxSo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+
+### Academic Genealogy
+
+Smith's academic ancestors had varied interests and careers.  A few examples (links discovered thanks to the [Mathematics Genealogy Project](https://www.genealogy.math.ndsu.nodak.edu/)):
+- In 1332, [Nasir al-Din al-Tusi](https://en.wikipedia.org/wiki/Nasir_al-Din_al-Tusi) (34th degree ancestor) wrote *[Akhlāq-i Nāsirī](https://en.wikipedia.org/wiki/Nasirean_Ethics)*, a treatise on philosophical ethics.  He was the director of the [Maragheh Observatory](https://en.wikipedia.org/wiki/Maragheh_observatory) (in present-day Iran), said to be "the most advanced scientific institution in the Eurasian world" at the time.
+- In 1514, [Nicolaus Copernicus](https://en.wikipedia.org/wiki/Nicolaus_Copernicus) (24th degree ancestor) wrote his [Commentariolus](https://en.wikipedia.org/wiki/Commentariolus), explicitly proposing a return to the heliocentric model.  In 1543, he published [De Revolutionibus Orbium Coelestium](https://en.wikipedia.org/wiki/De_revolutionibus_orbium_coelestium), and within about 50 years the Copernican Revolution had begun.   Whether Copernicus was directly influenced by Islamic scholars like al-Tusi is a matter of debate.  Copernicus completed his doctorate at Bologna University and worked mainly in Warmia (present-day Poland).
+- In 1542, [Elia Levita](https://en.wikipedia.org/wiki/Elia_Levita) (24th degree ancestor) published *[Shemot Devarim](https://collections.library.yale.edu/catalog/2033567)*, a translation dictionary for German, Latin, Hebrew, and Yiddish.  Levita also authored the *[Bovo-Bukh](https://en.wikipedia.org/wiki/Bovo-Bukh)* the most popular chivalric romance written in Yiddish.  Levita worked mainly in Italy (Padua, Rome, Venice) but spent some time in Bavaria (Isny), where he mentored [Paul Fagius](https://en.wikipedia.org/wiki/Paul_Fagius) (23rd degree ancestor), who was the publisher of the *Bovo-Bukh*.
+-- Fagius later taught at the University of Strasbourg.  When the counter-Reformation was heating up, he moved to the University of Cambridge at the invitation of [Thomas Cranmer](https://en.wikipedia.org/wiki/Thomas_Cranmer) (24th degree ancestor, different line).
+- In 1636, [Marin Mersenne](https://en.wikipedia.org/wiki/Marin_Mersenne) (21st degree ancestor) published *[Harmonie Universelle](https://en.wikipedia.org/wiki/Harmonie_universelle)]*, the most complete compendium on (western) music theory to that time. Composer  [Ottorino Respighi](https://en.wikipedia.org/wiki/Ottorino_Respighi) attributed an aria in the second suite of his [Ancient Airs and Dances](https://en.wikipedia.org/wiki/Ancient_Airs_and_Dances) (1923) to Mersenne.  [You can listen to it here.](https://www.youtube.com/watch?v=affrRfi9T28)
+- In 1684, [Gottfried Wilhelm Leibniz](https://en.wikipedia.org/wiki/Gottfried_Wilhelm_Leibniz) (18th degree ancestor) published *[Nova Methodus pro Maximis et Minimis](https://en.wikipedia.org/wiki/Nova_Methodus_pro_Maximis_et_Minimis)*, the first published work on differential and integral calculus.  
+- In 1713, [Jacob Bernoulli](https://en.wikipedia.org/wiki/Jacob_Bernoulli) (16th degree ancestor)'s  *[Ars Conjectandi](https://en.wikipedia.org/wiki/Ars_Conjectandi)*
+was posthumously published; it is a work on combinatorics and probability that includes the first statement of the law of large numbers.
+-- It was [Siméon Denis Poisson](https://en.wikipedia.org/wiki/Sim%C3%A9on_Denis_Poisson) (12th degree ancestor) who named it "the law of large numbers," in 1837 (*Probabilité des jugements en matière criminelle et en matière civile, précédées des règles générales du calcul des probabilitiés*).
+- In 1832, according to Wikipedia, [Carl Gauss](https://en.wikipedia.org/wiki/Carl_Friedrich_Gauss) (12th degree ancestor) didn't want his (biological) children to study math, but he didn't want them to study languages, either.  His son Eugene quarreled with him about this and left for America, where (among other accomplishments) he learned the Sioux language.  Wikipedia includes a fascinating
+[letter](https://en.wikisource.org/wiki/Robert_Gauss_to_Felix_Klein_-_September_3,_1912) from Gauss's grandson Robert to [Felix Klein](https://en.wikipedia.org/wiki/Felix_Klein) (9th degree ancestor).
+- In 1967, [Francis Fan Lee](https://en.wikipedia.org/wiki/Francis_F._Lee) (4th degree ancestor) published work on a reading machine for the blind ("[Automatic grapheme-to-phoneme translation of English](https://asa.scitation.org/doi/10.1121/1.2143635)").  Lee also founded a company called Lexicon, later sold to Harman International, now part of Samsung; Lexicon received an Emmy award for its Model 1200 Audio Time Compressor and Expander in 1984.   Lee was also the recipient of a [Hertz Foundation](http://www.hertzfoundation.org) graduate fellowship.
+
+Other academic ancestors include linguist [Roman Jakobson](https://en.wikipedia.org/wiki/Roman_Jakobson) (6th degree ancestor, founder of modern phonology), polymath [Pierre-Simon Laplace](https://en.wikipedia.org/wiki/Pierre-Simon_Laplace) (12th degree ancestor, developer of the so-called Bayesian interpretation of probability)
+Enlightenment figure [Jean le Rond d'Alembert](Jean Le Rond d'Alembert) (14th degree ancestor), and theologian [Desiderius Erasmus Roterodamus](https://en.wikipedia.org/wiki/Erasmus) (29th degree ancestor).
+
+There is, of course, much debate to be had about which of the scholars in the MGP really completed anything we would consider comparable to the modern Ph.D., and how similar the attested relationships are to modern Ph.D. advising. 
