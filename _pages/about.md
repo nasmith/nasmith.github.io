@@ -55,6 +55,9 @@ by [Devi Parikh](https://www.cc.gatech.edu/~parikh/) for [*Humans of AI:  Storie
 
 ### Academic Genealogy
 
+Smith's main intellectual influences are his undergraduate mentors [Philip Resnik](http://users.umiacs.umd.edu/~resnik/) (still a frequent collaborator) and [Norbert Hornstein](https://linguistics.umd.edu/directory/norbert-hornstein),
+his Ph.D. advisor [Jason Eisner](https://www.cs.jhu.edu/~jason/),  [Frederick Jelinek](https://en.wikipedia.org/wiki/Frederick_Jelinek), and his [many mentees](https://noahs-ark.github.io/people/).
+
 Smith's academic ancestors had varied interests and careers.  A few examples (links discovered thanks to the [Mathematics Genealogy Project](https://www.genealogy.math.ndsu.nodak.edu/)):
 - In 1332, [Nasir al-Din al-Tusi](https://en.wikipedia.org/wiki/Nasir_al-Din_al-Tusi) (34th degree ancestor) wrote *[Akhlāq-i Nāsirī](https://en.wikipedia.org/wiki/Nasirean_Ethics)*, a treatise on philosophical ethics.  He was the director of the [Maragheh Observatory](https://en.wikipedia.org/wiki/Maragheh_observatory) (in present-day Iran), said to be "the most advanced scientific institution in the Eurasian world" at the time.
 - In 1514, [Nicolaus Copernicus](https://en.wikipedia.org/wiki/Nicolaus_Copernicus) (24th degree ancestor) wrote his [Commentariolus](https://en.wikipedia.org/wiki/Commentariolus), explicitly proposing a return to the heliocentric model.  In 1543, he published [De Revolutionibus Orbium Coelestium](https://en.wikipedia.org/wiki/De_revolutionibus_orbium_coelestium), and within about 50 years the Copernican Revolution had begun.   Whether Copernicus was directly influenced by Islamic scholars like al-Tusi is a matter of debate.  Copernicus completed his doctorate at Bologna University and worked mainly in Warmia (present-day Poland).
