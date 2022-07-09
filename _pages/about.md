@@ -28,8 +28,7 @@ Smith's research was recognized with a UW Innovation award "to stimulate innovat
   ideas" (2016&ndash;2018), the Finmeccanica career development chair at CMU "to  acknowledge promising teaching and research potential in junior faculty members" (2011&ndash;2014), an NSF CAREER award (2011&ndash;2016),
 a [Hertz Foundation](http://www.hertzfoundation.org) graduate fellowship (2001&ndash;2006).
 He has coauthored conference papers that were cited as outstanding, finalist, honorable mention, and sometimes even "best paper" or "best student paper" at [ICLP 2008](https://homes.cs.washington.edu/~nasmith/papers/cohen+simmons+smith.iclp08.pdf), [ACL 2009](https://homes.cs.washington.edu/~nasmith/papers/martins+smith+xing.acl09.pdf), [COLING 2010](https://homes.cs.washington.edu/~nasmith/papers/nguyen+vogel+smith.coling10.pdf), [NAACL 2013](https://homes.cs.washington.edu/~nasmith/papers/chahuneau+smith+dyer.naacl13.pdf), [ACL 2014](https://homes.cs.washington.edu/~nasmith/papers/flanigan+thomson+dyer+carbonell+smith.acl14.pdf), [NAACL 2015](https://homes.cs.washington.edu/~nasmith/papers/faruqui+dodge+jauhar+dyer+hovy+smith.naacl15.pdf), [WWW 2016](https://homes.cs.washington.edu/~nasmith/papers/wilson+etal.www16.pdf), [EACL 2017](https://arxiv.org/pdf/1611.05774.pdf), [NAACL 2018](https://homes.cs.washington.edu/~nasmith/papers/clark+ji+smith.naacl18.pdf), [ACL 2018](https://homes.cs.washington.edu/~nasmith/papers/peng+thomson+smith.acl18.pdf), [ACL 2019](https://arxiv.org/pdf/1906.00591.pdf) ([twice](https://homes.cs.washington.edu/~nasmith/papers/sap+card+gabriel+choi+smith.acl19.pdf)), [ACL 2020](https://arxiv.org/pdf/2004.10964.pdf),
-and
-[ACL 2021](https://arxiv.org/pdf/2107.00061).
+[ACL 2021](https://arxiv.org/pdf/2107.00061), and [NAACL 2022](https://arxiv.org/pdf/2112.08726).
 
 ### Teaching
 
