@@ -9,7 +9,7 @@ redirect_from:
 ---
 
 [Noah Smith](https://nasmith.github.io) is a computer scientist working at the junction of natural language processing (NLP), machine learning (ML), and computational social science. His research spans core problems in NLP, general-purpose ML methods for NLP, methodology in NLP, and a wide range of applications.
-You can watch [videos of some of his talks](talks), read his [papers](publications), and learn about his research groups, [Noah's ARK](http://www.ark.cs.washington.edu) and (co-led with [Hanna Hajishirzi](https://homes.cs.washington.edu/~hannaneh/)) [AllenNLP](https://allennlp.org/).
+You can watch [videos of some of his talks](talks), read his [papers](publications), and learn about his research groups, [Noah's ARK](http://www.ark.cs.washington.edu) and (co-led with [Hanna Hajishirzi](https://homes.cs.washington.edu/~hannaneh/)) [AllenNLP](https://allennlp.org/).  As of 2022, he has graduated 25 Ph.D. students and mentored 14 postdocs; 11 of his undergraduate mentees have gone on to Ph.D. programs.
 
 ### Appointments & Education
 
@@ -17,7 +17,7 @@ He is Amazon Professor of Machine Learning in the [Paul G. Allen School of Compu
 
 ### Service
 
-Smith is the general chair of EMNLP 2022.  He has served on the editorial boards of the journals [*Computational Linguistics*](http://www.mitpressjournals.org/loi/coli) (2009&ndash;2011), *[Journal of Artificial Intelligence Research](http://www.jair.org)* (2011&ndash;2019), and [*Transactions of the Association for Computational Linguistics*](http://www.transacl.org) (2012&ndash;present), as the secretary-treasurer of [SIGDAT](http://www.sigdat.org) (2012&ndash;2015 and 2018&ndash;2019), and as program co-chair of [ACL 2016](http://acl2016.org/).  He co-organized the [Ninth Annual Conference on New Directions in Analyzing Text as Data (TADA 2018)](https://nlp.washington.edu/tada2018),
+Smith was the general chair of EMNLP 2022.  He has served on the editorial boards of the journals [*Computational Linguistics*](http://www.mitpressjournals.org/loi/coli) (2009&ndash;2011), *[Journal of Artificial Intelligence Research](http://www.jair.org)* (2011&ndash;2019), and [*Transactions of the Association for Computational Linguistics*](http://www.transacl.org) (2012&ndash;present), as the secretary-treasurer of [SIGDAT](http://www.sigdat.org) (2012&ndash;2015 and 2018&ndash;2019), and as program co-chair of [ACL 2016](http://acl2016.org/).  He co-organized the [Ninth Annual Conference on New Directions in Analyzing Text as Data (TADA 2018)](https://nlp.washington.edu/tada2018),
 [Language Technologies and Computational Social Science](http://www.mpi-sws.org/~cristian/LACSS_2014.html) (a workshop at ACL 2014), and [Twenty Years of Bitext](https://sites.google.com/site/20yearsofbitext/) (a workshop at EMNLP 2013).
 
 ### Recognition
