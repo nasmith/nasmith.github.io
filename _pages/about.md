@@ -32,6 +32,8 @@ He has coauthored conference papers that were cited as outstanding, finalist, ho
 
 ### Teaching
 
+Winter 2023:  [Ph.D.-level course on natural language processing](https://nasmith.github.io/NLP-winter23/)
+
 Smith's recent teaching includes
 courses on NLP for [undergraduates](https://courses.cs.washington.edu/courses/cse447/), [professional masters students](https://courses.cs.washington.edu/courses/csep517/), and [Ph.D. students](https://courses.cs.washington.edu/courses/cse517/) as well as a ["capstone" projects course on NLP](https://courses.cs.washington.edu/courses/cse481n/).  Lecture videos from 2021:
 * [Classification and multinomial logistic regression](https://drive.google.com/file/d/1Luwa-sn4t2Hu6IA_-cUWXaDvMkpft9E4/view?usp=sharing)
