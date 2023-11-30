@@ -9,7 +9,7 @@ redirect_from:
 ---
 
 [Noah Smith](https://nasmith.github.io) is a computer scientist working at the junction of natural language processing (NLP), machine learning (ML), and computational social science. His research spans core problems in NLP, general-purpose ML methods for NLP, methodology in NLP, and a wide range of applications.
-You can watch [videos of some of his talks](talks), read his [papers](publications), and learn about his research groups, [Noah's ARK](http://www.ark.cs.washington.edu) and (co-led with [Hanna Hajishirzi](https://homes.cs.washington.edu/~hannaneh/)) [AllenNLP](https://allennlp.org/).  As of 2022, he has graduated 25 Ph.D. students and mentored 14 postdocs; 11 of his undergraduate mentees have gone on to Ph.D. programs.
+You can watch [videos of some of his talks](talks), read his [papers](publications), and learn about his research groups, [Noah's ARK](http://www.ark.cs.washington.edu) and (co-led with [Hanna Hajishirzi](https://homes.cs.washington.edu/~hannaneh/)) [AllenNLP](https://allennlp.org/).  Smith is most proud of his mentoring accomplishments:  as of 2023, he has graduated 27 Ph.D. students and mentored 15 postdocs, with 25 alumni now in faculty positions around the world. 20 of his undergraduate/masters mentees have gone on to Ph.D. programs.  His group's alumni have started companies and are technological leaders both inside and outside the tech industry.
 
 ### Appointments & Education
 
