@@ -20,7 +20,7 @@ I will do my best to reply promptly. Students have called me an Email Ninja, but
 
 ### If you would like to apply to work in Noah's ARK:
 
-If you are an undergraduate or masters student in Seattle and would like to work on research with my group, please complete this [demonstration of research interest](https://homes.cs.washington.edu/~nasmith/temp/challenge.pdf).  Please follow the instructions carefully.  In general, I encourage you to apply if you are a student at UW or any other school in or near Seattle, and you think you have a role to play in my ARK.
+If you are an undergraduate or masters student in Seattle and would like to work on research with my group, please complete this [demonstration of research interest](files/challenge.pdf).  Please follow the instructions carefully.  In general, I encourage you to apply if you are a student at UW or any other school in or near Seattle, and you think you have a role to play in my ARK.
 
 ### If you would like to apply to work at the Allen Institute for AI:
 
