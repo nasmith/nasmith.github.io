@@ -8,10 +8,10 @@ redirect_from:
   - /about.html
 ---
 
-[Noah Smith](https://nasmith.github.io) is a computer scientist working at the junction of natural language processing (NLP), machine learning (ML), and computational social science.  He recently wrote [**Language Models: A Guide for the Perplexed**](https://arxiv.org/pdf/2311.17301.pdf), a general-audience tutorial, and he co-directs the [OLMo](https://allenai.org/olmo) open language modeling effort with [Hanna Hajishirzi](https://homes.cs.washington.edu/~hannaneh/). 
+[Noah Smith](https://nasmith.github.io) is a computer scientist working in several fields of artificial intelligence research.  He recently wrote [**Language Models: A Guide for the Perplexed**](https://arxiv.org/pdf/2311.17301.pdf), a general-audience tutorial, and he co-directs the [OLMo](https://allenai.org/olmo) open language modeling effort with [Hanna Hajishirzi](https://homes.cs.washington.edu/~hannaneh/). 
 
-His research spans core problems in NLP, general-purpose ML methods for NLP, methodology in NLP, and a wide range of applications.
-You can watch [videos of some of his talks](talks), read his [papers](publications), and learn about his research groups, [Noah's ARK](http://www.ark.cs.washington.edu) and  [AllenNLP](https://allennlp.org/).  Smith is most proud of his mentoring accomplishments:  as of 2024, he has graduated 28 Ph.D. students and mentored 15 postdocs, with 25 alumni now in faculty positions around the world. 20 of his undergraduate/masters mentees have gone on to Ph.D. programs.  His group's alumni have started companies and are technological leaders both inside and outside the tech industry.
+Broadly, his research targets algorithms that process data encoding language, music, and more, to augment human capabilities.  He also works on core problems of research methodology like evaluation.
+You can watch [videos of some of his talks](talks), read his [papers](publications), and learn about his research groups, [Noah's ARK](http://www.ark.cs.washington.edu) and  [AllenNLP](https://allennlp.org/).  Smith is most proud of his mentoring accomplishments:  as of 2024, he has graduated 29 Ph.D. students and mentored 15 postdocs, with 26 alumni now in faculty positions around the world. 20 of his undergraduate/masters mentees have gone on to Ph.D. programs.  His group's alumni have started companies and are technological leaders both inside and outside the tech industry.
 
 ### Appointments & Education
 
