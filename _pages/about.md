@@ -15,7 +15,7 @@ You can watch [videos of some of his talks](talks), read his [papers](publicatio
 
 ### Appointments & Education
 
-He is Amazon Professor of Machine Learning in the [Paul G. Allen School of Computer Science & Engineering](http://www.cs.washington.edu/) at the [University of Washington](http://www.washington.edu/) (also Adjunct in [Linguistics](https://linguistics.washington.edu/), Affiliate of the [Center for Statistics and the Social Sciences](https://www.csss.washington.edu/), and Senior Data Science Fellow at the [eScience Institute](http://escience.washington.edu/)), as well as Senior Director of NLP Research at the [Allen Institute for Artificial Intelligence](https://allenai.org/). Previously, he was an Associate Professor of Language Technologies and Machine Learning in the [School of Computer Science](http://www.cs.cmu.edu) at [Carnegie Mellon University](http://www.cmu.edu).  He earned his Ph.D. in Computer Science from [Johns Hopkins University](http://www.jhu.edu) and his B.S. in Computer Science and B.A. in Linguistics from the [University of Maryland](http://www.umd.edu).
+He is Amazon Professor of Machine Learning in the [Paul G. Allen School of Computer Science & Engineering](http://www.cs.washington.edu/) at the [University of Washington](http://www.washington.edu/) (also Adjunct in [Linguistics](https://linguistics.washington.edu/), Affiliate of the [Center for Statistics and the Social Sciences](https://www.csss.washington.edu/), Senior Data Science Fellow at the [eScience Institute](http://escience.washington.edu/)), and Associate Faculty of the [Stroum Center for Jewish Studies](https://jewishstudies.washington.edu/) as well as Senior Director of NLP Research at the [Allen Institute for Artificial Intelligence](https://allenai.org/). Previously, he was an Associate Professor of Language Technologies and Machine Learning in the [School of Computer Science](http://www.cs.cmu.edu) at [Carnegie Mellon University](http://www.cmu.edu).  He earned his Ph.D. in Computer Science from [Johns Hopkins University](http://www.jhu.edu) and his B.S. in Computer Science and B.A. in Linguistics from the [University of Maryland](http://www.umd.edu).
 
 ### Service
 
@@ -27,18 +27,16 @@ Smith was the general chair of EMNLP 2022.  He has served on the editorial board
 Smith was elected a Fellow of the Association for Computational Linguistics "for significant contributions to linguistic structure prediction, computational social sciences, and improving NLP research methodology" (2020).  UW's [Sounding Board](https://sounding-board.github.io/) team, led by Profs. [Mari Ostendorf](https://people.ece.uw.edu/ostendorf/), [Yejin Choi](https://homes.cs.washington.edu/~yejin/), and Noah Smith, won the inaugural Amazon Alexa Prize in 2017.
 Smith's research was recognized with a UW Innovation award "to stimulate innovation among faculty from a
   range of disciplines and to reward some of their most terrific
-  ideas" (2016&ndash;2018), the Finmeccanica career development chair at CMU "to  acknowledge promising teaching and research potential in junior faculty members" (2011&ndash;2014), an NSF CAREER award (2011&ndash;2016),
+  ideas" (2016&ndash;2018), the Finmeccanica career development chair at CMU "to  acknowledge promising teaching and research potential in junior faculty members" (2011&ndash;2014), an NSF CAREER award (2011&ndash;2016), and
 a [Hertz Foundation](http://www.hertzfoundation.org) graduate fellowship (2001&ndash;2006).
 He has coauthored conference papers that were cited as outstanding, finalist, honorable mention, and sometimes even "best" student/theme/resource/overall paper at [ICLP 2008](https://homes.cs.washington.edu/~nasmith/papers/cohen+simmons+smith.iclp08.pdf), [ACL 2009](https://homes.cs.washington.edu/~nasmith/papers/martins+smith+xing.acl09.pdf), [COLING 2010](https://homes.cs.washington.edu/~nasmith/papers/nguyen+vogel+smith.coling10.pdf), [NAACL 2013](https://homes.cs.washington.edu/~nasmith/papers/chahuneau+smith+dyer.naacl13.pdf), [ACL 2014](https://homes.cs.washington.edu/~nasmith/papers/flanigan+thomson+dyer+carbonell+smith.acl14.pdf), [NAACL 2015](https://homes.cs.washington.edu/~nasmith/papers/faruqui+dodge+jauhar+dyer+hovy+smith.naacl15.pdf), [WWW 2016](https://homes.cs.washington.edu/~nasmith/papers/wilson+etal.www16.pdf), [EACL 2017](https://arxiv.org/pdf/1611.05774.pdf), [NAACL 2018](https://homes.cs.washington.edu/~nasmith/papers/clark+ji+smith.naacl18.pdf), [ACL 2018](https://homes.cs.washington.edu/~nasmith/papers/peng+thomson+smith.acl18.pdf), [ACL 2019](https://arxiv.org/pdf/1906.00591.pdf) ([twice](https://homes.cs.washington.edu/~nasmith/papers/sap+card+gabriel+choi+smith.acl19.pdf)), [ACL 2020](https://arxiv.org/pdf/2004.10964.pdf),
 [ACL 2021](https://arxiv.org/pdf/2107.00061), [NAACL 2022](https://arxiv.org/pdf/2112.08726), and [ACL 2024](https://arxiv.org/pdf/2402.00838) ([twice](https://arxiv.org/pdf/2402.00159)).
 
 ### Teaching
 
-Winter 2024:  [AI for musicians](https://nasmith.github.io/AI-for-musicians-winter24/)
+Smith will teach NLP at the graduate and undergraduate level in winter 2025 (CSE 447/517) and in the Allen School's Professional Masters Program in spring 2025 (CSE P517).
 
-Winter 2023:  [Ph.D.-level course on natural language processing](https://nasmith.github.io/NLP-winter23/)
-
-Smith's recent teaching includes
+Smith's recent teaching includes [AI for musicians](https://nasmith.github.io/AI-for-musicians-winter24/) and
 courses on NLP for [undergraduates](https://courses.cs.washington.edu/courses/cse447/), [professional masters students](https://courses.cs.washington.edu/courses/csep517/), and [Ph.D. students](https://courses.cs.washington.edu/courses/cse517/) as well as a ["capstone" projects course on NLP](https://courses.cs.washington.edu/courses/cse481n/).  Lecture videos from 2021:
 * [Classification and multinomial logistic regression](https://drive.google.com/file/d/1Luwa-sn4t2Hu6IA_-cUWXaDvMkpft9E4/view?usp=sharing)
 * [Language modeling, especially with neural networks](https://drive.google.com/file/d/1cK43rSzH491oI9NIrLlDAeP8P2F7LXTJ/view?usp=sharing)
@@ -60,7 +58,7 @@ by [Devi Parikh](https://www.cc.gatech.edu/~parikh/) for [*Humans of AI:  Storie
 
 ### Academic Genealogy
 
-Smith's main intellectual influences are his undergraduate mentors [Philip Resnik](http://users.umiacs.umd.edu/~resnik/) (still a frequent collaborator) and [Norbert Hornstein](https://linguistics.umd.edu/directory/norbert-hornstein),
+Smith's main intellectual influences are his undergraduate mentors [Philip Resnik](http://users.umiacs.umd.edu/~resnik/) and [Norbert Hornstein](https://linguistics.umd.edu/directory/norbert-hornstein),
 his Ph.D. advisor [Jason Eisner](https://www.cs.jhu.edu/~jason/),  [Frederick Jelinek](https://en.wikipedia.org/wiki/Frederick_Jelinek), and his [many mentees](https://noahs-ark.github.io/people/).
 
 Smith's academic ancestors had varied interests and careers.  A few examples (links discovered thanks to the [Mathematics Genealogy Project](https://www.genealogy.math.ndsu.nodak.edu/)):
