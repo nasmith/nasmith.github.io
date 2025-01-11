@@ -30,7 +30,7 @@ AI2, and specifically my team (AllenNLP), has applications online for a variety 
 
 ### Please do not email me if:
 
-* you're looking for a different Noah Smith (e.g., [this person](https://en.wikipedia.org/wiki/Noah_Smith_(writer))
+* you're looking for a different Noah Smith (e.g., [this person](https://en.wikipedia.org/wiki/Noah_Smith_(writer)))
 * you're looking for an add code to take an NLP course.  For winter 2025, you can petition to take CSE 517 [here](https://30s4.short.gy/UWCSE500-nonmajor).  [Allen School policies are here](https://www.cs.washington.edu/students/ugrad/non-major-registration).  I don't have add codes.
 * you're considering applying for grad school at UW
 : This is great, and I encourage you to apply! Go for it, and feel free to discuss your research vision and how it would fit into my group in your statement. I can't give any feedback on your application before or after you apply, but I typically look for a small number of new Ph.D. advisees each year. Please trust me that emailing me just to tell me that you're applying will make absolutely no difference!  If you have specific technical questions, see the "please email me" section above.  Also, I've written some [advice](https://docs.google.com/document/d/1lT-bsIP0GKfh8l5sQnM2hCzzR9prt-QLx16rimUOdIM/edit?usp=sharing) for people applying to grad school in computer science that might be useful to you.
