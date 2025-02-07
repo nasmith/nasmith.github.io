@@ -8,7 +8,7 @@ author_profile: true
 
 (If you're not sure how to email, or you're finding that emailing professors is not getting you the results you want, consider reading [this article on how to email](http://matt.might.net/articles/how-to-email/) or [these tips](http://www.pgbovine.net/email-tips.htm).)
 
-The most common question I get in email is whether I am taking Ph.D. students in the next cycle.  I do take Ph.D. students most years (and the UW NLP group takes Ph.D. students every year).  In 2025 I do not expect to take any new Ph.D. students, because I had an unusually successful recruiting cycle in 2024.
+The most common question I get in email is whether I am taking Ph.D. students in the next cycle.  I do take Ph.D. students most years (and the UW NLP group takes Ph.D. students every year).  The 2025 cycle has now ended; I do not know how heavily I will recruit in 2026, but, as of February 2025, I expect it will be a typical year.
 
 Here is a quick, imperfect guide to emailing me.
 
