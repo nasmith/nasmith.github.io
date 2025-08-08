@@ -11,7 +11,7 @@ redirect_from:
 [Noah Smith](https://nasmith.github.io) is a computer scientist working in several fields of artificial intelligence research.  He recently wrote [**Language Models: A Guide for the Perplexed**](https://arxiv.org/pdf/2311.17301.pdf), a general-audience tutorial, and he co-directs the [OLMo](https://allenai.org/olmo) open language modeling effort with [Hanna Hajishirzi](https://homes.cs.washington.edu/~hannaneh/). 
 
 Broadly, his research targets algorithms that process data encoding language, music, and more, to augment human capabilities.  He also works on core problems of research methodology like evaluation.
-You can watch [videos of some of his talks](talks), read his [papers](publications), and learn about his research groups, [Noah's ARK](http://www.ark.cs.washington.edu) and  [AllenNLP](https://allennlp.org/).  Smith is most proud of his mentoring accomplishments:  as of 2025, he has graduated 32 Ph.D. students and mentored 18 postdocs, with 30 alumni now in faculty positions around the world. 20 of his undergraduate/masters mentees have gone on to Ph.D. programs.  His group's alumni have started companies and are technological leaders both inside and outside the tech industry.
+You can watch [videos of some of his talks](talks), read his [papers](publications), and learn about his research group, [Noah's ARK](http://www.ark.cs.washington.edu).  Smith is most proud of his mentoring accomplishments:  as of 2025, he has graduated 32 Ph.D. students and mentored 18 postdocs, with 28 alumni now in faculty positions around the world. 23 of his undergraduate/masters mentees have gone on to Ph.D. programs.  His group's alumni have started companies and are technological leaders both inside and outside the tech industry.
 
 ### Appointments & Education
 
@@ -34,7 +34,7 @@ He has coauthored conference papers that were cited as outstanding, finalist, ho
 
 ### Teaching
 
-Smith will teach NLP at the graduate and undergraduate level in winter 2025 (CSE 447/517) and in the Allen School's Professional Masters Program in spring 2025 (CSE P517).
+
 
 Smith's recent teaching includes [AI for musicians](https://nasmith.github.io/AI-for-musicians-winter24/) and
 courses on NLP for [undergraduates](https://courses.cs.washington.edu/courses/cse447/), [professional masters students](https://courses.cs.washington.edu/courses/csep517/), and [Ph.D. students](https://courses.cs.washington.edu/courses/cse517/) as well as a ["capstone" projects course on NLP](https://courses.cs.washington.edu/courses/cse481n/).  Lecture videos from 2021:
