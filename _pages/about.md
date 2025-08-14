@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-[Noah Smith](https://nasmith.github.io) is a computer scientist working in several fields of artificial intelligence research.  He recently wrote [**Language Models: A Guide for the Perplexed**](https://arxiv.org/pdf/2311.17301.pdf), a general-audience tutorial, and he co-directs the [OLMo](https://allenai.org/olmo) open language modeling effort with [Hanna Hajishirzi](https://homes.cs.washington.edu/~hannaneh/). 
+[Noah Smith](https://nasmith.github.io) is a computer scientist working in several fields of artificial intelligence research.  He recently wrote [**Language Models: A Guide for the Perplexed**](https://arxiv.org/pdf/2311.17301.pdf), a general-audience tutorial, and he co-directs the [OLMo](https://allenai.org/olmo) open language modeling effort with [Hanna Hajishirzi](https://homes.cs.washington.edu/~hannaneh/). He is the PI of the NSF- and NVIDIA-supported project "Open Multimodal AI Infrastructure to Accelerate Science."
 
 Broadly, his research targets algorithms that process data encoding language, music, and more, to augment human capabilities.  He also works on core problems of research methodology like evaluation.
 You can watch [videos of some of his talks](talks), read his [papers](publications), and learn about his research group, [Noah's ARK](http://www.ark.cs.washington.edu).  Smith is most proud of his mentoring accomplishments:  as of 2025, he has graduated 32 Ph.D. students and mentored 18 postdocs, with 28 alumni now in faculty positions around the world. 23 of his undergraduate/masters mentees have gone on to Ph.D. programs.  His group's alumni have started companies and are technological leaders both inside and outside the tech industry.
@@ -58,8 +58,7 @@ by [Devi Parikh](https://www.cc.gatech.edu/~parikh/) for [*Humans of AI:  Storie
 
 ### Academic Genealogy
 
-Smith's main intellectual influences are his undergraduate mentors [Philip Resnik](http://users.umiacs.umd.edu/~resnik/) and [Norbert Hornstein](https://linguistics.umd.edu/directory/norbert-hornstein),
-his Ph.D. advisor [Jason Eisner](https://www.cs.jhu.edu/~jason/),  [Frederick Jelinek](https://en.wikipedia.org/wiki/Frederick_Jelinek), and his [many mentees](https://noahs-ark.github.io/people/).
+Smith's intellectual influences include his Ph.D. advisor [Jason Eisner](https://www.cs.jhu.edu/~jason/),  [Frederick Jelinek](https://en.wikipedia.org/wiki/Frederick_Jelinek), and his [many mentees](https://noahs-ark.github.io/people/).
 
 Smith's academic ancestors had varied interests and careers.  A few examples (links discovered thanks to the [Mathematics Genealogy Project](https://www.genealogy.math.ndsu.nodak.edu/)):
 - In 1332, [Nasir al-Din al-Tusi](https://en.wikipedia.org/wiki/Nasir_al-Din_al-Tusi) (34th degree ancestor) wrote *[Akhlāq-i Nāsirī](https://en.wikipedia.org/wiki/Nasirean_Ethics)*, a treatise on philosophical ethics.  He was the director of the [Maragheh Observatory](https://en.wikipedia.org/wiki/Maragheh_observatory) (in present-day Iran), said to be "the most advanced scientific institution in the Eurasian world" at the time.
