@@ -8,21 +8,21 @@ author_profile: true
 
 (If you're not sure how to email, or you're finding that emailing professors is not getting you the results you want, consider reading [this article on how to email](http://matt.might.net/articles/how-to-email/) or [these tips](http://www.pgbovine.net/email-tips.htm).)
 
-The most common question I get in email is whether I am taking Ph.D. students in the next cycle.  I do take Ph.D. students most years (and the UW NLP group takes Ph.D. students every year).  The 2025 cycle has now ended; I do not know how heavily I will recruit in 2026, but, as of February 2025, I expect it will be a typical year.
+The most common question I get in email is whether I am taking Ph.D. students in the next cycle.  I do take Ph.D. students most years (and the UW NLP group takes Ph.D. students every year).  I expect that 2026 will be a typical year.
 
 Here is a quick, imperfect guide to emailing me.
 
 ### Please [email](mailto:nasmith@cs.washington.edu) me if:
 
 * you have specific technical questions about my research (it's always good to CC my coauthors in case they can answer a question faster or better than I can)
-* you're interested in a postdoc and might want to be on my list of people I will notify if I have an opening (please note: at this time, I don't have any open positions, but updates will be posted here)
-* you are attending a conference I might be attending (most years I go to ACL, EMNLP, NAACL if it's being held, ISMIR, and one or two others in machine learning, computational social science, or some other related topic) and want to set up a time to chat
+* you're interested in a postdoc (please note: at this time, I don't have any open positions, but updates will be posted here)
+* you are attending a conference I might be attending (most years I go to some subset of ACL, EMNLP, NAACL, COLM, ISMIR, and one or two others in machine learning, computational social science, or some other related topic) and want to set up a time to chat
 
 I will do my best to reply promptly. Students have called me an Email Ninja, but I make no promises.
 
 ### If you would like to apply to work in Noah's ARK:
 
-If you are an undergraduate or masters student in Seattle and would like to work on research with my group, please complete this [demonstration of research interest](../../files/challenge.pdf).  Please follow the instructions carefully.  In general, I encourage you to apply if you are a student at UW or any other school in or near Seattle, and you think you have a role to play in my ARK.  Please note that my group has limited capacity for mentoring, and I will not invite people to work with the group if they won't receive strong mentoring.
+If you are an undergraduate or masters student in Seattle and would like to work on research with my group, please complete this [demonstration of research interest](../../files/challenge.pdf).  Please follow the instructions carefully.  In general, I encourage you to apply if you are a university student at UW or any other school in or near Seattle, and you think you have a role to play in my ARK.  Please note that my group has limited capacity for mentoring, and I will not invite people to work with the group if they won't receive strong mentoring.  While I fully appreciate that opportunities for people who are not students and/or not in Seattle to participate in world-class NLP research are difficult to find, and wish that it was different, I am unable to offer research opportunities to non-students or to people unable to come to the UW campus regularly to work in person.  If you are a K-12 student, I encourage you to check out [this page](https://www.cs.washington.edu/community-engagement/k-12-outreach/), which presents various ways to engage with the Allen School.  I do not currently have a way to engage pre-university students in research projects.
 
 ### If you would like to apply to work at the Allen Institute for AI:
 
