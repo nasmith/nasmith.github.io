@@ -2,7 +2,7 @@
 permalink: /
 title: ""
 excerpt: "FAQ about AI@UW"
-author_profile: false
+author_profile: true
 redirect_from: 
   - /ai-faq/
   - /ai-faq.html
