@@ -10,6 +10,8 @@ redirect_from:
 
 ## Frequently Asked Questions About AI at UW
 
+In November 2025, I took on the role of Vice Provost of Artificial Intelligence at the University
+
 ### Are you forcing "AI" (usually used to refer to language models) into UW classrooms?
 
 No. We are **not** forcing language models or other technologies into anyone’s teaching. **Faculty autonomy in pedagogy is sacrosanct.** What we *are* doing is offering support so instructors can make informed choices that fit their learning goals, and can clearly explain the reasoning behind those choices to students.  If we protect faculty autonomy, and faculty make different choices, then we owe it to the students to explain how we reach different conclusions about how language models should be used in our classrooms.  
@@ -30,4 +32,4 @@ Misuse happens, and it can undermine learning. But “some students will misuse 
 
 Environmental impact is a serious concern, and I share it. In my research, I've worked on "[Green AI](https://cacm.acm.org/research/green-ai/)" questions and believe we need **better measurement, transparency, and mitigation**.  I'm proud that our [OLMo efforts](https://arxiv.org/pdf/2501.00656) have been among the most transparent in reporting the impacts of building language models.  The landscape is also evolving quickly, both in how impacts are measured and how systems are built and operated.
 
-Opting out is *one* response, and for some people it may be the right one. But everyone ought to look at the issue more broadly: data centers support many modern services (streaming video is a straightforward example), and ethical responses can include **demanding accountability**, **pushing for efficiency and disclosure**, **making responsible procurement choices**, and **changing institutional and industry practices**, not only individual abstention. When I discuss these matters with students and others with environmental concerns, I seek to respect the underlying values while also challenging everyone to think rigorously about which actions actually reduce harm.
+Opting out is *one* response, and for some people it may be the right one. But everyone ought to look at the issue more broadly: data centers support many modern services (streaming video is a straightforward example), and ethical responses can include **requiring accountability and disclosure**, **working toward efficiency**, and **making responsible procurement choices**, not only individual abstention. When I discuss these matters with students and others with environmental concerns, I seek to respect the underlying values while also challenging everyone to think rigorously about which actions actually reduce harm.
