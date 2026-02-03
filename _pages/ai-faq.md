@@ -10,7 +10,7 @@ redirect_from:
 
 ## Frequently Asked Questions About AI at UW
 
-In November 2025, I took on the role of Vice Provost of Artificial Intelligence at the University
+In November 2025, I took on the role of Vice Provost of Artificial Intelligence at the University of Washington.  Since then, many questions have come up.  I've attempted to address some of them here.
 
 ### Are you forcing "AI" (usually used to refer to language models) into UW classrooms?
 
