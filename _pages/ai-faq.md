@@ -1,4 +1,14 @@
-## Questions About AI at UW
+---
+permalink: /
+title: ""
+excerpt: "FAQ about AI@UW"
+author_profile: false
+redirect_from: 
+  - /ai-faq/
+  - /ai-faq.html
+---
+
+## Frequently Asked Questions About AI at UW
 
 ### Are you forcing "AI" (usually used to refer to language models) into UW classrooms?
 
