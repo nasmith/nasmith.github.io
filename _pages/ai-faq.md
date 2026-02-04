@@ -4,8 +4,6 @@ title: "Frequently Asked Questions About AI at UW"
 author_profile: true
 ---
 
-## Frequently Asked Questions About AI at UW
-
 In November 2025, I took on the role of Vice Provost for Artificial Intelligence at the University of Washington.  At that time, the Provost's communications team conducted an interview with me in three parts ([1](https://www.ai.uw.edu/inside-ai-at-the-uw-a-conversation-with-noah-smith-part-1/), [2](https://www.ai.uw.edu/inside-ai-at-the-uw-a-conversation-with-noah-smith-part-2/), and [3](https://www.ai.uw.edu/inside-ai-at-the-uw-a-conversation-with-noah-smith-part-3/)).  Since then, more questions have come up.  I've attempted to address some of them here, focusing mostly (but not exclusively) on teaching and learning.  The content here is a frank discussion of my own thinking, in the spirit of sharing openly with my colleagues.  None of what is on this page should be taken as an official UW position or policy.
 
 
