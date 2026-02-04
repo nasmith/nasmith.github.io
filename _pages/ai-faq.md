@@ -1,5 +1,5 @@
 ---
-permalink: /ai-faq
+permalink: /ai-faq/
 title: ""
 excerpt: "FAQ about AI@UW"
 author_profile: true
