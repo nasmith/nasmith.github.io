@@ -3,9 +3,6 @@ permalink: /ai-faq/
 title: ""
 excerpt: "FAQ about AI@UW"
 author_profile: true
-redirect_from: 
-  - /ai-faq/
-  - /ai-faq.html
 ---
 
 ## Frequently Asked Questions About AI at UW
