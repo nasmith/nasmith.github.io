@@ -1,6 +1,6 @@
 ---
 permalink: /ai-faq/
-title: "Frequently Asked Questions About AI at UW"
+title: "Frequently Asked Questions about AI at UW"
 author_profile: true
 ---
 
