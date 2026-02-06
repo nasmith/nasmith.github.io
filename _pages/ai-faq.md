@@ -4,6 +4,8 @@ title: "Frequently Asked Questions about AI at UW"
 author_profile: true
 ---
 
+(Last update:  February 6, 2026)
+
 In November 2025, I took on the role of Vice Provost for Artificial Intelligence at the University of Washington.  At that time, the Provost's communications team conducted an interview with me in three parts ([1](https://www.ai.uw.edu/inside-ai-at-the-uw-a-conversation-with-noah-smith-part-1/), [2](https://www.ai.uw.edu/inside-ai-at-the-uw-a-conversation-with-noah-smith-part-2/), and [3](https://www.ai.uw.edu/inside-ai-at-the-uw-a-conversation-with-noah-smith-part-3/)).  Since then, more questions have come up.  I've attempted to address some of them here, focusing mostly (but not exclusively) on teaching and learning.  The content here is a frank discussion of my own thinking, in the spirit of sharing openly with my colleagues.  None of what is on this page should be taken as an official UW position or policy.
 
 
@@ -26,7 +28,7 @@ While "artificial intelligence" is a term that has been widely adopted in market
 
 ### Why is UW doing anything here? Why do we need a VP for AI?
 
-UW is taking these steps because AI tools are rapidly becoming part of how knowledge work gets done in many fields our students will enter, and in many settings they’re already using today. The UW’s role isn’t to mandate adoption or chase hype; it’s to build grounded, practical AI literacy so students, faculty, and staff can talk about these systems clearly, evaluate claims about them with evidence, and make thoughtful choices about when to use them, how to verify outputs, and when to opt out. Doing nothing would leave our community to navigate a high-impact technology by rumor, fear, and uneven access.  That's exactly the opposite of what a leading research university should stand for.
+UW is taking these steps because AI tools are rapidly becoming part of how knowledge work gets done in many fields our students will enter, and in many settings they’re already using today. The UW’s role isn’t to mandate adoption.  It’s to build grounded, practical AI literacy so students, faculty, and staff can talk about these systems clearly, evaluate claims about them with evidence, and make thoughtful choices about when to use them, how to verify outputs, and when to opt out. Doing nothing would leave our community to navigate a high-impact technology by rumor, fear, and uneven access.  That's exactly the opposite of what a leading research university should stand for.
 
 ### Are you forcing "AI" (usually used to refer to language models) into UW classrooms?
 
@@ -38,9 +40,9 @@ Students should develop discernment: knowing when it makes sense to rely on AI, 
 
 ### Some students have negative sentiment toward language models and do not want AI to intrude in education.  Are you ignoring that?
 
-Not at all. Student concerns about privacy, labor and creativity, environmental impact, and  concerns about truth, evidence, and the reliability of knowledge, are real and worth engaging. The goal is not to "sell" language models or require their use; it’s to empower faculty and students to navigate a changed landscape thoughtfully. That includes helping instructors communicate clear expectations and reasoning to students, whatever they decide.  It also includes enabling everyone to learn what approaches are effective for learning, and encouraging creative thinking that will shape what "AI" looks like in the future (rather than just reacting to the current state of the technology).  
+Not at all.  We must engage student (and faculty and staff) concerns about privacy, labor and creativity, environmental impact, and  concerns about truth, evidence, and the reliability of knowledge. The goal is not to "sell" language models (or other AI systems) or require their use; it’s to empower faculty and students to navigate a changed landscape thoughtfully. That includes helping instructors communicate clear expectations and reasoning to students, whatever they decide.  It also includes enabling everyone to learn what approaches are effective for learning, and encouraging creative thinking that will shape what "AI" looks like in the future (rather than just reacting to the current state of the technology).  
 
-### As educators, shouldn’t we prioritize and protect students who reject AI on principled grounds?
+### As educators, shouldn’t we protect students who reject AI on principled grounds?
 
 We should take those positions seriously and create learning environments where students can succeed, without coercing them to act against their principles.  At the same time, students will benefit from understanding where these systems are used, what risks they pose, and how to engage responsibly with workplaces and institutions that may adopt them.  The tools we call AI are likely to show up in our students’ careers and lives, so we should be honest that avoiding them entirely could come with tradeoffs.  We owe students something more than a simple “opt out”: we should help them develop the capacity to **reason well about the tradeoffs**, understand what these systems are (and aren’t), and participate in constructive debate about responsible use. Supporting students doesn’t mean avoiding hard conversations; it means having them respectfully, with evidence and nuance.
 
@@ -71,3 +73,7 @@ This concern applies most directly to many generative AI systems, especially lan
 From a UW teaching-and-learning perspective, my practical stance is: (1) we should acknowledge uncertainty; (2) when we have choices, we should prefer tools and datasets with clearer permission, licensing, and provenance; and (3) we should model good scholarly norms: attribution, respect for intellectual property, and transparency about how tools were used. For classroom practice, that often means avoiding requirements that push students into opaque, hard-to-audit platforms; not uploading copyrighted materials without permission or sensitive materials without privacy guarantees; and being clear about what kinds of AI assistance are permitted, what must be credited, and what students remain responsible for producing themselves.
 
 I don't just support efforts toward better disclosure and accountability in AI model development;  I lead a team whose goal is unusually strong openness and documentation in model development ([more about those efforts here](https://allenai.org/olmo)).
+
+———
+
+Thanks for reading; I expect I'll continue adding to this document as I talk to more members of the UW community.
