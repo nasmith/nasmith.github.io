@@ -2,7 +2,6 @@
 layout: none
 permalink: /aipolicies/
 ---
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -403,10 +402,7 @@ permalink: /aipolicies/
     <div class="header-title">
       <span>UW</span> AI Policy Directory
     </div>
-    <div class="search-bar">
-      <span class="search-icon">🔍</span>
-      <input type="text" id="liveSearch" placeholder="Search by dept, course, keyword…" oninput="liveFilter(this.value)">
-    </div>
+
   </div>
 </header>
 
@@ -415,6 +411,7 @@ permalink: /aipolicies/
     <h1>AI Use Policies at the<br><em>University of Washington</em></h1>
     <p>A comprehensive reference to every publicly available policy, guideline, and statement governing the use of artificial intelligence in UW courses, programs, and units — across all three campuses.</p>
     <p style="margin-top:14px;font-size:0.88rem;color:rgba(255,255,255,0.6);max-width:680px;">This reference was built by Vice Provost for AI Noah Smith with the help of Claude Sonnet 4.6 and has not been manually checked for completeness, nor have the summaries been checked for correctness. Always go back to the source to understand the content of individual policies.</p>
+    <p style="margin-top:12px;font-size:0.88rem;color:rgba(255,255,255,0.5);max-width:680px;">⚠️ This directory was compiled from publicly available UW web pages and reflects policies discoverable as of February 2026. AI policies at UW are evolving rapidly. This page is not an official UW publication. Always verify current policy at source links provided, and check your current course syllabus. To contribute a missing policy, contact the maintainer of this page.</p>
     <div class="hero-note">
       💡 Use <strong>Ctrl+F</strong> (or Cmd+F) to search for a specific course, department, or term. All policy links open the official source document.
     </div>
@@ -1097,9 +1094,7 @@ permalink: /aipolicies/
 
     </section>
 
-    <div class="banner" style="margin-top:0;border-left-color:var(--uw-gold);">
-      <strong>⚠️ Disclaimer:</strong> This directory was compiled from publicly available UW web pages and reflects policies discoverable as of February 2026. AI policies at UW are evolving rapidly. This page is not an official UW publication. Always verify current policy at source links provided, and check your current course syllabus. To contribute a missing policy, contact the maintainer of this page.
-    </div>
+
 
   </main>
 </div>
@@ -1142,4 +1137,12 @@ permalink: /aipolicies/
 
   // Smooth scroll for sidebar links
   document.querySelectorAll('.sidebar-nav a').forEach(link => {
-    link.addEventListener('click', e
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+</body>
+</html>
