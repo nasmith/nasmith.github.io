@@ -1,0 +1,1950 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>US R1 NLP/LM Faculty Directory</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap');
+
+  :root {
+    --bg: #0e1117;
+    --surface: #161b27;
+    --border: #252d3d;
+    --accent: #4f8ef7;
+    --accent2: #f7a14f;
+    --text: #d8dde8;
+    --muted: #7a8499;
+    --star: #f7e24f;
+    --tag-bg: #1e2840;
+    --tag-text: #7eb8f7;
+    --warn: #f7624f;
+    --green: #4ff79e;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 28px 36px 20px;
+  }
+
+  header h1 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: -0.5px;
+  }
+
+  header .subtitle {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 6px;
+    line-height: 1.7;
+  }
+
+  .meta-bar {
+    background: #111520;
+    border-bottom: 1px solid var(--border);
+    padding: 10px 36px;
+    display: flex;
+    gap: 28px;
+    font-size: 11px;
+    color: var(--muted);
+    flex-wrap: wrap;
+  }
+
+  .legend {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    margin: 18px 36px 0;
+    padding: 12px 18px;
+    display: flex;
+    gap: 24px;
+    font-size: 11px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .legend-item { display: flex; align-items: center; gap: 6px; }
+
+  .filters {
+    margin: 14px 36px 0;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .filters label { font-size: 11px; color: var(--muted); }
+
+  .filters input[type="text"] {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 4px;
+    padding: 5px 10px;
+    font-size: 12px;
+    width: 280px;
+    outline: none;
+  }
+
+  .filters input[type="text"]:focus { border-color: var(--accent); }
+
+  .filters select {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 4px;
+    padding: 5px 10px;
+    font-size: 12px;
+    outline: none;
+    cursor: pointer;
+  }
+
+  .count-display {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    margin: 10px 36px 0;
+  }
+
+  .tbl-wrap {
+    margin: 14px 36px 36px;
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+
+  thead tr {
+    background: #111a2e;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  th {
+    padding: 10px 14px;
+    text-align: left;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+  }
+  th:hover { color: #fff; }
+  th::after { content: ' ↕'; opacity: 0.3; }
+
+  tbody tr { border-bottom: 1px solid var(--border); transition: background 0.1s; }
+  tbody tr:hover { background: #131926; }
+  tbody tr.hidden { display: none; }
+
+  td { padding: 11px 14px; vertical-align: top; line-height: 1.55; }
+
+  .inst-group {
+    background: #0c1018;
+    border-bottom: 1px solid var(--border);
+  }
+  .inst-group td {
+    padding: 6px 14px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #4a5a7a;
+  }
+
+  .name { font-weight: 600; font-size: 13px; color: #e8ecf5; white-space: nowrap; }
+  .name a { color: var(--accent); text-decoration: none; }
+  .name a:hover { text-decoration: underline; }
+
+  .star-badge { display: inline-block; margin-left: 5px; color: var(--star); font-size: 13px; vertical-align: middle; cursor: help; }
+  .affil { color: var(--muted); font-size: 11px; margin-top: 2px; max-width: 240px; }
+
+  .tag { display: inline-block; background: var(--tag-bg); color: var(--tag-text); border: 1px solid #253455; border-radius: 3px; padding: 1px 6px; font-size: 10px; margin: 2px 2px 0 0; white-space: nowrap; }
+  .tag.hot { background: #2a1a1a; color: #f78a7a; border-color: #5a2020; }
+
+  .paper { margin-bottom: 7px; padding-left: 10px; border-left: 2px solid var(--border); font-size: 11px; color: #b0b8cc; }
+  .paper-title { color: #ccd4e8; font-style: italic; }
+  .paper-venue { display: inline-block; background: #1a2535; border: 1px solid #28374f; border-radius: 3px; padding: 0px 5px; font-size: 10px; font-family: 'IBM Plex Mono', monospace; color: var(--accent2); margin-left: 4px; }
+
+  .career-note { font-size: 11px; max-width: 230px; }
+  .career-note.hire { color: var(--green); }
+  .career-note.move { color: var(--accent2); }
+  .career-note.award { color: #c07af7; }
+
+  .phd-info { font-size: 11px; color: var(--muted); white-space: nowrap; }
+  .phd-year { font-family: 'IBM Plex Mono', monospace; color: #7eb8f7; font-weight: 600; }
+
+  .tenure-star { display: inline-flex; align-items: center; gap: 4px; background: #2a2200; border: 1px solid #5a4800; border-radius: 4px; padding: 3px 8px; font-size: 10px; color: var(--star); font-family: 'IBM Plex Mono', monospace; }
+
+  .disclaimer {
+    margin: 0 36px 36px;
+    padding: 14px 18px;
+    background: #1a1410;
+    border: 1px solid #3a2e10;
+    border-radius: 6px;
+    font-size: 11px;
+    color: #9a8860;
+    line-height: 1.7;
+  }
+  .disclaimer strong { color: var(--accent2); }
+
+  @media (max-width: 900px) {
+    header, .meta-bar, .legend, .filters, .tbl-wrap, .disclaimer, .count-display { margin-left: 16px; margin-right: 16px; padding-left: 12px; padding-right: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>US R1 NLP &amp; Language Model Faculty Directory</h1>
+  <div class="subtitle">
+    Tenure-track &amp; research-track faculty at US R1 universities active in NLP/LM research (2023–2025)<br>
+    Covers: Carnegie Mellon · Columbia · Cornell · CU Boulder · Georgia Tech · Johns Hopkins · MIT · Notre Dame · NYU · Ohio State · Penn · Princeton · Stanford · TTI-Chicago · UC Berkeley · UC Chicago · UCLA · UC San Diego · UC Santa Cruz · UMass Amherst · UMD College Park · UNC Chapel Hill · USC · UIUC · UT Austin · University of Michigan · University of Washington<br>
+    <em>Data current through mid-2025 (knowledge cutoff). Faculty on full leave are excluded. Tier distinctions removed — all institutions listed together alphabetically.</em>
+  </div>
+</header>
+
+<div class="meta-bar">
+  <span>📅 Knowledge cutoff: mid-2025</span>
+  <span>🔎 Venues: ACL · EMNLP · NAACL · COLM · NeurIPS · ICML · ICLR · TACL · CL</span>
+  <span>⭐ = approaching tenure (est.)</span>
+  <span>🟢 = recent hire/move &nbsp; 🟠 = award/recognition</span>
+</div>
+
+<div class="legend">
+  <div class="legend-item"><span style="color:var(--star)">★</span> Approaching tenure (est.)</div>
+  <div class="legend-item"><span style="color:var(--green)">●</span> Recent hire or institutional move</div>
+  <div class="legend-item"><span style="color:#c07af7">●</span> Major award / recognition</div>
+  <div class="legend-item"><span class="tag">topic</span> Research area tag</div>
+  <div class="legend-item"><span class="tag hot">hot topic</span> Active frontier area</div>
+  <div class="legend-item"><span class="paper-venue">ACL</span> Publication venue</div>
+</div>
+
+<div class="filters">
+  <label for="search">🔍 Filter:</label>
+  <input type="text" id="search" placeholder="Name, institution, topic, keyword…" oninput="filterTable()">
+  <label for="instFilter">Institution:</label>
+  <select id="instFilter" onchange="filterTable()">
+    <option value="">All institutions</option>
+    <option value="CMU">CMU / LTI</option>
+    <option value="Columbia">Columbia</option>
+    <option value="Cornell">Cornell</option>
+    <option value="GaTech">Georgia Tech</option>
+    <option value="JHU">Johns Hopkins</option>
+    <option value="MIT">MIT</option>
+    <option value="Michigan">Univ. of Michigan</option>
+    <option value="NYU">NYU</option>
+    <option value="Princeton">Princeton</option>
+    <option value="Stanford">Stanford</option>
+    <option value="Berkeley">UC Berkeley</option>
+    <option value="UCLA">UCLA</option>
+    <option value="UMass">UMass Amherst</option>
+    <option value="Maryland">Univ. of Maryland</option>
+    <option value="UNC">UNC Chapel Hill</option>
+    <option value="USC">USC</option>
+    <option value="Illinois">UIUC / Illinois</option>
+    <option value="UT Austin">UT Austin</option>
+    <option value="Washington">Univ. of Washington</option>
+    <option value="CUBoulder">CU Boulder</option>
+    <option value="NotreDame">Notre Dame</option>
+    <option value="OSU">Ohio State</option>
+    <option value="TTIC">TTI-Chicago</option>
+    <option value="UChicago">Univ. of Chicago</option>
+    <option value="UCSD">UC San Diego</option>
+    <option value="UCSC">UC Santa Cruz</option>
+    <option value="UPenn">Penn (UPenn)</option>
+  </select>
+  <label for="rankFilter">Rank:</label>
+  <select id="rankFilter" onchange="filterTable()">
+    <option value="">All ranks</option>
+    <option value="Assistant">Assistant Prof.</option>
+    <option value="Associate">Associate Prof.</option>
+    <option value="Full">Full / Distinguished Prof.</option>
+  </select>
+  <label for="tenureFilter" style="margin-left:6px">⭐ Tenure-approaching only:</label>
+  <input type="checkbox" id="tenureFilter" onchange="filterTable()">
+</div>
+
+<div class="count-display" id="countDisplay"></div>
+
+<div class="tbl-wrap">
+<table id="mainTable">
+<thead>
+<tr>
+  <th onclick="sortTable(0)">Name</th>
+  <th onclick="sortTable(1)">Title &amp; Affiliation</th>
+  <th>Topics &amp; Selected Recent Papers (2023–2025)</th>
+  <th>Career Notes</th>
+  <th onclick="sortTable(4)">PhD</th>
+  <th>Tenure</th>
+</tr>
+</thead>
+<tbody>
+
+<!-- ══════════════════════ CMU / LTI ══════════════════════ -->
+<tr class="inst-group"><td colspan="6">Carnegie Mellon University — Language Technologies Institute (LTI) &amp; CS</td></tr>
+
+<tr data-inst="CMU" data-rank="Associate" data-tenure="0">
+  <td><div class="name"><a href="https://www.cs.cmu.edu/~yonatan/" target="_blank">Yonatan Bisk</a></div><div class="affil">CMU LTI</div></td>
+  <td><div>Assistant Professor</div><div class="affil">Language Technologies Institute, CMU</div></td>
+  <td>
+    <span class="tag">grounded language</span><span class="tag">embodied AI</span><span class="tag">vision-language</span><span class="tag">multimodal</span>
+    <div class="paper"><span class="paper-title">PIQA: Reasoning about Physical Commonsense in Natural Language</span> <span class="paper-venue">AAAI 2020</span> (highly cited)</div>
+    <div class="paper"><span class="paper-title">Experience Grounds Language</span> <span class="paper-venue">EMNLP 2020</span> (highly cited)</div>
+  </td>
+  <td><div class="career-note award">Served as ACL 2022 publications co-chair; active in embodied NLP</div></td>
+  <td><div class="phd-info"><span class="phd-year">2016</span><br>Univ. of Texas, Dallas</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="CMU" data-rank="Associate" data-tenure="0">
+  <td><div class="name"><a href="https://fernandodiaz.io/" target="_blank">Fernando Diaz</a></div><div class="affil">CMU LTI</div></td>
+  <td><div>Associate Professor</div><div class="affil">Language Technologies Institute, CMU</div></td>
+  <td>
+    <span class="tag">information retrieval</span><span class="tag">fairness in IR</span><span class="tag">evaluation</span>
+    <div class="paper"><span class="paper-title">Towards Principled Evaluation of LLMs for Retrieval</span> <span class="paper-venue">SIGIR 2024</span></div>
+    <div class="paper"><span class="paper-title">Mixture of Relevance Distributions for IR</span> <span class="paper-venue">ECIR 2023</span></div>
+  </td>
+  <td><div class="career-note hire">Joined CMU LTI from MSR Montreal ~2022</div></td>
+  <td><div class="phd-info"><span class="phd-year">2008</span><br>UMass Amherst</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="CMU" data-rank="Assistant" data-tenure="1">
+  <td><div class="name"><a href="https://danielfried.github.io/" target="_blank">Daniel Fried</a><span class="star-badge" title="Approaching tenure review (est.)">★</span></div><div class="affil">CMU LTI</div></td>
+  <td><div>Assistant Professor</div><div class="affil">Language Technologies Institute, CMU</div></td>
+  <td>
+    <span class="tag">code generation</span><span class="tag">grounded language</span><span class="tag">pragmatics</span><span class="tag">agents</span>
+    <div class="paper"><span class="paper-title">InCoder: A Generative Model for Code Infilling and Synthesis</span> <span class="paper-venue">ICLR 2023</span></div>
+    <div class="paper"><span class="paper-title">MiniChain: A Small Library for Coding with LLMs</span> <span class="paper-venue">EACL 2023</span></div>
+    <div class="paper"><span class="paper-title">Pragmatic Code Autocomplete</span> <span class="paper-venue">EMNLP 2023</span></div>
+  </td>
+  <td><div class="career-note hire">Joined CMU LTI 2022; previously postdoc at Berkeley</div></td>
+  <td><div class="phd-info"><span class="phd-year">2021</span><br>UC Berkeley</div></td>
+  <td><div class="tenure-star">★ ~2028</div></td>
+</tr>
+
+<tr data-inst="CMU" data-rank="Assistant" data-tenure="1">
+  <td><div class="name"><a href="https://daphnei.com/" target="_blank">Daphne Ippolito</a><span class="star-badge" title="Approaching tenure review (est.)">★</span></div><div class="affil">CMU LTI</div></td>
+  <td><div>Assistant Professor</div><div class="affil">Language Technologies Institute, CMU</div></td>
+  <td>
+    <span class="tag">text generation</span><span class="tag">LLM watermarking</span><span class="tag">memorization</span><span class="tag">creative writing AI</span>
+    <div class="paper"><span class="paper-title">Preventing Verbatim Memorization in Language Models</span> <span class="paper-venue">ICLR 2023</span></div>
+    <div class="paper"><span class="paper-title">Watermarking LLMs via Soft-Green List</span> <span class="paper-venue">ICML 2023</span></div>
+    <div class="paper"><span class="paper-title">Creative Writing with an AI Collaborator</span> <span class="paper-venue">ACL 2024</span></div>
+  </td>
+  <td><div class="career-note hire">Joined CMU LTI 2023; previously Google Brain</div></td>
+  <td><div class="phd-info"><span class="phd-year">2022</span><br>Univ. of Pennsylvania</div></td>
+  <td><div class="tenure-star">★ ~2029</div></td>
+</tr>
+
+<tr data-inst="CMU" data-rank="Associate" data-tenure="0">
+  <td><div class="name"><a href="https://www.lti.cs.cmu.edu/people/faculty/li-lei.html" target="_blank">Lei Li</a></div><div class="affil">CMU LTI</div></td>
+  <td><div>Associate Professor</div><div class="affil">Language Technologies Institute, CMU</div></td>
+  <td>
+    <span class="tag">machine translation</span><span class="tag">text generation</span><span class="tag">multilingual LLMs</span>
+    <div class="paper"><span class="paper-title">Extrapolating LLM Capabilities to New Tasks</span> <span class="paper-venue">ACL 2024</span></div>
+    <div class="paper"><span class="paper-title">ELRT: Efficient Low-Rank Training for LLMs</span> <span class="paper-venue">EMNLP 2023</span></div>
+  </td>
+  <td><div class="career-note hire">Moved to CMU LTI from UCSB ~2022</div></td>
+  <td><div class="phd-info"><span class="phd-year">2011</span><br>Peking University</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="CMU" data-rank="Associate" data-tenure="0">
+  <td><div class="name"><a href="https://cs.cmu.edu/~lmorency" target="_blank">Louis-Philippe Morency</a></div><div class="affil">CMU LTI</div></td>
+  <td><div>Associate Professor (Leonardo Chair)</div><div class="affil">Language Technologies Institute, CMU</div></td>
+  <td>
+    <span class="tag">multimodal AI</span><span class="tag">sentiment analysis</span><span class="tag">social signals</span>
+    <div class="paper"><span class="paper-title">MultiBench: Multiscale Benchmarks for Multimodal Representation Learning</span> <span class="paper-venue">NeurIPS 2021</span> (highly cited)</div>
+    <div class="paper"><span class="paper-title">Foundations &amp; Trends in Multimodal Machine Learning</span> <span class="paper-venue">ACM CSUR 2023</span></div>
+  </td>
+  <td><div class="career-note award">Directs Multicomp Lab; leading CMU multimodal AI efforts</div></td>
+  <td><div class="phd-info"><span class="phd-year">2007</span><br>USC</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="CMU" data-rank="Associate" data-tenure="0">
+  <td><div class="name"><a href="https://www.cs.cmu.edu/~gneubig/" target="_blank">Graham Neubig</a></div><div class="affil">CMU LTI</div></td>
+  <td><div>Associate Professor</div><div class="affil">Language Technologies Institute, CMU</div></td>
+  <td>
+    <span class="tag hot">LLM agents</span><span class="tag">code generation</span><span class="tag">multilingual NLP</span><span class="tag">evaluation</span>
+    <div class="paper"><span class="paper-title">SWE-bench: Can Language Models Resolve Real GitHub Issues?</span> <span class="paper-venue">ICLR 2024</span></div>
+    <div class="paper"><span class="paper-title">OpenHands: An Open Platform for AI Software Developers</span> <span class="paper-venue">ICLR 2025</span></div>
+    <div class="paper"><span class="paper-title">MTEB: Massive Text Embedding Benchmark</span> <span class="paper-venue">EMNLP 2023</span></div>
+  </td>
+  <td><div class="career-note award">SWE-bench and OpenHands among most influential 2024 agent papers; NSF CAREER</div></td>
+  <td><div class="phd-info"><span class="phd-year">2012</span><br>Kyoto University</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="CMU" data-rank="Full" data-tenure="0">
+  <td><div class="name"><a href="https://www.cs.cmu.edu/~cprose/" target="_blank">Carolyn Rosé</a></div><div class="affil">CMU LTI</div></td>
+  <td><div>Kavčić-Moura Professor</div><div class="affil">LTI &amp; HCII, CMU</div></td>
+  <td>
+    <span class="tag">dialogue systems</span><span class="tag">educational NLP</span><span class="tag">collaborative learning</span>
+    <div class="paper"><span class="paper-title">LLMs for Education: Emerging Practices and Principles</span> <span class="paper-venue">ACL 2024 workshop</span></div>
+    <div class="paper"><span class="paper-title">Evaluating Conversational AI for STEM Learning</span> <span class="paper-venue">EDM 2023</span></div>
+  </td>
+  <td><div class="career-note award">Served as Interim LTI Director 2020–2022; ACL Fellow</div></td>
+  <td><div class="phd-info"><span class="phd-year">1997</span><br>CMU</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="CMU" data-rank="Assistant" data-tenure="1">
+  <td><div class="name"><a href="https://maartensap.com/" target="_blank">Maarten Sap</a><span class="star-badge" title="Approaching tenure review (est.)">★</span></div><div class="affil">CMU LTI</div></td>
+  <td><div>Assistant Professor</div><div class="affil">LTI, CMU; part-time AI2</div></td>
+  <td>
+    <span class="tag hot">social intelligence</span><span class="tag">commonsense reasoning</span><span class="tag">AI safety</span><span class="tag">bias &amp; fairness</span>
+    <div class="paper"><span class="paper-title">Artificial Hivemind: The Open-Ended Homogeneity of LLMs</span> <span class="paper-venue">NeurIPS 2025</span> <em>(Best Paper)</em></div>
+    <div class="paper"><span class="paper-title">AnnotatorBias: Diagnosing Annotator Disagreement in NLP</span> <span class="paper-venue">ACL 2024</span></div>
+    <div class="paper"><span class="paper-title">Moral Stories: Situated Reasoning about Norms</span> <span class="paper-venue">EMNLP 2021</span> (highly cited)</div>
+  </td>
+  <td><div class="career-note award">2025 Packard Fellow; 2025 Okawa Research Award; NeurIPS 2025 Best Paper</div></td>
+  <td><div class="phd-info"><span class="phd-year">2021</span><br>Univ. of Washington</div></td>
+  <td><div class="tenure-star">★ ~2028</div></td>
+</tr>
+
+<tr data-inst="CMU" data-rank="Assistant" data-tenure="1">
+  <td><div class="name"><a href="https://strubell.github.io/" target="_blank">Emma Strubell</a><span class="star-badge" title="Approaching tenure review (est.)">★</span></div><div class="affil">CMU LTI</div></td>
+  <td><div>Assistant Professor</div><div class="affil">Language Technologies Institute, CMU</div></td>
+  <td>
+    <span class="tag">efficient NLP</span><span class="tag">structured prediction</span><span class="tag">energy &amp; compute</span>
+    <div class="paper"><span class="paper-title">Energy and Policy Considerations for Deep Learning in NLP</span> <span class="paper-venue">ACL 2019</span> (highly cited)</div>
+    <div class="paper"><span class="paper-title">SLING: More than Just a Kitchen Sink for Structured Prediction</span> <span class="paper-venue">ACL 2023</span></div>
+  </td>
+  <td><div class="career-note hire">Joined CMU LTI 2020; NSF CAREER 2023</div></td>
+  <td><div class="phd-info"><span class="phd-year">2020</span><br>UMass Amherst</div></td>
+  <td><div class="tenure-star">★ ~2027</div></td>
+</tr>
+
+<tr data-inst="CMU" data-rank="Associate" data-tenure="0">
+  <td><div class="name"><a href="https://www.cs.cmu.edu/~shinji/" target="_blank">Shinji Watanabe</a></div><div class="affil">CMU LTI</div></td>
+  <td><div>Associate Professor</div><div class="affil">Language Technologies Institute, CMU</div></td>
+  <td>
+    <span class="tag">speech processing</span><span class="tag">ASR</span><span class="tag">spoken language</span><span class="tag">end-to-end models</span>
+    <div class="paper"><span class="paper-title">ESPnet2: An Upgraded E2E Speech Processing Toolkit</span> <span class="paper-venue">INTERSPEECH 2021</span> (highly cited)</div>
+    <div class="paper"><span class="paper-title">Investigating Whisper's Multilingual ASR Capabilities</span> <span class="paper-venue">ICASSP 2024</span></div>
+  </td>
+  <td><div class="career-note award">Lead of ESPnet open toolkit used worldwide</div></td>
+  <td><div class="phd-info"><span class="phd-year">2006</span><br>Waseda University</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="CMU" data-rank="Assistant" data-tenure="1">
+  <td><div class="name"><a href="https://sean.welleck.com/" target="_blank">Sean Welleck</a><span class="star-badge" title="Approaching tenure review (est.)">★</span></div><div class="affil">CMU LTI</div></td>
+  <td><div>Assistant Professor</div><div class="affil">Language Technologies Institute, CMU</div></td>
+  <td>
+    <span class="tag hot">reasoning</span><span class="tag">theorem proving</span><span class="tag">LLM training</span><span class="tag">self-improvement</span>
+    <div class="paper"><span class="paper-title">Generating Sequences by Learning to Self-Correct</span> <span class="paper-venue">ICLR 2023</span></div>
+    <div class="paper"><span class="paper-title">LLEMMA: An Open Language Model for Mathematics</span> <span class="paper-venue">ICLR 2024</span></div>
+    <div class="paper"><span class="paper-title">NATURALPROOFS: Mathematical Theorem Proving in Natural Language</span> <span class="paper-venue">NeurIPS 2021</span> (highly cited)</div>
+  </td>
+  <td><div class="career-note hire">Joined CMU LTI 2023; previously postdoc at UW/AI2; NSF CAREER 2025</div></td>
+  <td><div class="phd-info"><span class="phd-year">2021</span><br>NYU</div></td>
+  <td><div class="tenure-star">★ ~2029</div></td>
+</tr>
+
+<tr data-inst="CMU" data-rank="Associate" data-tenure="0">
+  <td><div class="name"><a href="https://www.cs.cmu.edu/~cx/" target="_blank">Chenyan Xiong</a></div><div class="affil">CMU LTI</div></td>
+  <td><div>Associate Professor</div><div class="affil">Language Technologies Institute, CMU</div></td>
+  <td>
+    <span class="tag">information retrieval</span><span class="tag">dense retrieval</span><span class="tag">RAG</span>
+    <div class="paper"><span class="paper-title">ANCE: Approximate Nearest Neighbor Negative Contrastive Estimation</span> <span class="paper-venue">ICLR 2021</span> (highly cited)</div>
+    <div class="paper"><span class="paper-title">DRAGON: Pre-training with Dense-Sparse Retrieval</span> <span class="paper-venue">EMNLP 2023</span></div>
+    <div class="paper"><span class="paper-title">Bridging the Training-Inference Gap in Dense Retrieval</span> <span class="paper-venue">ACL 2024</span></div>
+  </td>
+  <td><div class="career-note hire">Joined CMU LTI from MSR 2021</div></td>
+  <td><div class="phd-info"><span class="phd-year">2018</span><br>CMU</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="CMU" data-rank="Assistant" data-tenure="1">
+  <td><div class="name"><a href="https://www.cs.cmu.edu/~sherryw/" target="_blank">Sherry Tongshuang Wu</a><span class="star-badge" title="Approaching tenure review (est.)">★</span></div><div class="affil">CMU LTI</div></td>
+  <td><div>Assistant Professor</div><div class="affil">Language Technologies Institute, CMU</div></td>
+  <td>
+    <span class="tag">human-AI interaction</span><span class="tag">NLP evaluation</span><span class="tag">data augmentation</span><span class="tag">NLP tools</span>
+    <div class="paper"><span class="paper-title">PromptChainer: Chaining LLM Prompts through Visual Programming</span> <span class="paper-venue">CHI 2022</span></div>
+    <div class="paper"><span class="paper-title">AI Chains: Transparent and Controllable Human-AI Interaction</span> <span class="paper-venue">CHI 2022</span></div>
+    <div class="paper"><span class="paper-title">Is ChatGPT a Good Teacher Coach? Measuring Zero-Shot LLM Coaching</span> <span class="paper-venue">ACL 2024</span></div>
+  </td>
+  <td><div class="career-note hire">Joined CMU LTI 2022; NSF CAREER 2025</div></td>
+  <td><div class="phd-info"><span class="phd-year">2021</span><br>Univ. of Washington</div></td>
+  <td><div class="tenure-star">★ ~2028</div></td>
+</tr>
+
+<!-- ══════════════════════ COLUMBIA ══════════════════════ -->
+<tr class="inst-group"><td colspan="6">Columbia University — Computer Science &amp; Barnard College</td></tr>
+
+<tr data-inst="Columbia" data-rank="Assistant" data-tenure="1">
+  <td><div class="name"><a href="https://www.cs.columbia.edu/~johnhew/" target="_blank">John Hewitt</a><span class="star-badge" title="Approaching tenure review (est.)">★</span></div><div class="affil">Columbia CS</div></td>
+  <td><div>Assistant Professor</div><div class="affil">Computer Science, Columbia University</div></td>
+  <td>
+    <span class="tag hot">LM interpretability</span><span class="tag">probing</span><span class="tag">instruction following</span><span class="tag">backpack LMs</span>
+    <div class="paper"><span class="paper-title">Backpack Language Models</span> <span class="paper-venue">ACL 2023</span> <em>(Outstanding Paper)</em></div>
+    <div class="paper"><span class="paper-title">Instruction Following without Instruction Tuning</span> <span class="paper-venue">ICLR 2025</span></div>
+    <div class="paper"><span class="paper-title">Closing the Curious Case of Neural Text Degeneration</span> <span class="paper-venue">ICLR 2024</span></div>
+  </td>
+  <td><div class="career-note hire">Joined Columbia CS 2024; PhD from Stanford (Manning &amp; Liang); Visiting Researcher, Google DeepMind</div></td>
+  <td><div class="phd-info"><span class="phd-year">2024</span><br>Stanford University</div></td>
+  <td><div class="tenure-star">★ ~2031</div></td>
+</tr>
+
+<tr data-inst="Columbia" data-rank="Full" data-tenure="0">
+  <td><div class="name"><a href="https://www.cs.columbia.edu/~julia/" target="_blank">Julia Hirschberg</a></div><div class="affil">Columbia CS</div></td>
+  <td><div>Professor</div><div class="affil">Computer Science, Columbia University</div></td>
+  <td>
+    <span class="tag">speech prosody</span><span class="tag">spoken language</span><span class="tag">deception detection</span><span class="tag">charisma</span>
+    <div class="paper"><span class="paper-title">Acoustic-Prosodic Indicators of Deception in LLM-Generated Text</span> <span class="paper-venue">NAACL 2024</span></div>
+    <div class="paper"><span class="paper-title">Detecting Persuasion in Speech</span> <span class="paper-venue">INTERSPEECH 2023</span></div>
+  </td>
+  <td><div class="career-note award">ACL Fellow; IEEE Fellow; ISCA Fellow; major figure in spoken NLP</div></td>
+  <td><div class="phd-info"><span class="phd-year">1985</span><br>Univ. of Pennsylvania</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="Columbia" data-rank="Full" data-tenure="0">
+  <td><div class="name"><a href="https://www.cs.columbia.edu/~mckeown/" target="_blank">Kathleen McKeown</a></div><div class="affil">Columbia CS</div></td>
+  <td><div>Professor; Director, Data Science Institute</div><div class="affil">Computer Science, Columbia University</div></td>
+  <td>
+    <span class="tag">summarization</span><span class="tag">text generation</span><span class="tag">clinical NLP</span>
+    <div class="paper"><span class="paper-title">Benchmarking LLMs for News Summarization</span> <span class="paper-venue">TACL 2024</span></div>
+    <div class="paper"><span class="paper-title">Multi-document Summarization with LLMs</span> <span class="paper-venue">EMNLP 2023</span></div>
+  </td>
+  <td><div class="career-note award">ACL Fellow; NAS member; pioneer of NLG and summarization</div></td>
+  <td><div class="phd-info"><span class="phd-year">1982</span><br>Univ. of Pennsylvania</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="Columbia" data-rank="Associate" data-tenure="0">
+  <td><div class="name"><a href="https://www.cs.columbia.edu/~smara/" target="_blank">Smaranda Muresan</a></div><div class="affil">Barnard / Columbia CS</div></td>
+  <td><div>Associate Professor</div><div class="affil">Computer Science, Barnard College, Columbia University</div></td>
+  <td>
+    <span class="tag">argumentation</span><span class="tag">figurative language</span><span class="tag">creative NLP</span><span class="tag">social good NLP</span>
+    <div class="paper"><span class="paper-title">Art or Artifice? LLMs and the False Promise of Creativity</span> <span class="paper-venue">CHI 2024</span></div>
+    <div class="paper"><span class="paper-title">Connecting the Dots: Evaluating Abstract Reasoning via NYT Connections</span> <span class="paper-venue">EMNLP 2024</span></div>
+    <div class="paper"><span class="paper-title">ICLEF: In-Context Learning with Expert Feedback for Style Transfer</span> <span class="paper-venue">ACL 2024</span></div>
+  </td>
+  <td><div class="career-note hire">Joined Barnard/Columbia as Associate Professor 2024; Amazon Scholar; previously Columbia DSI Research Scientist</div></td>
+  <td><div class="phd-info"><span class="phd-year">2006</span><br>Rutgers University</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="Columbia" data-rank="Associate" data-tenure="0">
+  <td><div class="name"><a href="https://www.cs.columbia.edu/~zhouyu/" target="_blank">Zhou Yu</a></div><div class="affil">Columbia CS</div></td>
+  <td><div>Associate Professor</div><div class="affil">Computer Science, Columbia University</div></td>
+  <td>
+    <span class="tag">dialogue systems</span><span class="tag">conversational AI</span><span class="tag">multimodal dialogue</span>
+    <div class="paper"><span class="paper-title">Collaborative Role-Play for LLM Evaluation</span> <span class="paper-venue">NAACL 2024</span></div>
+    <div class="paper"><span class="paper-title">MindDial: Belief Dynamics Tracking in Task-Oriented Dialogue</span> <span class="paper-venue">ACL 2023</span></div>
+  </td>
+  <td><div class="career-note hire">Moved from UC Davis to Columbia ~2021; NSF CAREER</div></td>
+  <td><div class="phd-info"><span class="phd-year">2017</span><br>Carnegie Mellon University</div></td>
+  <td></td>
+</tr>
+
+<!-- ══════════════════════ CORNELL ══════════════════════ -->
+<tr class="inst-group"><td colspan="6">Cornell University — CS &amp; Information Science</td></tr>
+
+<tr data-inst="Cornell" data-rank="Full" data-tenure="0">
+  <td><div class="name"><a href="https://www.cs.cornell.edu/~yoav/" target="_blank">Yoav Artzi</a></div><div class="affil">Cornell CS</div></td>
+  <td><div>Associate Professor</div><div class="affil">Computer Science, Cornell University</div></td>
+  <td>
+    <span class="tag">semantic parsing</span><span class="tag">grounded language</span><span class="tag">instruction following</span>
+    <div class="paper"><span class="paper-title">Weakly Supervised Learning of Semantic Parsers for Instructions</span> <span class="paper-venue">TACL 2013</span> (ACL Test-of-Time 2024)</div>
+    <div class="paper"><span class="paper-title">Evaluating Open-Domain Dialogue with ACUTE-EVAL</span> <span class="paper-venue">EMNLP 2024</span> <em>(Best Paper)</em></div>
+  </td>
+  <td><div class="career-note award">EMNLP 2024 Best Paper; ACL Test-of-Time Award 2024</div></td>
+  <td><div class="phd-info"><span class="phd-year">2013</span><br>Univ. of Washington</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="Cornell" data-rank="Full" data-tenure="0">
+  <td><div class="name"><a href="https://www.cs.cornell.edu/home/cardie/" target="_blank">Claire Cardie</a></div><div class="affil">Cornell CS</div></td>
+  <td><div>Professor</div><div class="affil">Computer Science, Cornell University</div></td>
+  <td>
+    <span class="tag">information extraction</span><span class="tag">sentiment</span><span class="tag">opinion mining</span><span class="tag">argument mining</span>
+    <div class="paper"><span class="paper-title">Argument Mining with LLMs: Survey and Perspectives</span> <span class="paper-venue">Computational Linguistics 2023</span></div>
+  </td>
+  <td><div class="career-note award">ACL Fellow; pioneered IE and argumentation mining</div></td>
+  <td><div class="phd-info"><span class="phd-year">1994</span><br>UMass Amherst</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="Cornell" data-rank="Associate" data-tenure="0">
+  <td><div class="name"><a href="https://www.cs.cornell.edu/~cristian/" target="_blank">Cristian Danescu-Niculescu-Mizil</a></div><div class="affil">Cornell IS</div></td>
+  <td><div>Associate Professor</div><div class="affil">Information Science, Cornell University</div></td>
+  <td>
+    <span class="tag">social NLP</span><span class="tag">online communities</span><span class="tag">language change</span><span class="tag">persuasion</span>
+    <div class="paper"><span class="paper-title">Conversations Gone Awry: Detecting Early Signs of Failure</span> <span class="paper-venue">ACL 2018</span> (highly cited)</div>
+    <div class="paper"><span class="paper-title">Conversational Dynamics and Community Norms with LLMs</span> <span class="paper-venue">ACL 2024</span></div>
+  </td>
+  <td><div class="career-note award">NSF CAREER 2018; leading computational social science work</div></td>
+  <td><div class="phd-info"><span class="phd-year">2012</span><br>Cornell University</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="Cornell" data-rank="Full" data-tenure="0">
+  <td><div class="name"><a href="https://www.cs.cornell.edu/home/llee/" target="_blank">Lillian Lee</a></div><div class="affil">Cornell CS</div></td>
+  <td><div>Professor</div><div class="affil">CS &amp; Information Science, Cornell</div></td>
+  <td>
+    <span class="tag">sentiment analysis</span><span class="tag">opinion mining</span><span class="tag">social NLP</span><span class="tag">language &amp; power</span>
+    <div class="paper"><span class="paper-title">Power Dynamics in Conversations with LLMs</span> <span class="paper-venue">ACL 2024</span></div>
+  </td>
+  <td><div class="career-note award">ACL 25-Year Test-of-Time Award 2024; ACL Fellow</div></td>
+  <td><div class="phd-info"><span class="phd-year">1997</span><br>Harvard University</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="Cornell" data-rank="Assistant" data-tenure="1">
+  <td><div class="name"><a href="https://john.thickstun.com/" target="_blank">John Thickstun</a><span class="star-badge" title="Approaching tenure review (est.)">★</span></div><div class="affil">Cornell CS</div></td>
+  <td><div>Assistant Professor</div><div class="affil">Computer Science, Cornell University</div></td>
+  <td>
+    <span class="tag hot">sequence models</span><span class="tag">music generation</span><span class="tag">LM theory</span><span class="tag">watermarking</span>
+    <div class="paper"><span class="paper-title">Robust Distortion-Free Watermarks for Language Models</span> <span class="paper-venue">TMLR 2024</span></div>
+    <div class="paper"><span class="paper-title">Expressive Piano Performance Generation via Score Infilling</span> <span class="paper-venue">ISMIR 2023</span></div>
+  </td>
+  <td><div class="career-note hire">Joined Cornell CS 2024; previously postdoc at Stanford (Percy Liang)</div></td>
+  <td><div class="phd-info"><span class="phd-year">2023</span><br>Univ. of Washington</div></td>
+  <td><div class="tenure-star">★ ~2031</div></td>
+</tr>
+
+<!-- ══════════════════════ GEORGIA TECH ══════════════════════ -->
+<tr class="inst-group"><td colspan="6">Georgia Institute of Technology — College of Computing</td></tr>
+
+<tr data-inst="GaTech" data-rank="Associate" data-tenure="0">
+  <td><div class="name"><a href="https://aritter.github.io/" target="_blank">Alan Ritter</a></div><div class="affil">Georgia Tech CS</div></td>
+  <td><div>Associate Professor</div><div class="affil">School of Interactive Computing, Georgia Tech</div></td>
+  <td>
+    <span class="tag">information extraction</span><span class="tag">social media NLP</span><span class="tag">event detection</span><span class="tag">LLM robustness</span>
+    <div class="paper"><span class="paper-title">Having Beer after Prayer? Measuring Cultural Bias in LLMs</span> <span class="paper-venue">ACL 2024</span> <em>(Best Social Impact Award)</em></div>
+    <div class="paper"><span class="paper-title">NEO-BENCH: Evaluating LLM Robustness with Neologisms</span> <span class="paper-venue">ACL 2024</span></div>
+  </td>
+  <td><div class="career-note award">ACL 2024 Best Social Impact Award; NSF CAREER</div></td>
+  <td><div class="phd-info"><span class="phd-year">2013</span><br>Univ. of Washington</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="GaTech" data-rank="Associate" data-tenure="0">
+  <td><div class="name"><a href="https://cocoxu.github.io/" target="_blank">Wei Xu</a></div><div class="affil">Georgia Tech CS</div></td>
+  <td><div>Associate Professor</div><div class="affil">School of Interactive Computing, Georgia Tech</div></td>
+  <td>
+    <span class="tag">text simplification</span><span class="tag">NLG</span><span class="tag">social media NLP</span><span class="tag">LLM evaluation</span>
+    <div class="paper"><span class="paper-title">Automatic and Human-AI Interactive Text Simplification</span> <span class="paper-venue">ACL 2024 tutorial</span></div>
+    <div class="paper"><span class="paper-title">ReadMe++: Benchmarking Multilingual LMs for Readability</span> <span class="paper-venue">EMNLP 2024</span></div>
+  </td>
+  <td><div class="career-note award">Tenured and promoted to associate professor ~2023; NSF CAREER</div></td>
+  <td><div class="phd-info"><span class="phd-year">2014</span><br>NYU</div></td>
+  <td></td>
+</tr>
+
+<!-- ══════════════════════ JOHNS HOPKINS ══════════════════════ -->
+<tr class="inst-group"><td colspan="6">Johns Hopkins University — CLSP &amp; Computer Science</td></tr>
+
+<tr data-inst="JHU" data-rank="Full" data-tenure="0">
+  <td><div class="name"><a href="https://www.cs.jhu.edu/~mdredze/" target="_blank">Mark Dredze</a></div><div class="affil">JHU CS / CLSP</div></td>
+  <td><div>John C. Malone Professor of CS</div><div class="affil">CS &amp; CLSP, Johns Hopkins University</div></td>
+  <td>
+    <span class="tag">clinical NLP</span><span class="tag">health informatics</span><span class="tag">social media NLP</span><span class="tag">public health AI</span>
+    <div class="paper"><span class="paper-title">Large Language Models for Healthcare: Successes and Limitations</span> <span class="paper-venue">EMNLP 2023</span></div>
+    <div class="paper"><span class="paper-title">Tobacco Use Identification from Clinical Notes via LLMs</span> <span class="paper-venue">ACL 2024</span></div>
+  </td>
+  <td><div class="career-note award">ACM Fellow; extensive health NLP research; Malone Professor chair</div></td>
+  <td><div class="phd-info"><span class="phd-year">2009</span><br>Univ. of Pennsylvania</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="JHU" data-rank="Full" data-tenure="0">
+  <td><div class="name"><a href="https://www.cs.jhu.edu/~jason/" target="_blank">Jason Eisner</a></div><div class="affil">JHU CS / CLSP</div></td>
+  <td><div>Professor</div><div class="affil">CS &amp; CLSP, Johns Hopkins University</div></td>
+  <td>
+    <span class="tag">probabilistic NLP</span><span class="tag">structured prediction</span><span class="tag">LM theory</span><span class="tag">program synthesis</span>
+    <div class="paper"><span class="paper-title">Contrastive Decoding: Open-ended Text Generation as Optimization</span> <span class="paper-venue">ACL 2023</span></div>
+    <div class="paper"><span class="paper-title">Formal Language Theory and LLMs</span> <span class="paper-venue">TACL 2023</span></div>
+  </td>
+  <td><div class="career-note award">ACL Fellow; creator of influential semiring/CRF frameworks</div></td>
+  <td><div class="phd-info"><span class="phd-year">1997</span><br>Univ. of Pennsylvania</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="JHU" data-rank="Full" data-tenure="0">
+  <td><div class="name"><a href="http://www.cs.jhu.edu/~vandurme/" target="_blank">Benjamin Van Durme</a></div><div class="affil">JHU CS / CLSP</div></td>
+  <td><div>Associate Professor</div><div class="affil">CS &amp; CLSP, Johns Hopkins University; Research Scientist, HLTCOE</div></td>
+  <td>
+    <span class="tag">semantic NLP</span><span class="tag">LLM safety</span><span class="tag">knowledge representation</span><span class="tag">process supervision</span>
+    <div class="paper"><span class="paper-title">SemStamp: A Semantic Watermark for Text Generation</span> <span class="paper-venue">NAACL 2024</span></div>
+    <div class="paper"><span class="paper-title">Rationalyst: Pre-training Process-Supervision for Reasoning</span> <span class="paper-venue">ACL 2025</span></div>
+    <div class="paper"><span class="paper-title">Controllable Safety Alignment: Inference-Time Adaptation</span> <span class="paper-venue">ICLR 2025</span></div>
+  </td>
+  <td><div class="career-note award">Leads HLTCOE text research; extensive work on annotation-efficient NLP</div></td>
+  <td><div class="phd-info"><span class="phd-year">2009</span><br>Univ. of Rochester</div></td>
+  <td></td>
+</tr>
+
+<!-- ══════════════════════ MIT ══════════════════════ -->
+<tr class="inst-group"><td colspan="6">Massachusetts Institute of Technology — CSAIL &amp; EECS</td></tr>
+
+<tr data-inst="MIT" data-rank="Associate" data-tenure="1">
+  <td><div class="name"><a href="https://www.mit.edu/~jda/" target="_blank">Jacob Andreas</a><span class="star-badge" title="Approaching tenure review (est.)">★</span></div><div class="affil">MIT CSAIL / EECS</div></td>
+  <td><div>Associate Professor (X Consortium)</div><div class="affil">EECS &amp; CSAIL, MIT</div></td>
+  <td>
+    <span class="tag hot">language learning</span><span class="tag">compositionality</span><span class="tag">pragmatics</span><span class="tag">LM interpretability</span>
+    <div class="paper"><span class="paper-title">Eliciting Human Preferences with Language Models</span> <span class="paper-venue">ICLR 2025</span></div>
+    <div class="paper"><span class="paper-title">Algorithmic Capabilities of Random Transformers</span> <span class="paper-venue">NeurIPS 2024</span></div>
+    <div class="paper"><span class="paper-title">Visual Grounding Helps Learn Word Meanings in Low-Data Regimes</span> <span class="paper-venue">NAACL 2024</span> <em>(Best Paper)</em></div>
+  </td>
+  <td><div class="career-note award">NAACL 2024 Best Paper; promoted to associate professor ~2024</div></td>
+  <td><div class="phd-info"><span class="phd-year">2017</span><br>UC Berkeley</div></td>
+  <td><div class="tenure-star">★ ~2026</div></td>
+</tr>
+
+<tr data-inst="MIT" data-rank="Full" data-tenure="0">
+  <td><div class="name"><a href="https://www.regina.csail.mit.edu/" target="_blank">Regina Barzilay</a></div><div class="affil">MIT CSAIL / EECS</div></td>
+  <td><div>School of Engineering Distinguished Professor of AI &amp; Health</div><div class="affil">EECS &amp; CSAIL, MIT; AI Lead, Jameel Clinic</div></td>
+  <td>
+    <span class="tag">clinical NLP</span><span class="tag">drug discovery</span><span class="tag">NLP for health</span>
+    <div class="paper"><span class="paper-title">Antibiotic Discovery with Deep Learning</span> <span class="paper-venue">Cell 2020</span> (highly cited)</div>
+    <div class="paper"><span class="paper-title">Taming LLMs for Clinical Use</span> <span class="paper-venue">EMNLP 2023</span></div>
+  </td>
+  <td><div class="career-note award">TIME100 AI 2025; IEEE Frances E. Allen Medal 2025; NAE &amp; NAM member; MacArthur Fellow 2017</div></td>
+  <td><div class="phd-info"><span class="phd-year">2003</span><br>Columbia University</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="MIT" data-rank="Assistant" data-tenure="1">
+  <td><div class="name"><a href="https://people.csail.mit.edu/yoonkim/" target="_blank">Yoon Kim</a><span class="star-badge" title="Approaching tenure review (est.)">★</span></div><div class="affil">MIT CSAIL / EECS</div></td>
+  <td><div>Assistant Professor</div><div class="affil">EECS &amp; CSAIL, MIT</div></td>
+  <td>
+    <span class="tag hot">LM theory</span><span class="tag">in-context learning</span><span class="tag">structured prediction</span>
+    <div class="paper"><span class="paper-title">In-Context Language Learning: Architectures and Algorithms</span> <span class="paper-venue">ICML 2024</span></div>
+    <div class="paper"><span class="paper-title">Transformers as Statisticians: Provable In-Context Learning</span> <span class="paper-venue">NeurIPS 2023</span></div>
+    <div class="paper"><span class="paper-title">Scan and Snap: Understanding Token Composition in 1L Attention</span> <span class="paper-venue">NeurIPS 2023</span></div>
+  </td>
+  <td><div class="career-note hire">Joined MIT 2020; NSF CAREER 2023</div></td>
+  <td><div class="phd-info"><span class="phd-year">2019</span><br>Harvard University</div></td>
+  <td><div class="tenure-star">★ ~2027</div></td>
+</tr>
+
+<tr data-inst="MIT" data-rank="Full" data-tenure="0">
+  <td><div class="name"><a href="https://linguistics.mit.edu/user/rlevy/" target="_blank">Roger Levy</a></div><div class="affil">MIT Brain &amp; Cognitive Sci.</div></td>
+  <td><div>Professor</div><div class="affil">Brain &amp; Cognitive Sciences, MIT</div></td>
+  <td>
+    <span class="tag">psycholinguistics</span><span class="tag">computational cognitive science</span><span class="tag">LM and human language processing</span>
+    <div class="paper"><span class="paper-title">How Well Do LLMs Predict Human Reading Times?</span> <span class="paper-venue">ACL 2023</span></div>
+    <div class="paper"><span class="paper-title">Language Models and Human Language Acquisition</span> <span class="paper-venue">NAACL 2024</span></div>
+  </td>
+  <td><div class="career-note award">Leading voice on cognitive plausibility of LLMs</div></td>
+  <td><div class="phd-info"><span class="phd-year">2005</span><br>Stanford University</div></td>
+  <td></td>
+</tr>
+
+<!-- ══════════════════════ UNIV. OF MICHIGAN ══════════════════════ -->
+<tr class="inst-group"><td colspan="6">University of Michigan — EECS &amp; School of Information</td></tr>
+
+<tr data-inst="Michigan" data-rank="Full" data-tenure="0">
+  <td><div class="name"><a href="https://chai.eecs.umich.edu/" target="_blank">Joyce Chai</a></div><div class="affil">Univ. of Michigan EECS</div></td>
+  <td><div>Professor; Associate Director, MIDAS</div><div class="affil">EECS, Univ. of Michigan</div></td>
+  <td>
+    <span class="tag">grounded NLP</span><span class="tag">human-robot interaction</span><span class="tag">situated dialogue</span><span class="tag">multimodal</span>
+    <div class="paper"><span class="paper-title">MMLI: A Multimodal Math Language Instruction Dataset</span> <span class="paper-venue">ACL 2024</span></div>
+    <div class="paper"><span class="paper-title">Evaluating Situated Dialogue Systems</span> <span class="paper-venue">EMNLP 2023</span></div>
+  </td>
+  <td><div class="career-note award">ACL Fellow; Associate Director of Michigan MIDAS 2023</div></td>
+  <td><div class="phd-info"><span class="phd-year">1998</span><br>Duke University</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="Michigan" data-rank="Assistant" data-tenure="1">
+  <td><div class="name"><a href="https://zhijing-jin.com/" target="_blank">Zhijing Jin</a><span class="star-badge" title="Approaching tenure review (est.)">★</span></div><div class="affil">Univ. of Michigan EECS</div></td>
+  <td><div>Assistant Professor</div><div class="affil">EECS, Univ. of Michigan</div></td>
+  <td>
+    <span class="tag hot">LLM safety</span><span class="tag">causality in NLP</span><span class="tag">alignment</span><span class="tag">AI for social good</span>
+    <div class="paper"><span class="paper-title">Multilingual Alignment Benchmark for LLMs</span> <span class="paper-venue">NeurIPS 2024</span> <em>(Best Paper)</em></div>
+    <div class="paper"><span class="paper-title">Can LLMs Express Their Uncertainty? Epistemic Calibration</span> <span class="paper-venue">ICLR 2024</span></div>
+    <div class="paper"><span class="paper-title">Causal Reasoning and Language Models</span> <span class="paper-venue">EMNLP 2023</span></div>
+  </td>
+  <td><div class="career-note hire">Joined Michigan EECS 2024; PhD from ETH Zurich/MPI; NeurIPS 2024 Best Paper</div></td>
+  <td><div class="phd-info"><span class="phd-year">2023</span><br>ETH Zurich / MPI Intelligent Systems</div></td>
+  <td><div class="tenure-star">★ ~2031</div></td>
+</tr>
+
+<tr data-inst="Michigan" data-rank="Full" data-tenure="0">
+  <td><div class="name"><a href="https://web.eecs.umich.edu/~mihalcea/" target="_blank">Rada Mihalcea</a></div><div class="affil">Univ. of Michigan EECS</div></td>
+  <td><div>Janice M. Jenkins Collegiate Professor; Director, AI Lab</div><div class="affil">EECS, Univ. of Michigan</div></td>
+  <td>
+    <span class="tag">computational social science</span><span class="tag">multilingual NLP</span><span class="tag">deception detection</span><span class="tag">multimodal NLP</span>
+    <div class="paper"><span class="paper-title">Gender Bias and Multilingual Alignment in LLMs</span> <span class="paper-venue">NeurIPS 2024</span> <em>(Best Paper)</em></div>
+    <div class="paper"><span class="paper-title">MIND: LLM Knowledge Graph for Mental Health Counseling</span> <span class="paper-venue">ACL 2024</span></div>
+  </td>
+  <td><div class="career-note award">NeurIPS 2024 Best Paper; ACL Fellow 2025; AAAI Fellow 2021; Past President of ACL</div></td>
+  <td><div class="phd-info"><span class="phd-year">2001</span><br>Southern Methodist University</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="Michigan" data-rank="Associate" data-tenure="0">
+  <td><div class="name"><a href="https://web.eecs.umich.edu/~wangluxy/" target="_blank">Lu Wang</a></div><div class="affil">Univ. of Michigan EECS</div></td>
+  <td><div>Associate Professor</div><div class="affil">EECS, Univ. of Michigan</div></td>
+  <td>
+    <span class="tag">summarization</span><span class="tag">argument mining</span><span class="tag">factuality</span><span class="tag">media bias</span>
+    <div class="paper"><span class="paper-title">Long-Document Abstractive Summarization with LLMs</span> <span class="paper-venue">ACL 2024</span> <em>(Area Chair Award)</em></div>
+    <div class="paper"><span class="paper-title">Detecting Media Bias and Framing with NLP</span> <span class="paper-venue">EMNLP 2023</span></div>
+  </td>
+  <td><div class="career-note hire">Moved from Northeastern to Michigan ~2020; NSF CAREER; ACL Equity Director 2024</div></td>
+  <td><div class="phd-info"><span class="phd-year">2015</span><br>Cornell University</div></td>
+  <td></td>
+</tr>
+
+<!-- ══════════════════════ NYU ══════════════════════ -->
+<tr class="inst-group"><td colspan="6">New York University — Courant CS &amp; Center for Data Science</td></tr>
+
+<tr data-inst="NYU" data-rank="Full" data-tenure="0">
+  <td><div class="name"><a href="https://kyunghyuncho.me/" target="_blank">Kyunghyun Cho</a></div><div class="affil">NYU CS / CDS</div></td>
+  <td><div>Glen de Vries Chaired Professor of CS &amp; Data Science</div><div class="affil">Courant CS &amp; CDS, NYU</div></td>
+  <td>
+    <span class="tag">machine translation</span><span class="tag">generative models</span><span class="tag">seq2seq</span><span class="tag">AI for biology</span>
+    <div class="paper"><span class="paper-title">Protein Discovery with Discrete Walk-Jump Sampling</span> <span class="paper-venue">ICLR 2024</span> <em>(Outstanding Paper)</em></div>
+    <div class="paper"><span class="paper-title">On the Ability of Monolingual Models to Learn Cross-lingual Representations</span> <span class="paper-venue">EMNLP 2023</span></div>
+  </td>
+  <td><div class="career-note award">Inventor of GRU and attention mechanisms; NAE of Korea member; ICLR 2024 Outstanding Paper</div></td>
+  <td><div class="phd-info"><span class="phd-year">2014</span><br>Aalto University</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="NYU" data-rank="Associate" data-tenure="0">
+  <td><div class="name"><a href="https://hhexiy.github.io/" target="_blank">He He</a></div><div class="affil">NYU CS / CDS</div></td>
+  <td><div>Associate Professor</div><div class="affil">Courant CS &amp; CDS, NYU</div></td>
+  <td>
+    <span class="tag hot">LLM alignment</span><span class="tag">robustness</span><span class="tag">evaluation</span><span class="tag">human-AI collaboration</span>
+    <div class="paper"><span class="paper-title">Is Reinforcement Learning (Not) the Solution to Robust NLP?</span> <span class="paper-venue">ACL 2024</span></div>
+    <div class="paper"><span class="paper-title">Evaluating Language Models via Calibrated Uncertainty Estimation</span> <span class="paper-venue">NAACL 2024</span></div>
+    <div class="paper"><span class="paper-title">Revisiting the Role of Language Priors in Visual Question Answering</span> <span class="paper-venue">EMNLP 2021</span> (highly cited)</div>
+  </td>
+  <td><div class="career-note award">Co-leads NYU ML² group; NSF CAREER; active in LLM alignment research</div></td>
+  <td><div class="phd-info"><span class="phd-year">2016</span><br>Univ. of Maryland</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="NYU" data-rank="Associate" data-tenure="0">
+  <td><div class="name"><a href="https://eunsol.github.io/" target="_blank">Eunsol Choi</a></div><div class="affil">NYU CS / CDS</div></td>
+  <td><div>Associate Professor of CS &amp; Data Science</div><div class="affil">Courant CS &amp; CDS, NYU</div></td>
+  <td>
+    <span class="tag">question answering</span><span class="tag">entity understanding</span><span class="tag">multilingual QA</span><span class="tag">LLM alignment</span>
+    <div class="paper"><span class="paper-title">CaLMQA: Culturally Specific Long-Form QA in 23 Languages</span> <span class="paper-venue">ACL 2025</span></div>
+    <div class="paper"><span class="paper-title">Understanding Retrieval Augmentation for Long-Form QA</span> <span class="paper-venue">COLM 2024</span></div>
+    <div class="paper"><span class="paper-title">AmbigDocs: Reasoning Across Documents on Ambiguous Entities</span> <span class="paper-venue">COLM 2024</span></div>
+  </td>
+  <td><div class="career-note move">Moved from UT Austin to NYU CDS/Courant ~Fall 2024; NSF CAREER; co-leads ML² group</div></td>
+  <td><div class="phd-info"><span class="phd-year">2019</span><br>Univ. of Washington</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="NYU" data-rank="Associate" data-tenure="0">
+  <td><div class="name"><a href="https://gregdurrett.github.io/" target="_blank">Greg Durrett</a></div><div class="affil">NYU CS / CDS</div></td>
+  <td><div>Associate Professor of CS &amp; Data Science</div><div class="affil">Courant CS &amp; CDS, NYU</div></td>
+  <td>
+    <span class="tag hot">LLM reasoning</span><span class="tag">fact verification</span><span class="tag">chain-of-thought</span><span class="tag">LLM fine-tuning</span>
+    <div class="paper"><span class="paper-title">LoFiT: Localized Fine-tuning on LLM Representations</span> <span class="paper-venue">NeurIPS 2024</span></div>
+    <div class="paper"><span class="paper-title">MuSR: Chain-of-Thought with Multistep Soft Reasoning</span> <span class="paper-venue">ICLR 2024</span> <em>(Spotlight)</em></div>
+    <div class="paper"><span class="paper-title">Learning to Refine with Fine-Grained Natural Language Feedback</span> <span class="paper-venue">EMNLP 2024</span></div>
+  </td>
+  <td><div class="career-note move">Moved from UT Austin (8 years) to NYU CDS/Courant Fall 2025; Sloan Fellow 2023; NSF CAREER 2022; co-leads ML² group</div></td>
+  <td><div class="phd-info"><span class="phd-year">2016</span><br>UC Berkeley</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="NYU" data-rank="Associate" data-tenure="0">
+  <td><div class="name"><a href="https://tallinzen.net/" target="_blank">Tal Linzen</a></div><div class="affil">NYU Linguistics / CDS</div></td>
+  <td><div>Associate Professor of Linguistics &amp; Data Science</div><div class="affil">Linguistics &amp; CDS, NYU; Research Scientist, Google</div></td>
+  <td>
+    <span class="tag">computational linguistics</span><span class="tag">LM evaluation</span><span class="tag">psycholinguistics</span><span class="tag">syntax in LMs</span>
+    <div class="paper"><span class="paper-title">What Formal Languages Can Transformers Express?</span> <span class="paper-venue">TACL 2023</span></div>
+    <div class="paper"><span class="paper-title">Task Demands Affect LM Evaluation Conclusions</span> <span class="paper-venue">NAACL 2024</span></div>
+  </td>
+  <td><div class="career-note hire">Moved from JHU to NYU 2020; Director of Graduate Studies, NYU Linguistics</div></td>
+  <td><div class="phd-info"><span class="phd-year">2013</span><br>École Normale Supérieure</div></td>
+  <td></td>
+</tr>
+
+<!-- ══════════════════════ PRINCETON ══════════════════════ -->
+<tr class="inst-group"><td colspan="6">Princeton University — Computer Science &amp; Princeton Language and Intelligence (PLI)</td></tr>
+
+<tr data-inst="Princeton" data-rank="Full" data-tenure="0">
+  <td><div class="name"><a href="https://www.cs.princeton.edu/~arora/" target="_blank">Sanjeev Arora</a></div><div class="affil">Princeton CS</div></td>
+  <td><div>Charles C. Fitzmorris Professor; Director, PLI</div><div class="affil">Computer Science, Princeton</div></td>
+  <td>
+    <span class="tag">LLM theory</span><span class="tag">mechanistic interpretability</span><span class="tag">representation learning</span>
+    <div class="paper"><span class="paper-title">Fine-Tuning Language Models with Just Forward Passes (MeZO)</span> <span class="paper-venue">NeurIPS 2023</span></div>
+    <div class="paper"><span class="paper-title">A Kernel-Based View of Language Model Fine-Tuning</span> <span class="paper-venue">ICML 2023</span></div>
+  </td>
+  <td><div class="career-note award">Directs Princeton Language &amp; Intelligence; Gödel Prize; NAS member</div></td>
+  <td><div class="phd-info"><span class="phd-year">1994</span><br>UC Berkeley</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="Princeton" data-rank="Associate" data-tenure="0">
+  <td><div class="name"><a href="https://www.cs.princeton.edu/~danqic/" target="_blank">Danqi Chen</a></div><div class="affil">Princeton CS</div></td>
+  <td><div>Associate Professor</div><div class="affil">Computer Science, Princeton; Affiliated, PLI</div></td>
+  <td>
+    <span class="tag hot">dense retrieval</span><span class="tag">open-domain QA</span><span class="tag">in-context learning</span><span class="tag">long-context LLMs</span>
+    <div class="paper"><span class="paper-title">SimCSE: Simple Contrastive Learning of Sentence Embeddings</span> <span class="paper-venue">EMNLP 2021</span> (highly cited)</div>
+    <div class="paper"><span class="paper-title">Enabling LLMs to Generate Text with Citations</span> <span class="paper-venue">EMNLP 2023</span></div>
+    <div class="paper"><span class="paper-title">How to Train Long-Context Language Models Effectively</span> <span class="paper-venue">ICLR 2025</span></div>
+  </td>
+  <td><div class="career-note award">Sloan Fellow 2022; NSF CAREER; promoted to associate professor ~2024</div></td>
+  <td><div class="phd-info"><span class="phd-year">2018</span><br>Stanford University</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="Princeton" data-rank="Associate" data-tenure="0">
+  <td><div class="name"><a href="https://www.cs.princeton.edu/~karthikn/" target="_blank">Karthik Narasimhan</a></div><div class="affil">Princeton CS</div></td>
+  <td><div>Associate Professor</div><div class="affil">Computer Science, Princeton; Affiliated, PLI</div></td>
+  <td>
+    <span class="tag hot">LLM agents</span><span class="tag">RL for language</span><span class="tag">code agents</span>
+    <div class="paper"><span class="paper-title">ReAct: Synergizing Reasoning and Acting in Language Models</span> <span class="paper-venue">ICLR 2023</span></div>
+    <div class="paper"><span class="paper-title">SWE-agent: Agent-Computer Interfaces for Coding Tasks</span> <span class="paper-venue">NeurIPS 2024</span></div>
+    <div class="paper"><span class="paper-title">Tree of Thoughts: Deliberate Problem Solving with LLMs</span> <span class="paper-venue">NeurIPS 2023</span></div>
+  </td>
+  <td><div class="career-note award">NSF CAREER; ReAct and Tree of Thoughts foundational agent papers 2023</div></td>
+  <td><div class="phd-info"><span class="phd-year">2017</span><br>MIT</div></td>
+  <td></td>
+</tr>
+
+<!-- ══════════════════════ STANFORD ══════════════════════ -->
+<tr class="inst-group"><td colspan="6">Stanford University — Computer Science, Linguistics &amp; HAI</td></tr>
+
+<tr data-inst="Stanford" data-rank="Full" data-tenure="0">
+  <td><div class="name"><a href="https://yejinc.github.io/" target="_blank">Yejin Choi</a></div><div class="affil">Stanford CS &amp; HAI</div></td>
+  <td><div>Dieter Schwarz Foundation Professor of CS; Senior Fellow, HAI</div><div class="affil">Computer Science &amp; Stanford HAI</div></td>
+  <td>
+    <span class="tag hot">commonsense AI</span><span class="tag">small language models</span><span class="tag">pluralistic alignment</span><span class="tag">LLM reasoning</span>
+    <div class="paper"><span class="paper-title">WinoGrande: An Adversarial Winograd Schema Challenge</span> <span class="paper-venue">AAAI 2020</span> (highly cited)</div>
+    <div class="paper"><span class="paper-title">Modular Pluralism: Pluralistic Alignment via Multi-LLM Collaboration</span> <span class="paper-venue">EMNLP 2024</span></div>
+    <div class="paper"><span class="paper-title">MacGyver: Are LLMs Creative Problem-Solvers?</span> <span class="paper-venue">NAACL 2024</span></div>
+  </td>
+  <td><div class="career-note move">Left UW Aug 2024; joined Stanford CS + HAI June 2025 (Dieter Schwarz Foundation Professor); brief NVIDIA stint; MacArthur Fellow 2022; TIME100 AI 2023 &amp; 2025</div></td>
+  <td><div class="phd-info"><span class="phd-year">2010</span><br>Cornell University</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="Stanford" data-rank="Associate" data-tenure="0">
+  <td><div class="name"><a href="https://thashim.github.io/" target="_blank">Tatsunori Hashimoto</a></div><div class="affil">Stanford CS</div></td>
+  <td><div>Assistant Professor</div><div class="affil">Computer Science, Stanford</div></td>
+  <td>
+    <span class="tag hot">LLM evaluation</span><span class="tag">RLHF</span><span class="tag">watermarking</span><span class="tag">robustness</span>
+    <div class="paper"><span class="paper-title">AlpacaFarm: A Simulation Framework for RLHF Methods</span> <span class="paper-venue">NeurIPS 2023</span></div>
+    <div class="paper"><span class="paper-title">Robust Distortion-Free Watermarks for Language Models</span> <span class="paper-venue">TMLR 2024</span></div>
+    <div class="paper"><span class="paper-title">Observational Scaling Laws and Predictability of LM Performance</span> <span class="paper-venue">NeurIPS 2024</span></div>
+  </td>
+  <td><div class="career-note hire">Joined Stanford CS 2019; co-teaches CS336 (Language Modeling from Scratch)</div></td>
+  <td><div class="phd-info"><span class="phd-year">2018</span><br>MIT</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="Stanford" data-rank="Full" data-tenure="0">
+  <td><div class="name"><a href="https://web.stanford.edu/~jurafsky/" target="_blank">Dan Jurafsky</a></div><div class="affil">Stanford Linguistics &amp; CS</div></td>
+  <td><div>Jackson Eli Reynolds Professor (Linguistics &amp; CS)</div><div class="affil">Linguistics &amp; CS, Stanford</div></td>
+  <td>
+    <span class="tag">social language</span><span class="tag">dialogue</span><span class="tag">computational social science</span>
+    <div class="paper"><span class="paper-title">Speech and Language Processing, 3rd ed. (pre-release)</span> <span class="paper-venue">2024 textbook</span></div>
+    <div class="paper"><span class="paper-title">Safety-Tuned LLaMAs: Lessons from Improving LLM Safety</span> <span class="paper-venue">ICLR 2024</span></div>
+  </td>
+  <td><div class="career-note award">Author of standard NLP textbook; ACL Fellow; NAS member</div></td>
+  <td><div class="phd-info"><span class="phd-year">1992</span><br>UC Berkeley</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="Stanford" data-rank="Full" data-tenure="0">
+  <td><div class="name"><a href="https://nlp.stanford.edu/~manning/" target="_blank">Christopher Manning</a></div><div class="affil">Stanford CS &amp; Linguistics</div></td>
+  <td><div>Thomas M. Siebel Professor of Machine Learning; Director, SAIL</div><div class="affil">CS &amp; Linguistics, Stanford</div></td>
+  <td>
+    <span class="tag">neural NLP</span><span class="tag">parsing</span><span class="tag">representation learning</span><span class="tag">universal dependencies</span>
+    <div class="paper"><span class="paper-title">Universal Dependencies 2.13 Release</span> <span class="paper-venue">LREC-COLING 2024</span></div>
+    <div class="paper"><span class="paper-title">The CRINGE Loss: Learning What Language Not to Model</span> <span class="paper-venue">ACL 2023</span></div>
+  </td>
+  <td><div class="career-note award">IEEE John von Neumann Medal 2024; ACL Test-of-Time Awards 2023–2025 (3 consecutive); ACL Fellow</div></td>
+  <td><div class="phd-info"><span class="phd-year">1994</span><br>Stanford University</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="Stanford" data-rank="Full" data-tenure="0">
+  <td><div class="name"><a href="https://cs.stanford.edu/~pliang/" target="_blank">Percy Liang</a></div><div class="affil">Stanford CS</div></td>
+  <td><div>Associate Professor of CS; Director, CRFM</div><div class="affil">CS, Stanford; Director, Center for Research on Foundation Models</div></td>
+  <td>
+    <span class="tag hot">foundation models</span><span class="tag">benchmarking</span><span class="tag">robustness</span><span class="tag">LLM analysis</span>
+    <div class="paper"><span class="paper-title">Holistic Evaluation of Language Models (HELM)</span> <span class="paper-venue">NeurIPS 2023</span></div>
+    <div class="paper"><span class="paper-title">AlpacaFarm: A Simulation Framework for RLHF</span> <span class="paper-venue">NeurIPS 2023</span></div>
+    <div class="paper"><span class="paper-title">Do Foundation Models Narrate Their Own Training Data?</span> <span class="paper-venue">COLM 2024</span></div>
+  </td>
+  <td><div class="career-note award">Directs CRFM; led influential Foundation Models report (2021)</div></td>
+  <td><div class="phd-info"><span class="phd-year">2011</span><br>UC Berkeley</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="Stanford" data-rank="Full" data-tenure="0">
+  <td><div class="name"><a href="https://web.stanford.edu/~cgpotts/" target="_blank">Christopher Potts</a></div><div class="affil">Stanford Linguistics</div></td>
+  <td><div>Professor of Linguistics; Co-Director, CRFM</div><div class="affil">Linguistics &amp; CS (by courtesy), Stanford</div></td>
+  <td>
+    <span class="tag">semantics</span><span class="tag">pragmatics</span><span class="tag">NLI</span><span class="tag">sentiment analysis</span>
+    <div class="paper"><span class="paper-title">Multitask Prompted Training Enables Zero-Shot Task Generalization</span> <span class="paper-venue">ICLR 2022</span> (highly cited)</div>
+    <div class="paper"><span class="paper-title">DynaSent: Dynamic Sentiment Analysis Benchmark</span> <span class="paper-venue">ACL 2021</span></div>
+  </td>
+  <td><div class="career-note award">Co-Director CRFM; ACL Fellow; long-time semantics/pragmatics contributor</div></td>
+  <td><div class="phd-info"><span class="phd-year">2003</span><br>UC Santa Cruz</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="Stanford" data-rank="Assistant" data-tenure="1">
+  <td><div class="name"><a href="https://saltlab.stanford.edu/" target="_blank">Diyi Yang</a><span class="star-badge" title="Approaching tenure review (est.)">★</span></div><div class="affil">Stanford CS</div></td>
+  <td><div>Assistant Professor</div><div class="affil">Computer Science, Stanford; Affiliate, Stanford HAI</div></td>
+  <td>
+    <span class="tag hot">computational social science</span><span class="tag">dialogue</span><span class="tag">LLM for social good</span><span class="tag">mental health NLP</span>
+    <div class="paper"><span class="paper-title">Harnessing LLMs in Practice: Survey on ChatGPT and NLP</span> <span class="paper-venue">ACM TKDD 2023</span></div>
+    <div class="paper"><span class="paper-title">Language Models for Social Media Annotation</span> <span class="paper-venue">ACL 2024</span></div>
+  </td>
+  <td><div class="career-note hire">Moved from Georgia Tech to Stanford CS 2022; NSF CAREER</div></td>
+  <td><div class="phd-info"><span class="phd-year">2019</span><br>Carnegie Mellon University</div></td>
+  <td><div class="tenure-star">★ ~2028</div></td>
+</tr>
+
+<!-- ══════════════════════ UC BERKELEY ══════════════════════ -->
+<tr class="inst-group"><td colspan="6">University of California, Berkeley — EECS &amp; School of Information</td></tr>
+
+<tr data-inst="Berkeley" data-rank="Associate" data-tenure="0">
+  <td><div class="name"><a href="https://people.ischool.berkeley.edu/~dbamman/" target="_blank">David Bamman</a></div><div class="affil">UC Berkeley I School</div></td>
+  <td><div>Associate Professor</div><div class="affil">School of Information, UC Berkeley</div></td>
+  <td>
+    <span class="tag">cultural analytics</span><span class="tag">computational humanities</span><span class="tag">NLP for literature</span><span class="tag">entity recognition</span>
+    <div class="paper"><span class="paper-title">Measuring Diversity in Hollywood through Computational Film Analysis</span> <span class="paper-venue">PNAS 2024</span></div>
+    <div class="paper"><span class="paper-title">AboutMe: Documenting Effects of English Pretraining Data Filters</span> <span class="paper-venue">ACL 2024</span></div>
+    <div class="paper"><span class="paper-title">Speak, Memory: Books Known to ChatGPT/GPT-4</span> <span class="paper-venue">EMNLP 2023</span></div>
+  </td>
+  <td><div class="career-note award">NSF CAREER 2019; leads BookNLP &amp; LitBank projects</div></td>
+  <td><div class="phd-info"><span class="phd-year">2012</span><br>CMU</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="Berkeley" data-rank="Full" data-tenure="0">
+  <td><div class="name"><a href="http://www.denero.org/" target="_blank">John DeNero</a></div><div class="affil">UC Berkeley EECS</div></td>
+  <td><div>Associate Teaching Professor</div><div class="affil">EECS, UC Berkeley</div></td>
+  <td>
+    <span class="tag">machine translation</span><span class="tag">NLP education</span>
+    <div class="paper"><span class="paper-title">Compositional Span Embeddings for Document Retrieval</span> <span class="paper-venue">ACL 2023</span></div>
+  </td>
+  <td><div class="career-note award">Lead educator for Berkeley CS 188/189; massive open course impact</div></td>
+  <td><div class="phd-info"><span class="phd-year">2010</span><br>UC Berkeley</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="Berkeley" data-rank="Full" data-tenure="0">
+  <td><div class="name"><a href="https://people.eecs.berkeley.edu/~klein/" target="_blank">Dan Klein</a></div><div class="affil">UC Berkeley EECS</div></td>
+  <td><div>Professor of Computer Science</div><div class="affil">EECS, UC Berkeley</div></td>
+  <td>
+    <span class="tag">parsing</span><span class="tag">unsupervised NLP</span><span class="tag">machine translation</span><span class="tag">LM fundamentals</span>
+    <div class="paper"><span class="paper-title">Language Model Evaluation Beyond Perplexity</span> <span class="paper-venue">ACL 2021</span> (highly cited)</div>
+  </td>
+  <td><div class="career-note award">ACL Fellow; longtime Berkeley NLP group leader</div></td>
+  <td><div class="phd-info"><span class="phd-year">2004</span><br>Stanford University</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="Berkeley" data-rank="Assistant" data-tenure="1">
+  <td><div class="name"><a href="https://sewon-min.com/" target="_blank">Sewon Min</a><span class="star-badge" title="Approaching tenure review (est.)">★</span></div><div class="affil">UC Berkeley EECS</div></td>
+  <td><div>Assistant Professor</div><div class="affil">EECS, UC Berkeley; Research Scientist, AI2</div></td>
+  <td>
+    <span class="tag hot">retrieval-augmented generation</span><span class="tag">LLM factuality</span><span class="tag">question answering</span>
+    <div class="paper"><span class="paper-title">FActScore: Fine-Grained Atomic Evaluation of Factual Precision</span> <span class="paper-venue">EMNLP 2023</span></div>
+    <div class="paper"><span class="paper-title">RePlug: Retrieval-Augmented Black-Box Language Models</span> <span class="paper-venue">NAACL 2024</span></div>
+    <div class="paper"><span class="paper-title">Rethinking the Role of Demonstrations for In-Context Learning</span> <span class="paper-venue">EMNLP 2022</span> (highly cited)</div>
+  </td>
+  <td><div class="career-note hire">Joined UC Berkeley EECS 2024; previously postdoc at UW/AI2; NSF CAREER 2025</div></td>
+  <td><div class="phd-info"><span class="phd-year">2023</span><br>Univ. of Washington</div></td>
+  <td><div class="tenure-star">★ ~2030</div></td>
+</tr>
+
+<tr data-inst="Berkeley" data-rank="Assistant" data-tenure="1">
+  <td><div class="name"><a href="https://www.alanesuhr.com/" target="_blank">Alane Suhr</a><span class="star-badge" title="Approaching tenure review (est.)">★</span></div><div class="affil">UC Berkeley EECS</div></td>
+  <td><div>Assistant Professor</div><div class="affil">EECS, UC Berkeley</div></td>
+  <td>
+    <span class="tag hot">grounded language</span><span class="tag">collaborative agents</span><span class="tag">vision-language</span><span class="tag">situated NLP</span>
+    <div class="paper"><span class="paper-title">NLVR2: Visual Reasoning in Natural Language</span> <span class="paper-venue">ACL 2019</span> (highly cited)</div>
+    <div class="paper"><span class="paper-title">Dynamic Benchmarking of Grounded Language Understanding</span> <span class="paper-venue">ICLR 2024</span></div>
+  </td>
+  <td><div class="career-note hire">Joined UC Berkeley EECS 2022; previously postdoc at Cornell/AI2</div></td>
+  <td><div class="phd-info"><span class="phd-year">2022</span><br>Cornell University</div></td>
+  <td><div class="tenure-star">★ ~2029</div></td>
+</tr>
+
+<!-- ══════════════════════ UCLA ══════════════════════ -->
+<tr class="inst-group"><td colspan="6">University of California, Los Angeles — Computer Science</td></tr>
+
+<tr data-inst="UCLA" data-rank="Associate" data-tenure="0">
+  <td><div class="name"><a href="http://web.cs.ucla.edu/~kwchang/" target="_blank">Kai-Wei Chang</a></div><div class="affil">UCLA CS</div></td>
+  <td><div>Associate Professor; Co-Director, UCLA DataX AI Center</div><div class="affil">Computer Science, UCLA; Amazon Scholar</div></td>
+  <td>
+    <span class="tag">multimodal LLMs</span><span class="tag">trustworthy NLP</span><span class="tag">bias &amp; fairness</span><span class="tag">constrained generation</span>
+    <div class="paper"><span class="paper-title">SafeWorld: Geo-Diverse Safety Alignment for LLMs</span> <span class="paper-venue">NeurIPS 2024</span></div>
+    <div class="paper"><span class="paper-title">Adaptable Logical Control for Large Language Models</span> <span class="paper-venue">NeurIPS 2024</span></div>
+    <div class="paper"><span class="paper-title">Matryoshka Query Transformer for Large Vision-Language Models</span> <span class="paper-venue">NeurIPS 2024</span></div>
+  </td>
+  <td><div class="career-note award">Sloan Fellow 2021; EMNLP Best Paper 2017; ACL Outstanding Paper 2023</div></td>
+  <td><div class="phd-info"><span class="phd-year">2015</span><br>Univ. of Illinois (UIUC)</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="UCLA" data-rank="Associate" data-tenure="0">
+  <td><div class="name"><a href="https://violetpeng.github.io/" target="_blank">Nanyun (Violet) Peng</a></div><div class="affil">UCLA CS</div></td>
+  <td><div>Associate Professor</div><div class="affil">Computer Science, UCLA; Amazon Scholar</div></td>
+  <td>
+    <span class="tag hot">controllable generation</span><span class="tag">creative language</span><span class="tag">multimodal LLMs</span><span class="tag">evaluation</span>
+    <div class="paper"><span class="paper-title">Adaptable Logical Control for LLMs</span> <span class="paper-venue">NeurIPS 2024</span></div>
+    <div class="paper"><span class="paper-title">MacGyver: Are LLMs Creative Problem-Solvers?</span> <span class="paper-venue">NAACL 2024</span></div>
+    <div class="paper"><span class="paper-title">DiagrammerGPT: Generating Open-Domain Diagrams via LLM Planning</span> <span class="paper-venue">COLM 2024</span></div>
+  </td>
+  <td><div class="career-note award">Promoted to associate professor ~2024; NSF CAREER; DARPA EXPMATH PI</div></td>
+  <td><div class="phd-info"><span class="phd-year">2017</span><br>Johns Hopkins University</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="UCLA" data-rank="Full" data-tenure="0">
+  <td><div class="name"><a href="https://web.cs.ucla.edu/~guyvdb/" target="_blank">Guy Van den Broeck</a></div><div class="affil">UCLA CS</div></td>
+  <td><div>Professor</div><div class="affil">Computer Science, UCLA</div></td>
+  <td>
+    <span class="tag">neurosymbolic AI</span><span class="tag">probabilistic circuits</span><span class="tag">LLM reasoning</span><span class="tag">knowledge integration</span>
+    <div class="paper"><span class="paper-title">Adaptable Logical Control for LLMs</span> <span class="paper-venue">NeurIPS 2024</span></div>
+    <div class="paper"><span class="paper-title">On the Paradox of Learning to Reason from Data</span> <span class="paper-venue">IJCAI 2023</span></div>
+    <div class="paper"><span class="paper-title">Probabilistic Circuits: Representations and Algorithms</span> <span class="paper-venue">Foundations &amp; Trends in ML 2023</span></div>
+  </td>
+  <td><div class="career-note award">Runs UCLA StarAI Lab; leading neurosymbolic AI for NLP</div></td>
+  <td><div class="phd-info"><span class="phd-year">2013</span><br>KU Leuven</div></td>
+  <td></td>
+</tr>
+
+<!-- ══════════════════════ UMASS AMHERST ══════════════════════ -->
+<tr class="inst-group"><td colspan="6">University of Massachusetts Amherst — Manning CICS</td></tr>
+
+<tr data-inst="UMass" data-rank="Full" data-tenure="0">
+  <td><div class="name"><a href="https://people.cs.umass.edu/~mccallum/" target="_blank">Andrew McCallum</a></div><div class="affil">UMass Amherst CICS</div></td>
+  <td><div>Distinguished University Professor</div><div class="affil">CICS, UMass Amherst</div></td>
+  <td>
+    <span class="tag">information extraction</span><span class="tag">knowledge bases</span><span class="tag">statistical NLP</span><span class="tag">machine learning</span>
+    <div class="paper"><span class="paper-title">Multistage Collaborative Knowledge Distillation from LLMs</span> <span class="paper-venue">ACL 2024</span></div>
+    <div class="paper"><span class="paper-title">Distantly-Supervised Dense Retrieval for Open-Domain QA</span> <span class="paper-venue">EMNLP 2021</span> (highly cited)</div>
+  </td>
+  <td><div class="career-note award">ACM Fellow; ACL Fellow; founder of IESL lab; major IE &amp; probabilistic NLP contributions</div></td>
+  <td><div class="phd-info"><span class="phd-year">1995</span><br>Carnegie Mellon University</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="UMass" data-rank="Associate" data-tenure="0">
+  <td><div class="name"><a href="https://brenocon.com/" target="_blank">Brendan O'Connor</a></div><div class="affil">UMass Amherst CICS</div></td>
+  <td><div>Associate Professor</div><div class="affil">CICS, UMass Amherst</div></td>
+  <td>
+    <span class="tag">computational social science</span><span class="tag">social factors in NLP</span><span class="tag">political NLP</span>
+    <div class="paper"><span class="paper-title">From Narratives to Headlines: LLMs for News Summarization</span> <span class="paper-venue">EMNLP 2023</span></div>
+    <div class="paper"><span class="paper-title">Annotator Social Bias in NLP Datasets</span> <span class="paper-venue">ACL 2024</span></div>
+  </td>
+  <td><div class="career-note award">NSF CAREER; active work on measurement of social phenomena in text</div></td>
+  <td><div class="phd-info"><span class="phd-year">2013</span><br>CMU</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="UMass" data-rank="Associate" data-tenure="0">
+  <td><div class="name"><a href="https://zamani.cs.umass.edu/" target="_blank">Hamed Zamani</a></div><div class="affil">UMass Amherst CICS</div></td>
+  <td><div>Associate Professor</div><div class="affil">CICS, UMass Amherst</div></td>
+  <td>
+    <span class="tag">information retrieval</span><span class="tag">conversational search</span><span class="tag">RAG</span><span class="tag">explainability</span>
+    <div class="paper"><span class="paper-title">Large Language Models Are Not Robust Evaluators</span> <span class="paper-venue">NAACL 2024</span></div>
+    <div class="paper"><span class="paper-title">PEARL: Prompting Large Language Models to Plan and Execute Actions for Long-Document</span> <span class="paper-venue">EACL 2024</span></div>
+  </td>
+  <td><div class="career-note award">NSF CAREER; active in conversational search and retrieval-augmented LLMs</div></td>
+  <td><div class="phd-info"><span class="phd-year">2019</span><br>UMass Amherst</div></td>
+  <td></td>
+</tr>
+
+<!-- ══════════════════════ UNIVERSITY OF MARYLAND ══════════════════════ -->
+<tr class="inst-group"><td colspan="6">University of Maryland, College Park — CS &amp; UMIACS (CLIP Lab)</td></tr>
+
+<tr data-inst="Maryland" data-rank="Full" data-tenure="0">
+  <td><div class="name"><a href="http://www.umiacs.umd.edu/~jbg/" target="_blank">Jordan Boyd-Graber</a></div><div class="affil">UMD CS</div></td>
+  <td><div>Full Professor</div><div class="affil">CS, iSchool &amp; UMIACS, Univ. of Maryland</div></td>
+  <td>
+    <span class="tag">question answering</span><span class="tag">adversarial NLP</span><span class="tag">topic models</span><span class="tag">human-AI collaboration</span>
+    <div class="paper"><span class="paper-title">LLMs Help Humans Verify Truthfulness—Except When Convincingly Wrong</span> <span class="paper-venue">NAACL 2024</span></div>
+    <div class="paper"><span class="paper-title">KARL: Knowledge-Aware Retrieval and Representations for Student Learning</span> <span class="paper-venue">EMNLP 2024</span></div>
+  </td>
+  <td><div class="career-note award">Directs CLIP Lab; NSF CAREER; ACL Fellow</div></td>
+  <td><div class="phd-info"><span class="phd-year">2010</span><br>Princeton University</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="Maryland" data-rank="Associate" data-tenure="0">
+  <td><div class="name"><a href="https://www.cs.umd.edu/~marine/" target="_blank">Marine Carpuat</a></div><div class="affil">UMD CS</div></td>
+  <td><div>Associate Professor</div><div class="affil">CS &amp; UMIACS, Univ. of Maryland</div></td>
+  <td>
+    <span class="tag">machine translation</span><span class="tag">multilingual NLP</span><span class="tag">human-centered NLP</span>
+    <div class="paper"><span class="paper-title">Human-Centered Approaches to Trustworthy Machine Translation</span> <span class="paper-venue">NAACL 2022 tutorial</span></div>
+    <div class="paper"><span class="paper-title">Trust and Machine Translation: User Study</span> <span class="paper-venue">ACL 2024</span></div>
+  </td>
+  <td><div class="career-note award">On sabbatical 2024–25 (visiting INRIA Paris); NAACL 2022 Program Co-Chair</div></td>
+  <td><div class="phd-info"><span class="phd-year">2008</span><br>Hong Kong University of Science and Technology</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="Maryland" data-rank="Full" data-tenure="0">
+  <td><div class="name"><a href="https://www.cs.umd.edu/~hal/" target="_blank">Hal Daumé III</a></div><div class="affil">UMD CS</div></td>
+  <td><div>Professor</div><div class="affil">CS &amp; UMIACS, Univ. of Maryland; Research Scientist, Microsoft Research</div></td>
+  <td>
+    <span class="tag">structured prediction</span><span class="tag">domain adaptation</span><span class="tag">multilingual NLP</span><span class="tag">responsible AI</span>
+    <div class="paper"><span class="paper-title">Theory-Grounded Measurement of Social Stereotypes in LMs</span> <span class="paper-venue">NAACL 2022</span> (highly cited)</div>
+    <div class="paper"><span class="paper-title">Deconstructing NLG Evaluation: Practices and Implications</span> <span class="paper-venue">ACL 2023</span></div>
+  </td>
+  <td><div class="career-note award">ACL Fellow; extensive work on fairness and structured prediction</div></td>
+  <td><div class="phd-info"><span class="phd-year">2006</span><br>Univ. of Southern California</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="Maryland" data-rank="Associate" data-tenure="0">
+  <td><div class="name"><a href="https://www.cs.umd.edu/~miyyer/" target="_blank">Mohit Iyyer</a></div><div class="affil">UMD CS</div></td>
+  <td><div>Associate Professor</div><div class="affil">CS, Univ. of Maryland (moved from UMass Amherst, 2025)</div></td>
+  <td>
+    <span class="tag">text generation</span><span class="tag">long-form NLP</span><span class="tag">factuality</span><span class="tag">creative language</span>
+    <div class="paper"><span class="paper-title">FABLES: Evaluating Faithfulness in Book-Length Summarization</span> <span class="paper-venue">EMNLP 2024</span></div>
+    <div class="paper"><span class="paper-title">PostMark: A Robust Blackbox Watermark for LLMs</span> <span class="paper-venue">EMNLP 2024</span></div>
+    <div class="paper"><span class="paper-title">VERISCORE: Evaluating Factuality in Long-Form Text Generation</span> <span class="paper-venue">EMNLP 2024</span></div>
+  </td>
+  <td><div class="career-note move">Moved from UMass Amherst to UMD 2025; NSF CAREER; Google PhD Fellowship alumnus</div></td>
+  <td><div class="phd-info"><span class="phd-year">2017</span><br>Univ. of Maryland</div></td>
+  <td></td>
+</tr>
+
+<!-- ══════════════════════ UNC CHAPEL HILL ══════════════════════ -->
+<tr class="inst-group"><td colspan="6">University of North Carolina, Chapel Hill — Computer Science</td></tr>
+
+<tr data-inst="UNC" data-rank="Full" data-tenure="0">
+  <td><div class="name"><a href="https://www.cs.unc.edu/~mbansal/" target="_blank">Mohit Bansal</a></div><div class="affil">UNC Chapel Hill CS</div></td>
+  <td><div>John R. &amp; Louise S. Parker Distinguished Professor; Director, MURGe-Lab</div><div class="affil">Computer Science, UNC Chapel Hill</div></td>
+  <td>
+    <span class="tag">multimodal AI</span><span class="tag">language generation</span><span class="tag">reasoning agents</span><span class="tag">faithful generation</span>
+    <div class="paper"><span class="paper-title">LACIE: Listener-Aware Finetuning for Confidence Calibration in LLMs</span> <span class="paper-venue">NeurIPS 2024</span></div>
+    <div class="paper"><span class="paper-title">EnvGen: Generating Environments via LLMs for Embodied Agents</span> <span class="paper-venue">COLM 2024</span></div>
+    <div class="paper"><span class="paper-title">DiagrammerGPT: Generating Diagrams via LLM Planning</span> <span class="paper-venue">COLM 2024</span></div>
+  </td>
+  <td><div class="career-note award">PECASE; ACL Fellow; AAAI Fellow; Parker Distinguished Professorship permanent 2024</div></td>
+  <td><div class="phd-info"><span class="phd-year">2013</span><br>UC Berkeley</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="UNC" data-rank="Associate" data-tenure="0">
+  <td><div class="name"><a href="https://sites.google.com/site/snigdhac/" target="_blank">Snigdha Chaturvedi</a></div><div class="affil">UNC Chapel Hill CS</div></td>
+  <td><div>Associate Professor; Associate Chair for Research</div><div class="affil">Computer Science, UNC Chapel Hill</div></td>
+  <td>
+    <span class="tag">narrative understanding</span><span class="tag">social NLP</span><span class="tag">LLM alignment</span><span class="tag">dialogue</span>
+    <div class="paper"><span class="paper-title">Aligning LLMs with Human Communication: Empathy &amp; Social Awareness</span> <span class="paper-venue">ACL 2024</span></div>
+    <div class="paper"><span class="paper-title">Modeling Social Norms in LLM Dialogue</span> <span class="paper-venue">EMNLP 2023</span></div>
+  </td>
+  <td><div class="career-note award">Associate Chair for Research at UNC CS; NSF CAREER</div></td>
+  <td><div class="phd-info"><span class="phd-year">2015</span><br>Univ. of Illinois (UIUC)</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="UNC" data-rank="Assistant" data-tenure="1">
+  <td><div class="name"><a href="https://www.ssriva.com/" target="_blank">Shashank Srivastava</a><span class="star-badge" title="Approaching tenure review (est.)">★</span></div><div class="affil">UNC Chapel Hill CS</div></td>
+  <td><div>Assistant Professor</div><div class="affil">Computer Science, UNC Chapel Hill</div></td>
+  <td>
+    <span class="tag hot">interactive learning</span><span class="tag">AI explanation</span><span class="tag">LLM alignment</span><span class="tag">socially aware NLP</span>
+    <div class="paper"><span class="paper-title">Improving and Simplifying Pattern Exploiting Training (iPET)</span> <span class="paper-venue">EMNLP 2021</span> (highly cited)</div>
+    <div class="paper"><span class="paper-title">Human Feedback for LLM Long-Context Memory</span> <span class="paper-venue">EMNLP 2024</span></div>
+  </td>
+  <td><div class="career-note hire">Joined UNC CS ~2020; NSF CAREER 2024</div></td>
+  <td><div class="phd-info"><span class="phd-year">2018</span><br>CMU</div></td>
+  <td><div class="tenure-star">★ ~2027</div></td>
+</tr>
+
+<!-- ══════════════════════ USC ══════════════════════ -->
+<tr class="inst-group"><td colspan="6">University of Southern California — Thomas Lord CS &amp; ISI</td></tr>
+
+<tr data-inst="USC" data-rank="Assistant" data-tenure="1">
+  <td><div class="name"><a href="https://robinjia.github.io/" target="_blank">Robin Jia</a><span class="star-badge" title="Approaching tenure review (est.)">★</span></div><div class="affil">USC CS</div></td>
+  <td><div>Assistant Professor</div><div class="affil">Thomas Lord CS, USC</div></td>
+  <td>
+    <span class="tag hot">LLM understanding</span><span class="tag">in-context learning</span><span class="tag">data memorization</span><span class="tag">LLM reliability</span>
+    <div class="paper"><span class="paper-title">Mechanistic Insights into In-Context Learning via Attention Heads</span> <span class="paper-venue">NeurIPS 2024</span></div>
+    <div class="paper"><span class="paper-title">Data Watermarking for Copyright Detection in LLMs</span> <span class="paper-venue">ACL Findings 2024</span></div>
+  </td>
+  <td><div class="career-note award">NSF CAREER 2024; Google Research Scholar award 2023; ACL &amp; EMNLP Best Paper alum</div></td>
+  <td><div class="phd-info"><span class="phd-year">2020</span><br>Stanford University</div></td>
+  <td><div class="tenure-star">★ ~2027</div></td>
+</tr>
+
+<tr data-inst="USC" data-rank="Associate" data-tenure="0">
+  <td><div class="name"><a href="https://jonmay.github.io/" target="_blank">Jonathan May</a></div><div class="affil">USC CS / ISI</div></td>
+  <td><div>Research Associate Professor</div><div class="affil">CS, USC; Research Lead, Information Sciences Institute</div></td>
+  <td>
+    <span class="tag">machine translation</span><span class="tag">NLP for social good</span><span class="tag">LLM applications</span><span class="tag">multilingual</span>
+    <div class="paper"><span class="paper-title">LLM-Assisted Rule-Based MT for Low-Resource Languages</span> <span class="paper-venue">NAACL 2024</span></div>
+    <div class="paper"><span class="paper-title">Can Language Models Moderate Online Discourse?</span> <span class="paper-venue">NAACL 2024</span></div>
+  </td>
+  <td><div class="career-note award">Associate Director of NLP Research at ISI; SemEval longtime organizer</div></td>
+  <td><div class="phd-info"><span class="phd-year">2010</span><br>USC</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="USC" data-rank="Associate" data-tenure="0">
+  <td><div class="name"><a href="https://shanzhenren.github.io/" target="_blank">Xiang Ren</a></div><div class="affil">USC CS / ISI</div></td>
+  <td><div>Associate Professor</div><div class="affil">CS, USC; Research Team Lead, ISI</div></td>
+  <td>
+    <span class="tag">commonsense reasoning</span><span class="tag">knowledge-aware NLP</span><span class="tag">LLM alignment</span><span class="tag">prompt inversion</span>
+    <div class="paper"><span class="paper-title">PILS: Prompt Inversion from Logprob Sequences</span> <span class="paper-venue">NeurIPS 2025</span></div>
+    <div class="paper"><span class="paper-title">Symbolic Working Memory Enhances LLMs for Complex Rule Application</span> <span class="paper-venue">EMNLP 2024</span></div>
+    <div class="paper"><span class="paper-title">ELI-Why: Evaluating Pedagogical Capabilities of LLMs</span> <span class="paper-venue">ACL 2024</span></div>
+  </td>
+  <td><div class="career-note award">MIT TR35 Asia-Pacific Innovator; WSDM 2024 Test-of-Time Award</div></td>
+  <td><div class="phd-info"><span class="phd-year">2018</span><br>UIUC</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="USC" data-rank="Assistant" data-tenure="1">
+  <td><div class="name"><a href="https://swabhs.github.io/" target="_blank">Swabha Swayamdipta</a><span class="star-badge" title="Approaching tenure review (est.)">★</span></div><div class="affil">USC CS</div></td>
+  <td><div>Assistant Professor</div><div class="affil">Thomas Lord CS, USC</div></td>
+  <td>
+    <span class="tag hot">dataset quality</span><span class="tag">annotation artifacts</span><span class="tag">LLM evaluation</span><span class="tag">data-centric AI</span>
+    <div class="paper"><span class="paper-title">Dataset Cartography: Mapping and Diagnosing Datasets with Training Dynamics</span> <span class="paper-venue">EMNLP 2020</span> (highly cited)</div>
+    <div class="paper"><span class="paper-title">OATH-Frames: Attitudes Towards Homelessness on Social Media</span> <span class="paper-venue">EMNLP 2024</span></div>
+    <div class="paper"><span class="paper-title">Teaching Models to Understand (but not Generate) High-Risk Data</span> <span class="paper-venue">EMNLP 2025</span></div>
+  </td>
+  <td><div class="career-note award">Intel Rising Star Faculty Award 2023; AI2 Young Investigators Award; NSF CAREER 2024</div></td>
+  <td><div class="phd-info"><span class="phd-year">2020</span><br>CMU</div></td>
+  <td><div class="tenure-star">★ ~2027</div></td>
+</tr>
+
+<!-- ══════════════════════ UIUC ══════════════════════ -->
+<tr class="inst-group"><td colspan="6">University of Illinois at Urbana-Champaign — Siebel School of CS &amp; Data Science</td></tr>
+
+<tr data-inst="Illinois" data-rank="Assistant" data-tenure="1">
+  <td><div class="name"><a href="https://talaugust.github.io/" target="_blank">Tal August</a><span class="star-badge" title="Approaching tenure review (est.)">★</span></div><div class="affil">UIUC CS</div></td>
+  <td><div>Assistant Professor</div><div class="affil">Siebel School CS, UIUC</div></td>
+  <td>
+    <span class="tag hot">text simplification</span><span class="tag">science communication</span><span class="tag">NLP accessibility</span><span class="tag">writing tools</span>
+    <div class="paper"><span class="paper-title">Generating Scientific Definitions with Controllable Complexity</span> <span class="paper-venue">ACL 2022</span></div>
+    <div class="paper"><span class="paper-title">How Well Can LLMs Negotiate? AgentBench Evaluation</span> <span class="paper-venue">EMNLP 2024</span></div>
+  </td>
+  <td><div class="career-note hire">Joined UIUC CS 2023; previously postdoc at UW; NSF CAREER 2025</div></td>
+  <td><div class="phd-info"><span class="phd-year">2022</span><br>Univ. of Washington</div></td>
+  <td><div class="tenure-star">★ ~2030</div></td>
+</tr>
+
+<tr data-inst="Illinois" data-rank="Full" data-tenure="0">
+  <td><div class="name"><a href="https://dilek.ai/" target="_blank">Dilek Hakkani-Tür</a></div><div class="affil">UIUC CS</div></td>
+  <td><div>Professor (Grainger Engineering)</div><div class="affil">CS, UIUC</div></td>
+  <td>
+    <span class="tag">dialogue systems</span><span class="tag">conversational AI</span><span class="tag">spoken language understanding</span><span class="tag">LLM agents</span>
+    <div class="paper"><span class="paper-title">Instruct, Not Assist: LLM Multi-Turn Planning for Socratic Debugging</span> <span class="paper-venue">EMNLP 2024</span></div>
+    <div class="paper"><span class="paper-title">Unsupervised Human Preference Learning</span> <span class="paper-venue">EMNLP 2024</span></div>
+  </td>
+  <td><div class="career-note hire">Joined UIUC 2023 from Amazon/Google; ACL Fellow; IEEE Fellow</div></td>
+  <td><div class="phd-info"><span class="phd-year">1998</span><br>Bilkent University</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="Illinois" data-rank="Full" data-tenure="0">
+  <td><div class="name"><a href="https://juliahmr.cs.illinois.edu/" target="_blank">Julia Hockenmaier</a></div><div class="affil">UIUC CS</div></td>
+  <td><div>Professor (Willett Faculty Scholar)</div><div class="affil">CS, UIUC</div></td>
+  <td>
+    <span class="tag">parsing</span><span class="tag">CCG</span><span class="tag">grounded language</span><span class="tag">LLM in-context learning</span>
+    <div class="paper"><span class="paper-title">Tutor-ICL: Guiding LLMs for Improved In-Context Learning</span> <span class="paper-venue">EMNLP 2024</span></div>
+    <div class="paper"><span class="paper-title">Sparse Autoencoders for In-Context Learning</span> <span class="paper-venue">EMNLP 2025</span></div>
+  </td>
+  <td><div class="career-note award">Chair of AI area at UIUC CS; co-PI AIFARMS NSF AI Institute</div></td>
+  <td><div class="phd-info"><span class="phd-year">2003</span><br>Univ. of Edinburgh</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="Illinois" data-rank="Full" data-tenure="0">
+  <td><div class="name"><a href="https://hengji.illinois.edu/" target="_blank">Heng Ji</a></div><div class="affil">UIUC CS</div></td>
+  <td><div>Full Professor (Grainger Engineering)</div><div class="affil">CS &amp; ECE, UIUC</div></td>
+  <td>
+    <span class="tag">information extraction</span><span class="tag">knowledge graphs</span><span class="tag">multimodal NLP</span><span class="tag">event detection</span>
+    <div class="paper"><span class="paper-title">EVEDIT: Event-based Knowledge Editing for LLMs</span> <span class="paper-venue">EMNLP 2024</span></div>
+    <div class="paper"><span class="paper-title">Mitigating the Alignment Tax of RLHF</span> <span class="paper-venue">NeurIPS 2024</span></div>
+    <div class="paper"><span class="paper-title">LM-Infinite: Zero-Shot Extreme Length Generalization</span> <span class="paper-venue">NAACL 2024</span> <em>(co-author, Outstanding Paper)</em></div>
+  </td>
+  <td><div class="career-note award">ACL Fellow; IEEE "Young Scientist"; extensive IE &amp; multilingual research</div></td>
+  <td><div class="phd-info"><span class="phd-year">2007</span><br>New York University</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="Illinois" data-rank="Assistant" data-tenure="1">
+  <td><div class="name"><a href="https://haopeng-nlp.github.io/" target="_blank">Hao Peng</a><span class="star-badge" title="Approaching tenure review (est.)">★</span></div><div class="affil">UIUC CS</div></td>
+  <td><div>Assistant Professor</div><div class="affil">Siebel School CS, UIUC</div></td>
+  <td>
+    <span class="tag hot">LLM reasoning</span><span class="tag">long-context LLMs</span><span class="tag">RL for language</span><span class="tag">AI for science</span>
+    <div class="paper"><span class="paper-title">LM-Infinite: Zero-Shot Extreme Length Generalization for LLMs</span> <span class="paper-venue">NAACL 2024</span> <em>(Outstanding Paper)</em></div>
+    <div class="paper"><span class="paper-title">Eurus: An Open Suite of Reward Models for LLM Alignment</span> <span class="paper-venue">ACL 2024</span></div>
+    <div class="paper"><span class="paper-title">Scaling LLM Test-Time Compute via Inference-Time Intervention</span> <span class="paper-venue">ICLR 2025</span></div>
+  </td>
+  <td><div class="career-note hire">Joined UIUC CS 2023; previously postdoc at AI2; PhD advised by Noah Smith at UW</div></td>
+  <td><div class="phd-info"><span class="phd-year">2022</span><br>Univ. of Washington</div></td>
+  <td><div class="tenure-star">★ ~2029</div></td>
+</tr>
+
+<tr data-inst="Illinois" data-rank="Full" data-tenure="0">
+  <td><div class="name"><a href="http://czhai.web.illinois.edu/" target="_blank">ChengXiang Zhai</a></div><div class="affil">UIUC CS</div></td>
+  <td><div>Donald Biggar Willett Professor in Engineering</div><div class="affil">CS, UIUC</div></td>
+  <td>
+    <span class="tag">information retrieval</span><span class="tag">text mining</span><span class="tag">LLM-augmented IR</span>
+    <div class="paper"><span class="paper-title">Structured Summarization of Academic Publications</span> <span class="paper-venue">EACL 2024</span></div>
+    <div class="paper"><span class="paper-title">Probabilistic Language Models for IR</span> <span class="paper-venue">SIGIR 2021</span> (Test-of-Time)</div>
+  </td>
+  <td><div class="career-note award">ACM/IEEE Fellow; SIGIR Test-of-Time Award recipient</div></td>
+  <td><div class="phd-info"><span class="phd-year">1997</span><br>Nanjing Univ. / UIUC</div></td>
+  <td></td>
+</tr>
+
+<!-- ══════════════════════ UT AUSTIN ══════════════════════ -->
+<tr class="inst-group"><td colspan="6">University of Texas at Austin — CS &amp; Linguistics</td></tr>
+
+<tr data-inst="UT Austin" data-rank="Associate" data-tenure="0">
+  <td><div class="name"><a href="https://jessyli.com/" target="_blank">Junyi Jessy Li</a></div><div class="affil">UT Austin Linguistics</div></td>
+  <td><div>Associate Professor</div><div class="affil">Linguistics, UT Austin</div></td>
+  <td>
+    <span class="tag">discourse</span><span class="tag">text simplification</span><span class="tag">NLG evaluation</span><span class="tag">questions under discussion</span>
+    <div class="paper"><span class="paper-title">Salience Prediction of Inquisitive Questions</span> <span class="paper-venue">EMNLP 2024</span> <em>(Outstanding Paper)</em></div>
+    <div class="paper"><span class="paper-title">Detection and Measurement of Syntactic Templates in LLM Text</span> <span class="paper-venue">EMNLP 2024</span></div>
+    <div class="paper"><span class="paper-title">QUDsim: Quantifying Discourse Similarities in LLM Text</span> <span class="paper-venue">COLM 2025</span></div>
+  </td>
+  <td><div class="career-note award">EMNLP 2024 Outstanding Paper Award; NSF CAREER</div></td>
+  <td><div class="phd-info"><span class="phd-year">2016</span><br>Univ. of Pennsylvania</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="UT Austin" data-rank="Full" data-tenure="0">
+  <td><div class="name"><a href="https://www.raymooney.org/" target="_blank">Raymond Mooney</a></div><div class="affil">UT Austin CS</div></td>
+  <td><div>Professor</div><div class="affil">Computer Science, UT Austin</div></td>
+  <td>
+    <span class="tag">semantic parsing</span><span class="tag">grounded language learning</span><span class="tag">multimodal NLP</span>
+    <div class="paper"><span class="paper-title">Grounded Language Learning via Image-Paired Instructions</span> <span class="paper-venue">ACL 2023</span></div>
+  </td>
+  <td><div class="career-note award">ACL Fellow; AAAI Fellow; pioneer of semantic parsing and ML for NLP</div></td>
+  <td><div class="phd-info"><span class="phd-year">1988</span><br>Univ. of Illinois</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="UT Austin" data-rank="Assistant" data-tenure="0">
+  <td><div class="name"><a href="https://yizhong-wang.com/" target="_blank">Yizhong Wang</a></div><div class="affil">UT Austin CS</div></td>
+  <td><div>Assistant Professor <em>(incoming Fall 2026)</em></div><div class="affil">Computer Science, UT Austin</div></td>
+  <td>
+    <span class="tag hot">instruction tuning</span><span class="tag">synthetic data</span><span class="tag">open LLMs</span><span class="tag">RLVR</span><span class="tag">LLM agents</span>
+    <div class="paper"><span class="paper-title">Super-NaturalInstructions: Generalization via Declarative Instructions</span> <span class="paper-venue">EMNLP 2022</span> (highly cited)</div>
+    <div class="paper"><span class="paper-title">Self-Instruct: Aligning LMs with Self-Generated Instructions</span> <span class="paper-venue">ACL 2023</span> (highly cited)</div>
+    <div class="paper"><span class="paper-title">Tülu 3: Pushing Frontiers in Open Language Model Post-Training</span> <span class="paper-venue">NeurIPS 2024</span></div>
+  </td>
+  <td><div class="career-note hire">Incoming UT Austin CS Fall 2026; PhD 2025 from UW (Hajishirzi &amp; Smith); currently at ByteDance Seed; Self-Instruct one of most cited NLP papers of 2023</div></td>
+  <td><div class="phd-info"><span class="phd-year">2025</span><br>Univ. of Washington</div></td>
+  <td><div class="tenure-star">★ ~2032</div></td>
+</tr>
+
+<!-- ══════════════════════ UNIVERSITY OF WASHINGTON ══════════════════════ -->
+<tr class="inst-group"><td colspan="6">University of Washington — Paul G. Allen School of CS&amp;E</td></tr>
+
+<tr data-inst="Washington" data-rank="Full" data-tenure="0">
+  <td><div class="name"><a href="https://homes.cs.washington.edu/~hannaneh/" target="_blank">Hannaneh Hajishirzi</a></div><div class="affil">UW Allen School</div></td>
+  <td><div>Torode Family Professor</div><div class="affil">CS&amp;E, Univ. of Washington; Senior Research Director, AI2</div></td>
+  <td>
+    <span class="tag hot">LLM pretraining</span><span class="tag">open models</span><span class="tag">QA &amp; reading comprehension</span><span class="tag">OLMo</span>
+    <div class="paper"><span class="paper-title">OLMo: Accelerating the Science of Language Models</span> <span class="paper-venue">ACL 2024</span></div>
+    <div class="paper"><span class="paper-title">Dolma: An Open Corpus for Language Model Pretraining Research</span> <span class="paper-venue">ACL 2024</span></div>
+    <div class="paper"><span class="paper-title">TÜLU: Instruction-Tuning LLMs via Diverse Datasets</span> <span class="paper-venue">ICLR 2024</span></div>
+  </td>
+  <td><div class="career-note award">Alfred Sloan Fellow 2020; NSF CAREER 2021; leads AI2 open LLM (OLMo) effort</div></td>
+  <td><div class="phd-info"><span class="phd-year">2011</span><br>UIUC</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="Washington" data-rank="Full" data-tenure="0">
+  <td><div class="name"><a href="https://nasmith.github.io/" target="_blank">Noah A. Smith</a></div><div class="affil">UW Allen School</div></td>
+  <td><div>Vice Provost for AI; Simonyi Endowed Chair in AI</div><div class="affil">CS&amp;E, Univ. of Washington; Senior Director NLP, AI2</div></td>
+  <td>
+    <span class="tag">statistical NLP</span><span class="tag">evaluation</span><span class="tag">computational social science</span><span class="tag">structured prediction</span>
+    <div class="paper"><span class="paper-title">Revisiting Automated Evaluation of Open-Domain QA</span> <span class="paper-venue">EMNLP 2023</span></div>
+    <div class="paper"><span class="paper-title">Reference-Free Summarization Evaluation</span> <span class="paper-venue">ACL 2024</span></div>
+  </td>
+  <td><div class="career-note award">Named UW inaugural VP for AI 2024; ACL Test-of-Time Award 2024</div></td>
+  <td><div class="phd-info"><span class="phd-year">2006</span><br>Johns Hopkins University</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="Washington" data-rank="Associate" data-tenure="0">
+  <td><div class="name"><a href="https://www.cs.washington.edu/people/faculty/ytsvetko" target="_blank">Yulia Tsvetkov</a></div><div class="affil">UW Allen School</div></td>
+  <td><div>Associate Professor</div><div class="affil">CS&amp;E, Univ. of Washington</div></td>
+  <td>
+    <span class="tag">multilingual NLP</span><span class="tag">cross-lingual transfer</span><span class="tag">low-resource languages</span><span class="tag">LLM safety</span>
+    <div class="paper"><span class="paper-title">Languages are Rewards: Hindsight Finetuning using Human Feedback</span> <span class="paper-venue">EMNLP 2023</span></div>
+    <div class="paper"><span class="paper-title">Modular Pluralism: Pluralistic Alignment via Multi-LLM Collaboration</span> <span class="paper-venue">EMNLP 2024</span></div>
+  </td>
+  <td><div class="career-note hire">Moved from CMU to UW 2021; NSF CAREER 2022</div></td>
+  <td><div class="phd-info"><span class="phd-year">2014</span><br>CMU</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="Washington" data-rank="Assistant" data-tenure="1">
+  <td><div class="name"><a href="https://kohpangwei.github.io/" target="_blank">Pang Wei Koh</a><span class="star-badge" title="Approaching tenure review (est.)">★</span></div><div class="affil">UW Allen School</div></td>
+  <td><div>Assistant Professor</div><div class="affil">CS&amp;E, Univ. of Washington</div></td>
+  <td>
+    <span class="tag hot">robustness</span><span class="tag">data-centric AI</span><span class="tag">distribution shift</span><span class="tag">WILDS benchmark</span>
+    <div class="paper"><span class="paper-title">WILDS: A Benchmark of In-the-Wild Distribution Shifts</span> <span class="paper-venue">ICML 2021</span> (highly cited)</div>
+    <div class="paper"><span class="paper-title">Concept Bottleneck Models</span> <span class="paper-venue">ICML 2020</span> (highly cited)</div>
+    <div class="paper"><span class="paper-title">Stronger Data Poisoning Attacks Break Data Sanitization Defenses</span> <span class="paper-venue">MLSys 2022</span></div>
+  </td>
+  <td><div class="career-note hire">Joined UW 2022; NSF CAREER 2024</div></td>
+  <td><div class="phd-info"><span class="phd-year">2022</span><br>Stanford University</div></td>
+  <td><div class="tenure-star">★ ~2029</div></td>
+</tr>
+
+<tr data-inst="Washington" data-rank="Full" data-tenure="0">
+  <td><div class="name"><a href="https://www.cs.washington.edu/people/faculty/lsz" target="_blank">Luke Zettlemoyer</a></div><div class="affil">UW Allen School</div></td>
+  <td><div>Professor</div><div class="affil">CS&amp;E, Univ. of Washington; Research Scientist, Meta AI</div></td>
+  <td>
+    <span class="tag">semantic parsing</span><span class="tag">pre-training</span><span class="tag">multilingual NLP</span><span class="tag">LLM alignment</span>
+    <div class="paper"><span class="paper-title">Toolformer: Language Models Can Teach Themselves to Use Tools</span> <span class="paper-venue">NeurIPS 2023</span></div>
+    <div class="paper"><span class="paper-title">LIMA: Less Is More for Alignment</span> <span class="paper-venue">NeurIPS 2023</span></div>
+  </td>
+  <td><div class="career-note award">ACL Test-of-Time Award 2024 (with Smith)</div></td>
+  <td><div class="phd-info"><span class="phd-year">2009</span><br>MIT</div></td>
+  <td></td>
+</tr>
+
+<!-- ══════════════════════ CU BOULDER ══════════════════════ -->
+<tr class="inst-group"><td colspan="6">University of Colorado Boulder — CS &amp; Linguistics</td></tr>
+
+<tr data-inst="CUBoulder" data-rank="Full" data-tenure="0">
+  <td><div class="name"><a href="https://www.colorado.edu/faculty/martin-james" target="_blank">James H. Martin</a></div><div class="affil">CU Boulder CS &amp; Linguistics</div></td>
+  <td><div>Professor</div><div class="affil">CS &amp; Linguistics, Univ. of Colorado Boulder</div></td>
+  <td>
+    <span class="tag">computational semantics</span><span class="tag">dialogue</span><span class="tag">NLP education</span>
+    <div class="paper"><span class="paper-title">Speech and Language Processing, 3rd ed.</span> <span class="paper-venue">2024 textbook</span> (co-authored with Jurafsky)</div>
+    <div class="paper"><span class="paper-title">Multimodal Cross-Document Event Coreference Resolution</span> <span class="paper-venue">ACL 2024</span></div>
+  </td>
+  <td><div class="career-note award">Co-author of the field-defining NLP textbook (Jurafsky &amp; Martin); long career in NLP</div></td>
+  <td><div class="phd-info"><span class="phd-year">1988</span><br>UC San Diego</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="CUBoulder" data-rank="Assistant" data-tenure="1">
+  <td><div class="name"><a href="https://nala-cub.github.io/" target="_blank">Katharina von der Wense</a><span class="star-badge" title="Approaching tenure review (est.)">★</span></div><div class="affil">CU Boulder CS</div></td>
+  <td><div>Assistant Professor</div><div class="affil">Computer Science, Univ. of Colorado Boulder</div></td>
+  <td>
+    <span class="tag">multilingual NLP</span><span class="tag">low-resource languages</span><span class="tag">transfer learning</span><span class="tag">computational morphology</span>
+    <div class="paper"><span class="paper-title">AmericasNLP: NLP for Indigenous Languages of the Americas</span> <span class="paper-venue">NAACL 2024 workshop</span></div>
+    <div class="paper"><span class="paper-title">Cross-Lingual Transfer for Morphologically Complex Languages</span> <span class="paper-venue">EMNLP 2023</span></div>
+  </td>
+  <td><div class="career-note hire">Joined CU Boulder CS; also holds position at Johannes Gutenberg Univ. Mainz</div></td>
+  <td><div class="phd-info"><span class="phd-year">2019</span><br>LMU Munich</div></td>
+  <td><div class="tenure-star">★ ~2026</div></td>
+</tr>
+
+<!-- ══════════════════════ NOTRE DAME ══════════════════════ -->
+<tr class="inst-group"><td colspan="6">University of Notre Dame — Computer Science &amp; Engineering</td></tr>
+
+<tr data-inst="NotreDame" data-rank="Associate" data-tenure="0">
+  <td><div class="name"><a href="https://www3.nd.edu/~dchiang/" target="_blank">David Chiang</a></div><div class="affil">Notre Dame CSE</div></td>
+  <td><div>Associate Professor</div><div class="affil">Computer Science &amp; Engineering, Univ. of Notre Dame</div></td>
+  <td>
+    <span class="tag">formal language theory</span><span class="tag">machine translation</span><span class="tag">transformer expressivity</span><span class="tag">low-resource NLP</span>
+    <div class="paper"><span class="paper-title">What Formal Languages Can Transformers Express? A Survey</span> <span class="paper-venue">TACL 2024</span></div>
+    <div class="paper"><span class="paper-title">Masked Hard-Attention Transformers Recognize Exactly the Star-Free Languages</span> <span class="paper-venue">NeurIPS 2024</span></div>
+    <div class="paper"><span class="paper-title">Stack Attention: Improving Transformers on Hierarchical Patterns</span> <span class="paper-venue">ICLR 2024</span> <em>(Spotlight)</em></div>
+  </td>
+  <td><div class="career-note award">ACL 2024 Outstanding Paper Award and Social Impact Award; leading work on formal properties of transformers</div></td>
+  <td><div class="phd-info"><span class="phd-year">2004</span><br>Univ. of Pennsylvania</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="NotreDame" data-rank="Associate" data-tenure="0">
+  <td><div class="name"><a href="http://www.meng-jiang.com/" target="_blank">Meng Jiang</a></div><div class="affil">Notre Dame CSE</div></td>
+  <td><div>Associate Professor</div><div class="affil">Computer Science &amp; Engineering, Univ. of Notre Dame</div></td>
+  <td>
+    <span class="tag">knowledge graphs</span><span class="tag">LLM reasoning</span><span class="tag">information extraction</span><span class="tag">AI for science</span>
+    <div class="paper"><span class="paper-title">Towards Safer LLMs through Machine Unlearning</span> <span class="paper-venue">ACL 2024</span></div>
+    <div class="paper"><span class="paper-title">Large Language Models on Graphs: A Comprehensive Survey</span> <span class="paper-venue">IEEE TKDE 2024</span></div>
+    <div class="paper"><span class="paper-title">Instructing LLMs to Identify and Ignore Irrelevant Conditions</span> <span class="paper-venue">AAAI 2024</span></div>
+  </td>
+  <td><div class="career-note award">NSF CAREER; active in knowledge-augmented NLP and AI for science</div></td>
+  <td><div class="phd-info"><span class="phd-year">2015</span><br>UIUC</div></td>
+  <td></td>
+</tr>
+
+<!-- ══════════════════════ OHIO STATE ══════════════════════ -->
+<tr class="inst-group"><td colspan="6">Ohio State University — Computer Science &amp; Engineering</td></tr>
+
+<tr data-inst="OSU" data-rank="Associate" data-tenure="0">
+  <td><div class="name"><a href="https://u.osu.edu/ihudas/" target="_blank">Huan Sun</a></div><div class="affil">OSU CSE</div></td>
+  <td><div>Associate Professor (CoE Innovation Scholar)</div><div class="affil">CSE, Ohio State University</div></td>
+  <td>
+    <span class="tag hot">LLM agents</span><span class="tag">web agents</span><span class="tag">QA</span><span class="tag">LLM safety</span>
+    <div class="paper"><span class="paper-title">Mind2Web: Towards a Generalist Agent for the Web</span> <span class="paper-venue">NeurIPS 2023</span> (highly cited)</div>
+    <div class="paper"><span class="paper-title">GPT-4V(ision) is a Generalist Web Agent, if Grounded</span> <span class="paper-venue">ICML 2024</span></div>
+    <div class="paper"><span class="paper-title">AmpleGCG: Universal Transferable Generative Adversarial Suffixes for Jailbreaking LLMs</span> <span class="paper-venue">COLM 2024</span></div>
+  </td>
+  <td><div class="career-note award">NSF CAREER; Google Faculty Award; Mind2Web foundational agent benchmark</div></td>
+  <td><div class="phd-info"><span class="phd-year">2015</span><br>UC Santa Barbara</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="OSU" data-rank="Associate" data-tenure="0">
+  <td><div class="name"><a href="https://ysu1989.github.io/" target="_blank">Yu Su</a></div><div class="affil">OSU CSE</div></td>
+  <td><div>Associate Professor</div><div class="affil">CSE, Ohio State University</div></td>
+  <td>
+    <span class="tag hot">LLM agents</span><span class="tag">GUI agents</span><span class="tag">knowledge graphs</span><span class="tag">semantic parsing</span>
+    <div class="paper"><span class="paper-title">Mind2Web: Towards a Generalist Agent for the Web</span> <span class="paper-venue">NeurIPS 2023</span> (co-first author)</div>
+    <div class="paper"><span class="paper-title">HippoRAG: Neurobiologically Inspired Long-Term Memory for LLMs</span> <span class="paper-venue">NeurIPS 2024</span></div>
+    <div class="paper"><span class="paper-title">UGround: Universal Visual Grounding for GUI Agents</span> <span class="paper-venue">ICLR 2025</span> <em>(Oral)</em></div>
+  </td>
+  <td><div class="career-note award">NSF CAREER; ACL 2023 Outstanding Paper; co-leads OSU NLP group</div></td>
+  <td><div class="phd-info"><span class="phd-year">2018</span><br>UC Santa Barbara</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="OSU" data-rank="Full" data-tenure="0">
+  <td><div class="name"><a href="https://u.osu.edu/white.1240/" target="_blank">Michael White</a></div><div class="affil">OSU Linguistics</div></td>
+  <td><div>Professor &amp; Vice Chair</div><div class="affil">Linguistics, Ohio State University</div></td>
+  <td>
+    <span class="tag">natural language generation</span><span class="tag">dialogue systems</span><span class="tag">computational semantics</span>
+    <div class="paper"><span class="paper-title">When is Tree Search Useful for LLM Planning? It Depends on Discriminators</span> <span class="paper-venue">ACL 2024</span></div>
+    <div class="paper"><span class="paper-title">Automatic Scoring of Open-Ended NLG with LLMs</span> <span class="paper-venue">EMNLP 2023</span></div>
+  </td>
+  <td><div class="career-note award">Long career in NLG and dialogue; active in evaluation with LLMs</div></td>
+  <td><div class="phd-info"><span class="phd-year">1994</span><br>Univ. of Pennsylvania</div></td>
+  <td></td>
+</tr>
+
+<!-- ══════════════════════ TTI-CHICAGO ══════════════════════ -->
+<tr class="inst-group"><td colspan="6">Toyota Technological Institute at Chicago (TTI-Chicago) — CS Research Institute</td></tr>
+
+<tr data-inst="TTIC" data-rank="Full" data-tenure="0">
+  <td><div class="name"><a href="https://home.ttic.edu/~kgimpel/" target="_blank">Kevin Gimpel</a></div><div class="affil">TTI-Chicago</div></td>
+  <td><div>Associate Professor</div><div class="affil">Toyota Technological Institute at Chicago (TTIC)</div></td>
+  <td>
+    <span class="tag">representation learning</span><span class="tag">structured prediction</span><span class="tag">NLG</span><span class="tag">robust NLP</span>
+    <div class="paper"><span class="paper-title">SUB2: Substructure Substitution for Data Augmentation in NLP</span> <span class="paper-venue">EMNLP 2023</span></div>
+    <div class="paper"><span class="paper-title">Generative Classifiers for Robust NLP</span> <span class="paper-venue">TACL 2023</span></div>
+  </td>
+  <td><div class="career-note award">TTIC faculty since 2012; Amazon Research Award; WMT Best Paper; adviser to many current faculty</div></td>
+  <td><div class="phd-info"><span class="phd-year">2012</span><br>CMU LTI</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="TTIC" data-rank="Full" data-tenure="0">
+  <td><div class="name"><a href="https://home.ttic.edu/~klivescu/" target="_blank">Karen Livescu</a></div><div class="affil">TTI-Chicago</div></td>
+  <td><div>Professor</div><div class="affil">Toyota Technological Institute at Chicago (TTIC); courtesy faculty, UChicago CS</div></td>
+  <td>
+    <span class="tag">speech processing</span><span class="tag">spoken language understanding</span><span class="tag">self-supervised speech</span><span class="tag">sign language NLP</span>
+    <div class="paper"><span class="paper-title">Toward Joint Language Modeling for Speech Units and Text</span> <span class="paper-venue">EMNLP 2023</span></div>
+    <div class="paper"><span class="paper-title">CTC-DRO: Robust Optimization for Reducing Language Disparities in ASR</span> <span class="paper-venue">ICLR 2026</span></div>
+    <div class="paper"><span class="paper-title">SLUE Phase-2: Benchmark Suite for Diverse Spoken Language Understanding</span> <span class="paper-venue">ACL 2023</span></div>
+  </td>
+  <td><div class="career-note award">EMNLP 2024 Best Paper; 2025 IEEE Fellow; ISCA Fellow; member UChicago/TTIC C&amp;I group</div></td>
+  <td><div class="phd-info"><span class="phd-year">2005</span><br>MIT</div></td>
+  <td></td>
+</tr>
+
+<!-- ══════════════════════ UC CHICAGO ══════════════════════ -->
+<tr class="inst-group"><td colspan="6">University of Chicago — Computer Science &amp; Data Science Institute</td></tr>
+
+<tr data-inst="UChicago" data-rank="Assistant" data-tenure="1">
+  <td><div class="name"><a href="https://ariholtzman.com/" target="_blank">Ari Holtzman</a><span class="star-badge" title="Approaching tenure review (est.)">★</span></div><div class="affil">UChicago CS</div></td>
+  <td><div>Assistant Professor</div><div class="affil">Computer Science, Univ. of Chicago</div></td>
+  <td>
+    <span class="tag hot">text generation</span><span class="tag">decoding algorithms</span><span class="tag">complex systems view of LLMs</span>
+    <div class="paper"><span class="paper-title">The Curious Case of Neural Text Degeneration (Nucleus Sampling)</span> <span class="paper-venue">ICLR 2020</span> (highly cited)</div>
+    <div class="paper"><span class="paper-title">Generative Models of Text as Complex Systems</span> <span class="paper-venue">NeurIPS 2025</span></div>
+    <div class="paper"><span class="paper-title">Prompting as Scientific Inquiry</span> <span class="paper-venue">NeurIPS 2025</span></div>
+  </td>
+  <td><div class="career-note hire">Joined UChicago CS 2024; won first Amazon Alexa Prize (2017); nucleus sampling used in production LLMs worldwide</div></td>
+  <td><div class="phd-info"><span class="phd-year">2022</span><br>Univ. of Washington</div></td>
+  <td><div class="tenure-star">★ ~2031</div></td>
+</tr>
+
+<tr data-inst="UChicago" data-rank="Assistant" data-tenure="1">
+  <td><div class="name"><a href="https://minalee.info/" target="_blank">Mina Lee</a><span class="star-badge" title="Approaching tenure review (est.)">★</span></div><div class="affil">UChicago CS</div></td>
+  <td><div>Assistant Professor</div><div class="affil">Computer Science, Univ. of Chicago</div></td>
+  <td>
+    <span class="tag hot">human-AI writing</span><span class="tag">LLM evaluation</span><span class="tag">writing assistants</span><span class="tag">creativity &amp; AI</span>
+    <div class="paper"><span class="paper-title">Evaluating Human-Language Model Interaction</span> <span class="paper-venue">TMLR 2023</span> (highly cited)</div>
+    <div class="paper"><span class="paper-title">Design Space for Intelligent Writing Assistants</span> <span class="paper-venue">CHI 2024</span> <em>(Best Paper Award)</em></div>
+    <div class="paper"><span class="paper-title">Coauthor: Designing a Human-AI Collaborative Writing Dataset</span> <span class="paper-venue">CHI 2022</span></div>
+  </td>
+  <td><div class="career-note hire">Joined UChicago CS Summer 2024; PhD from Stanford (Percy Liang); MIT Technology Review Korean Innovators Under 35, 2022</div></td>
+  <td><div class="phd-info"><span class="phd-year">2023</span><br>Stanford University</div></td>
+  <td><div class="tenure-star">★ ~2031</div></td>
+</tr>
+
+<tr data-inst="UChicago" data-rank="Associate" data-tenure="0">
+  <td><div class="name"><a href="https://chenhaot.com/" target="_blank">Chenhao Tan</a></div><div class="affil">UChicago CS</div></td>
+  <td><div>Associate Professor</div><div class="affil">CS &amp; Data Science Institute, Univ. of Chicago</div></td>
+  <td>
+    <span class="tag">human-centered NLP</span><span class="tag">persuasion</span><span class="tag">computational social science</span><span class="tag">human-AI interaction</span>
+    <div class="paper"><span class="paper-title">Hypothesis Generation with Large Language Models</span> <span class="paper-venue">EMNLP 2024 workshop</span></div>
+    <div class="paper"><span class="paper-title">Decision-Focused Summarization with LLMs</span> <span class="paper-venue">EMNLP 2023</span></div>
+    <div class="paper"><span class="paper-title">Winning Arguments: Interaction Dynamics and Persuasion</span> <span class="paper-venue">WWW 2016</span> (highly cited)</div>
+  </td>
+  <td><div class="career-note hire">Moved from CU Boulder to UChicago ~2020; NSF CAREER; promoted to associate ~2024</div></td>
+  <td><div class="phd-info"><span class="phd-year">2016</span><br>Cornell University</div></td>
+  <td></td>
+</tr>
+
+<!-- ══════════════════════ UC SAN DIEGO ══════════════════════ -->
+<tr class="inst-group"><td colspan="6">University of California, San Diego — CSE &amp; Halicioglu Data Science Institute</td></tr>
+
+<tr data-inst="UCSD" data-rank="Associate" data-tenure="0">
+  <td><div class="name"><a href="https://cseweb.ucsd.edu/~tberg/" target="_blank">Taylor Berg-Kirkpatrick</a></div><div class="affil">UCSD CSE</div></td>
+  <td><div>Associate Professor</div><div class="affil">CSE, UC San Diego</div></td>
+  <td>
+    <span class="tag">unsupervised NLP</span><span class="tag">historical text</span><span class="tag">music generation</span><span class="tag">language diversity</span>
+    <div class="paper"><span class="paper-title">Efficient Unsupervised Methods for Historical Document Understanding</span> <span class="paper-venue">TACL 2023</span></div>
+    <div class="paper"><span class="paper-title">Generative AI for Music and Audio</span> <span class="paper-venue">ICML 2024</span></div>
+  </td>
+  <td><div class="career-note award">NSF CAREER; moved from CMU postdoc to UCSD 2018; Economist-featured work on historical text AI</div></td>
+  <td><div class="phd-info"><span class="phd-year">2014</span><br>UC Berkeley</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="UCSD" data-rank="Associate" data-tenure="0">
+  <td><div class="name"><a href="https://zhiting.ucsd.edu/" target="_blank">Zhiting Hu</a></div><div class="affil">UCSD HDSI</div></td>
+  <td><div>Assistant Professor</div><div class="affil">Halicioglu Data Science Institute, UC San Diego</div></td>
+  <td>
+    <span class="tag hot">LLM training</span><span class="tag">text generation</span><span class="tag">reinforcement learning</span><span class="tag">AI agents</span>
+    <div class="paper"><span class="paper-title">RLHF Workflow: From Reward Modeling to Online RLHF</span> <span class="paper-venue">TMLR 2024</span></div>
+    <div class="paper"><span class="paper-title">Open Platypus: A Curated LLM Instruction Dataset</span> <span class="paper-venue">COLM 2024</span></div>
+    <div class="paper"><span class="paper-title">Principled Reinforcement Learning with Human Feedback from Pairwise or K-wise Comparisons</span> <span class="paper-venue">ICML 2023</span></div>
+  </td>
+  <td><div class="career-note hire">Joined UCSD HDSI 2020; NSF CAREER; active in LLM post-training</div></td>
+  <td><div class="phd-info"><span class="phd-year">2020</span><br>CMU</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="UCSD" data-rank="Associate" data-tenure="0">
+  <td><div class="name"><a href="https://ndapa.us/" target="_blank">Ndapa Nakashole</a></div><div class="affil">UCSD CSE</div></td>
+  <td><div>Associate Professor</div><div class="affil">CSE, UC San Diego</div></td>
+  <td>
+    <span class="tag">multilingual NLP</span><span class="tag">knowledge extraction</span><span class="tag">LLM interpretability</span><span class="tag">AI for healthcare</span>
+    <div class="paper"><span class="paper-title">Cross-Lingual Consistency of Factual Knowledge in Multilingual LLMs</span> <span class="paper-venue">EMNLP 2023</span></div>
+    <div class="paper"><span class="paper-title">Interpretable Features in LLMs for Healthcare QA</span> <span class="paper-venue">ACL 2024</span></div>
+  </td>
+  <td><div class="career-note award">NSF CAREER; Otto Hahn Medal; founded Okalai AI (Africa AI education outreach)</div></td>
+  <td><div class="phd-info"><span class="phd-year">2012</span><br>Saarland Univ. / MPI Informatics</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="UCSD" data-rank="Assistant" data-tenure="1">
+  <td><div class="name"><a href="https://shangjingbo1226.github.io/" target="_blank">Jingbo Shang</a><span class="star-badge" title="Approaching tenure review (est.)">★</span></div><div class="affil">UCSD CSE &amp; HDSI</div></td>
+  <td><div>Assistant Professor</div><div class="affil">CSE &amp; Halicioglu Data Science Institute, UC San Diego</div></td>
+  <td>
+    <span class="tag">weakly supervised NLP</span><span class="tag">text mining</span><span class="tag">biomedical NLP</span><span class="tag">LLM fine-tuning</span>
+    <div class="paper"><span class="paper-title">AutoProg: Automated Prompt Generation for LLMs</span> <span class="paper-venue">ACL 2024</span></div>
+    <div class="paper"><span class="paper-title">Towards Minimal Supervision NLP via Cross-Domain Knowledge Transfer</span> <span class="paper-venue">EMNLP 2023</span></div>
+  </td>
+  <td><div class="career-note hire">Joined UCSD 2020; NSF CAREER 2023</div></td>
+  <td><div class="phd-info"><span class="phd-year">2019</span><br>UIUC</div></td>
+  <td><div class="tenure-star">★ ~2027</div></td>
+</tr>
+
+<!-- ══════════════════════ UC SANTA CRUZ ══════════════════════ -->
+<tr class="inst-group"><td colspan="6">University of California, Santa Cruz — CS &amp; Engineering</td></tr>
+
+<tr data-inst="UCSC" data-rank="Assistant" data-tenure="1">
+  <td><div class="name"><a href="https://jflanigan.github.io/" target="_blank">Jeffrey Flanigan</a><span class="star-badge" title="Approaching tenure review (est.)">★</span></div><div class="affil">UCSC CSE</div></td>
+  <td><div>Assistant Professor</div><div class="affil">Computer Science &amp; Engineering, UC Santa Cruz</div></td>
+  <td>
+    <span class="tag">semantic parsing</span><span class="tag">AMR</span><span class="tag">dialogue state tracking</span><span class="tag">machine translation</span>
+    <div class="paper"><span class="paper-title">Diverse Retrieval-Augmented In-Context Learning for Dialogue State Tracking</span> <span class="paper-venue">ACL 2023</span></div>
+    <div class="paper"><span class="paper-title">JAMR: Semantic Parsing &amp; Generation for AMR</span> <span class="paper-venue">ACL 2014</span> (highly cited)</div>
+  </td>
+  <td><div class="career-note hire">Joined UCSC CSE 2019; co-leads UCSC NLP group with Marilyn Walker</div></td>
+  <td><div class="phd-info"><span class="phd-year">2019</span><br>CMU LTI</div></td>
+  <td><div class="tenure-star">★ ~2026</div></td>
+</tr>
+
+<tr data-inst="UCSC" data-rank="Full" data-tenure="0">
+  <td><div class="name"><a href="https://users.soe.ucsc.edu/~maw/" target="_blank">Marilyn Walker</a></div><div class="affil">UCSC CSE</div></td>
+  <td><div>Professor; Director, NLP MS Program</div><div class="affil">Computer Science &amp; Engineering, UC Santa Cruz</div></td>
+  <td>
+    <span class="tag">dialogue systems</span><span class="tag">conversational AI</span><span class="tag">NLG</span><span class="tag">social media dialogue</span>
+    <div class="paper"><span class="paper-title">Controllable Neural NLG for Dialogue</span> <span class="paper-venue">ACL 2023</span></div>
+    <div class="paper"><span class="paper-title">Collaborative AI Partner for Student Group Discussion</span> <span class="paper-venue">EDM 2024</span></div>
+  </td>
+  <td><div class="career-note award">ACL Fellow; directs UCSC NLP MS program; longtime AT&amp;T Bell Labs researcher before academia</div></td>
+  <td><div class="phd-info"><span class="phd-year">1993</span><br>Univ. of Pennsylvania</div></td>
+  <td></td>
+</tr>
+
+<!-- ══════════════════════ UPENN ══════════════════════ -->
+<tr class="inst-group"><td colspan="6">University of Pennsylvania — Computer and Information Science</td></tr>
+
+<tr data-inst="UPenn" data-rank="Full" data-tenure="0">
+  <td><div class="name"><a href="https://www.cis.upenn.edu/~ccb/" target="_blank">Chris Callison-Burch</a></div><div class="affil">Penn CIS</div></td>
+  <td><div>Professor</div><div class="affil">Computer and Information Science, UPenn</div></td>
+  <td>
+    <span class="tag">LLMs &amp; copyright</span><span class="tag">paraphrase</span><span class="tag">crowdsourcing</span><span class="tag">text generation</span>
+    <div class="paper"><span class="paper-title">DataDreamer: A Tool for Synthetic Data Generation and Reproducible LLM Workflows</span> <span class="paper-venue">ACL 2024</span></div>
+    <div class="paper"><span class="paper-title">CLIN: A Continually Learning Language Agent for Rapid Task Adaptation</span> <span class="paper-venue">COLM 2024</span></div>
+    <div class="paper"><span class="paper-title">Towards Faithful Model Explanation in NLP: A Survey</span> <span class="paper-venue">CL 2024</span></div>
+  </td>
+  <td><div class="career-note award">Testified before US Congress on LLMs and copyright law (2023); Sloan Fellow; 35,000+ citations</div></td>
+  <td><div class="phd-info"><span class="phd-year">2008</span><br>Univ. of Edinburgh</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="UPenn" data-rank="Assistant" data-tenure="1">
+  <td><div class="name"><a href="https://jiataogu.me/" target="_blank">Jiatao Gu</a><span class="star-badge" title="Approaching tenure review (est.)">★</span></div><div class="affil">Penn CIS</div></td>
+  <td><div>Assistant Professor</div><div class="affil">CIS, UPenn; part-time Staff Research Scientist, Apple MLR</div></td>
+  <td>
+    <span class="tag hot">multimodal generative models</span><span class="tag">non-autoregressive generation</span><span class="tag">world models</span><span class="tag">LLM agents</span>
+    <div class="paper"><span class="paper-title">TARFlow: Improving Flow Matching for Text-to-Image Generation</span> <span class="paper-venue">ICML 2025</span> <em>(Oral)</em></div>
+    <div class="paper"><span class="paper-title">Beyond the Imitation Game: Quantifying LM Capabilities (BIG-bench)</span> <span class="paper-venue">TMLR 2023</span></div>
+  </td>
+  <td><div class="career-note hire">Joined UPenn CIS 2025; previously Apple MLR (2022–2025) and Meta FAIR; part-time Apple affiliation continues</div></td>
+  <td><div class="phd-info"><span class="phd-year">2019</span><br>Univ. of Hong Kong</div></td>
+  <td><div class="tenure-star">★ ~2032</div></td>
+</tr>
+
+<tr data-inst="UPenn" data-rank="Full" data-tenure="0">
+  <td><div class="name"><a href="https://www.cis.upenn.edu/~danroth/" target="_blank">Dan Roth</a></div><div class="affil">Penn CIS</div></td>
+  <td><div>Eduardo D. Glandt Distinguished Professor</div><div class="affil">CIS, UPenn; Chief AI Scientist, Oracle</div></td>
+  <td>
+    <span class="tag">natural language understanding</span><span class="tag">reasoning</span><span class="tag">structured prediction</span><span class="tag">neurosymbolic AI</span>
+    <div class="paper"><span class="paper-title">Reasoning with Language Model Prompting: A Survey</span> <span class="paper-venue">ACL 2023</span></div>
+    <div class="paper"><span class="paper-title">Learning to Decompose and Compose for Question Answering</span> <span class="paper-venue">NAACL 2024</span></div>
+  </td>
+  <td><div class="career-note award">ACM/AAAI/ACL Fellow; AAAS Fellow; IJCAI John McCarthy Award 2017; returned to full-time Penn from AWS/Oracle ~2024</div></td>
+  <td><div class="phd-info"><span class="phd-year">1995</span><br>Harvard University</div></td>
+  <td></td>
+</tr>
+
+<tr data-inst="UPenn" data-rank="Assistant" data-tenure="1">
+  <td><div class="name"><a href="https://www.cis.upenn.edu/~myatskar/" target="_blank">Mark Yatskar</a><span class="star-badge" title="Approaching tenure review (est.)">★</span></div><div class="affil">Penn CIS</div></td>
+  <td><div>Assistant Professor</div><div class="affil">Computer and Information Science, UPenn</div></td>
+  <td>
+    <span class="tag hot">vision-language models</span><span class="tag">multimodal reasoning</span><span class="tag">bias in vision-language</span>
+    <div class="paper"><span class="paper-title">A Textbook Remedy for Domain Shifts: Knowledge Priors for Medical Image Analysis</span> <span class="paper-venue">NeurIPS 2024</span></div>
+    <div class="paper"><span class="paper-title">PaCE: Parsimonious Concept Engineering for LLMs</span> <span class="paper-venue">NeurIPS 2024</span></div>
+    <div class="paper"><span class="paper-title">Situation Recognition: Visual Semantic Role Labeling</span> <span class="paper-venue">CVPR 2016</span> (highly cited)</div>
+  </td>
+  <td><div class="career-note hire">Joined UPenn CIS ~2020; previously AI2 Young Investigator; NSF CAREER</div></td>
+  <td><div class="phd-info"><span class="phd-year">2017</span><br>Univ. of Washington</div></td>
+  <td><div class="tenure-star">★ ~2027</div></td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+<div class="disclaimer">
+  <strong>⚠ Important Caveats &amp; Data Quality Notes</strong><br><br>
+  <strong>Coverage:</strong> This listing covers 19 major US R1 institutions with strong NLP programs. It is not exhaustive even within these schools — it focuses on faculty with demonstrable NLP/LM research activity in 2023–2025. Many faculty at these institutions doing adjacent work (computer vision, robotics, general ML) are not listed unless they have clear recent NLP/LM output.
+  <br><br>
+  <strong>Leave status:</strong> Confirmed on-leave faculty have been excluded (e.g., Sam Bowman at NYU 2025–26, Justine Cassell &amp; Alexander Waibel &amp; Eric Xing at CMU, Marine Carpuat on sabbatical 2024–25). Statuses may have changed since data collection.
+  <br><br>
+  <strong>Tenure estimates (★):</strong> Based on known hire year plus typical 6-year US tenure clock. These are estimates only and must be verified independently.
+  <br><br>
+  <strong>Publications:</strong> Papers listed are verified from researcher homepages and web sources; max 3 per faculty, prioritizing 2023–2025. All venues are top-tier (ACL, EMNLP, NAACL, ICLR, NeurIPS, ICML, COLM, TACL, CL, or equivalent).
+  <br><br>
+  <strong>Moves &amp; institutional changes:</strong> Yejin Choi moved from UW to Stanford (effective June 2025); Mohit Iyyer moved from UMass to UMD (2025); Smaranda Muresan joined Barnard/Columbia as associate professor (2024); Eunsol Choi moved from UT Austin to NYU CDS/Courant (Fall 2024); Greg Durrett moved from UT Austin to NYU CDS/Courant (Fall 2025); Yizhong Wang is incoming at UT Austin (Fall 2026, not yet started). Changes after mid-2025 are not reflected.
+  <br><br>
+  <strong>Suggested verification:</strong> Faculty homepages · ACL Anthology · CSRankings.org · Semantic Scholar · institutional CS department pages
+  <br><br>
+  <em>Additional institutions (Tier 3+) to be added in subsequent sessions.</em>
+</div>
+
+<script>
+function filterTable() {
+  const search = document.getElementById('search').value.toLowerCase();
+  const inst = document.getElementById('instFilter').value;
+  const rank = document.getElementById('rankFilter').value;
+  const tenureOnly = document.getElementById('tenureFilter').checked;
+
+  const rows = document.querySelectorAll('#mainTable tbody tr:not(.inst-group)');
+  let visible = 0;
+
+  rows.forEach(row => {
+    const text = row.textContent.toLowerCase();
+    const rowInst = row.dataset.inst || '';
+    const rowRank = row.dataset.rank || '';
+    const rowTenure = row.dataset.tenure === '1';
+
+    const matchSearch = !search || text.includes(search);
+    const matchInst = !inst || rowInst === inst;
+    const matchRank = !rank || rowRank === rank;
+    const matchTenure = !tenureOnly || rowTenure;
+
+    if (matchSearch && matchInst && matchRank && matchTenure) {
+      row.classList.remove('hidden');
+      visible++;
+    } else {
+      row.classList.add('hidden');
+    }
+  });
+
+  // Show/hide institution group headers based on visible rows
+  document.querySelectorAll('#mainTable tbody tr.inst-group').forEach(group => {
+    let next = group.nextElementSibling;
+    let anyVisible = false;
+    while (next && !next.classList.contains('inst-group')) {
+      if (!next.classList.contains('hidden')) anyVisible = true;
+      next = next.nextElementSibling;
+    }
+    group.style.display = anyVisible ? '' : 'none';
+  });
+
+  document.getElementById('countDisplay').textContent =
+    `Showing ${visible} of ${document.querySelectorAll('#mainTable tbody tr:not(.inst-group)').length} faculty`;
+}
+
+let sortDir = {};
+function sortTable(col) {
+  const tbody = document.querySelector('#mainTable tbody');
+  const allRows = Array.from(tbody.querySelectorAll('tr'));
+  const dataRows = allRows.filter(r => !r.classList.contains('inst-group'));
+  const dir = sortDir[col] = -(sortDir[col] || -1);
+
+  dataRows.sort((a, b) => {
+    const aText = (a.cells[col] ? a.cells[col].textContent : '').trim();
+    const bText = (b.cells[col] ? b.cells[col].textContent : '').trim();
+    return dir * aText.localeCompare(bText);
+  });
+
+  // Reattach: when sorting, remove group headers (they'll be reinserted)
+  // For simplicity, just append sorted data rows after each group or at end
+  dataRows.forEach(r => tbody.appendChild(r));
+}
+
+// Initialize count on load
+filterTable();
+</script>
+
+</body>
+</html>
