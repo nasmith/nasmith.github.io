@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-[Noah Smith](https://nasmith.github.io) is a computer scientist working in several fields of artificial intelligence research.  He recently wrote [**Language Models: A Guide for the Perplexed**](https://arxiv.org/pdf/2311.17301.pdf), a general-audience tutorial, and he directs the [OLMo](https://allenai.org/olmo) open language modeling effort. He is the PI of the NSF- and NVIDIA-supported project "Open Multimodal AI Infrastructure to Accelerate Science."
+[Noah Smith](https://nasmith.github.io) is a computer scientist working in several fields of artificial intelligence research.  He recently wrote [**Language Models: A Guide for the Perplexed**](https://arxiv.org/pdf/2311.17301.pdf), a general-audience tutorial, and he directs the [OLMo](https://allenai.org/olmo) open language modeling effort. He is the PI of the NSF- and NVIDIA-supported project "[Open Multimodal AI Infrastructure to Accelerate Science](https://allenai.org/omai)."
 
 Broadly, his research targets algorithms that process data encoding language, music, and more, to augment human capabilities.  He also works on core problems of research methodology like evaluation.
 You can watch [videos of some of his talks](talks), read his [papers](publications), and learn about his research group, [Noah's ARK](http://www.ark.cs.washington.edu).  Smith is most proud of his mentoring accomplishments:  as of 2025, he has graduated 32 Ph.D. students and mentored 18 postdocs, with 28 alumni now in faculty positions around the world. 23 of his undergraduate/masters mentees have gone on to Ph.D. programs.  His group's alumni have started companies and are technological leaders both inside and outside the tech industry.
