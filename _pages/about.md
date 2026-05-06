@@ -19,7 +19,7 @@ Smith serves as the University of Washington's inaugural [Vice Provost for Artif
 
 ### Service
 
-Smith was the general chair of EMNLP 2022.  He has served on the editorial boards of the journals [*Computational Linguistics*](http://www.mitpressjournals.org/loi/coli) (2009&ndash;2011), *[Journal of Artificial Intelligence Research](http://www.jair.org)* (2011&ndash;2019), and [*Transactions of the Association for Computational Linguistics*](http://www.transacl.org) (2012&ndash;present), as the secretary-treasurer of [SIGDAT](http://www.sigdat.org) (2012&ndash;2015 and 2018&ndash;2019), and as program co-chair of [ACL 2016](http://acl2016.org/).  He co-organized the [Ninth Annual Conference on New Directions in Analyzing Text as Data (TADA 2018)](https://nlp.washington.edu/tada2018),
+Smith was the general chair of [EMNLP 2022](https://2022.emnlp.org/).  He has served on the editorial boards of the journals [*Computational Linguistics*](http://www.mitpressjournals.org/loi/coli) (2009&ndash;2011), *[Journal of Artificial Intelligence Research](http://www.jair.org)* (2011&ndash;2019), and [*Transactions of the Association for Computational Linguistics*](http://www.transacl.org) (2012&ndash;present), as the secretary-treasurer of [SIGDAT](http://www.sigdat.org) (2012&ndash;2015 and 2018&ndash;2019), and as program co-chair of [ACL 2016](http://acl2016.org/).  He co-organized the [Ninth Annual Conference on New Directions in Analyzing Text as Data (TADA 2018)](https://nlp.washington.edu/tada2018),
 [Language Technologies and Computational Social Science](http://www.mpi-sws.org/~cristian/LACSS_2014.html) (a workshop at ACL 2014), and [Twenty Years of Bitext](https://sites.google.com/site/20yearsofbitext/) (a workshop at EMNLP 2013).
 
 ### Recognition
