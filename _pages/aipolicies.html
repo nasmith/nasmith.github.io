@@ -1,0 +1,1475 @@
+---
+layout: none
+permalink: /aipolicies/
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UW AI Policy Directory — University of Washington</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..800,0..100&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --purple: #32006e;          /* UW deep purple */
+    --purple-2: #4b2e83;        /* UW signature purple */
+    --gold: #b7a57a;            /* UW metallic gold */
+    --gold-2: #85754d;          /* deeper gold */
+    --cream: #faf6ee;
+    --paper: #f5efe1;
+    --ink: #1a1a1a;
+    --ink-2: #3a3633;
+    --rule: #cdbfa3;
+    --rule-soft: #e6dcc4;
+    --tag-forbidden: #7a1f2b;
+    --tag-allowed: #1d5b3a;
+    --tag-conditional: #8a5a17;
+    --tag-guidance: #3a3633;
+    --tag-research: #2b3e6e;
+    --tag-medical: #5e2a6f;
+    --tag-tool: #1f4f5e;
+    --tag-news: #6e3a1f;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
+    font-weight: 400;
+    line-height: 1.55;
+    font-size: 16px;
+    background-image:
+      radial-gradient(circle at 10% 0%, rgba(50, 0, 110, 0.04), transparent 40%),
+      radial-gradient(circle at 95% 5%, rgba(183, 165, 122, 0.08), transparent 35%);
+    background-attachment: fixed;
+  }
+
+  a { color: var(--purple); text-decoration: none; border-bottom: 1px solid rgba(50, 0, 110, 0.25); transition: border-color 0.2s, color 0.2s; }
+  a:hover { color: var(--gold-2); border-bottom-color: var(--gold); }
+
+  /* ==== Header ==== */
+  .masthead {
+    border-bottom: 2px solid var(--purple);
+    padding: 2.2rem 2rem 1.6rem;
+    background: linear-gradient(180deg, rgba(255,255,255,0.4), transparent);
+    position: relative;
+  }
+  .masthead::before {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: -8px; height: 4px;
+    background: linear-gradient(90deg, var(--gold) 0%, transparent 30%);
+  }
+  .eyebrow {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold-2);
+    margin-bottom: 0.6rem;
+  }
+  .masthead-flex { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; flex-wrap: wrap; }
+  .masthead-left { flex: 1 1 320px; }
+  .masthead h1 {
+    font-family: "Fraunces", serif;
+    font-weight: 380;
+    font-variation-settings: "SOFT" 30, "opsz" 96;
+    font-size: clamp(2.1rem, 4.4vw, 3.6rem);
+    line-height: 1.04;
+    letter-spacing: -0.012em;
+    color: var(--purple);
+  }
+  .masthead h1 em {
+    font-style: italic;
+    font-variation-settings: "SOFT" 60, "opsz" 96;
+    color: var(--gold-2);
+  }
+  .masthead .deck {
+    font-family: "Fraunces", serif;
+    font-weight: 300;
+    font-size: clamp(1rem, 1.3vw, 1.15rem);
+    line-height: 1.45;
+    margin-top: 0.9rem;
+    max-width: 60ch;
+    color: var(--ink-2);
+  }
+  .masthead-meta {
+    text-align: right;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    color: var(--ink-2);
+    line-height: 1.7;
+    border-left: 1px solid var(--rule-soft);
+    padding-left: 1.2rem;
+  }
+  .masthead-meta strong { color: var(--purple); display: block; font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 0.3rem; }
+
+  /* ==== Notes strip ==== */
+  .notes {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.2rem 2rem 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+    align-items: stretch;
+  }
+  .note {
+    background: rgba(255,255,255,0.5);
+    border: 1px solid var(--rule-soft);
+    border-left: 3px solid var(--gold);
+    padding: 0.85rem 1rem;
+    font-size: 0.82rem;
+    line-height: 1.45;
+    color: var(--ink-2);
+  }
+  .note.warn { border-left-color: var(--tag-forbidden); }
+  .note strong { color: var(--purple); display: block; margin-bottom: 0.2rem; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; }
+
+  /* ==== Nav ==== */
+  .toc {
+    position: sticky;
+    top: 0;
+    background: var(--cream);
+    border-bottom: 1px solid var(--rule);
+    border-top: 1px solid var(--rule-soft);
+    padding: 0.65rem 2rem;
+    z-index: 50;
+    backdrop-filter: blur(8px);
+    background: rgba(250, 246, 238, 0.93);
+  }
+  .toc-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 0.3rem 0.6rem; align-items: center; font-family: "IBM Plex Mono", monospace; font-size: 0.72rem; letter-spacing: 0.05em; }
+  .toc-label { color: var(--gold-2); text-transform: uppercase; letter-spacing: 0.18em; margin-right: 0.5rem; }
+  .toc a {
+    color: var(--ink-2);
+    border: 1px solid transparent;
+    padding: 0.25rem 0.6rem;
+    border-radius: 2px;
+    background: transparent;
+  }
+  .toc a:hover {
+    background: var(--paper);
+    color: var(--purple);
+    border-color: var(--rule-soft);
+  }
+
+  /* ==== Main ==== */
+  main { max-width: 1100px; margin: 0 auto; padding: 2.5rem 2rem 4rem; }
+
+  /* ==== Section heading ==== */
+  section { margin-top: 3.5rem; }
+  section:first-of-type { margin-top: 2rem; }
+  .section-head {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.2rem;
+    align-items: baseline;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--purple);
+    margin-bottom: 1.4rem;
+    position: relative;
+  }
+  .section-head::after {
+    content: "";
+    position: absolute; bottom: -2px; left: 0; height: 2px;
+    width: 80px; background: var(--gold);
+  }
+  .section-num {
+    font-family: "Fraunces", serif;
+    font-variation-settings: "opsz" 144;
+    font-weight: 300;
+    font-size: clamp(2.8rem, 5vw, 4rem);
+    line-height: 0.9;
+    color: var(--gold);
+  }
+  .section-head h2 {
+    font-family: "Fraunces", serif;
+    font-weight: 420;
+    font-variation-settings: "SOFT" 20, "opsz" 80;
+    font-size: clamp(1.4rem, 2.6vw, 2rem);
+    color: var(--purple);
+    letter-spacing: -0.005em;
+    line-height: 1.15;
+  }
+  .section-head .sub {
+    grid-column: 2;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: italic;
+    color: var(--ink-2);
+    font-size: 0.92rem;
+    margin-top: 0.3rem;
+  }
+
+  /* ==== Policy entry ==== */
+  .entry {
+    border-top: 1px solid var(--rule-soft);
+    padding: 1.3rem 0 0.4rem;
+  }
+  .entry:first-of-type { border-top: none; padding-top: 0.3rem; }
+  .entry summary {
+    list-style: none;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1rem 1.5rem;
+    align-items: start;
+    padding: 0.4rem 0 0.8rem;
+  }
+  .entry summary::-webkit-details-marker { display: none; }
+  .entry summary::after {
+    content: "+";
+    font-family: "Fraunces", serif;
+    font-size: 1.6rem;
+    color: var(--gold-2);
+    line-height: 1;
+    transition: transform 0.25s;
+    align-self: center;
+  }
+  .entry[open] summary::after { content: "−"; }
+  .entry-title {
+    font-family: "Fraunces", serif;
+    font-weight: 470;
+    font-variation-settings: "opsz" 36;
+    font-size: clamp(1.05rem, 1.4vw, 1.18rem);
+    line-height: 1.25;
+    color: var(--ink);
+    margin-bottom: 0.35rem;
+  }
+  .entry-org {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    color: var(--ink-2);
+    text-transform: uppercase;
+  }
+  .tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.5rem; }
+  .tag {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.18rem 0.55rem;
+    border: 1px solid currentColor;
+    border-radius: 1px;
+    color: var(--tag-guidance);
+    background: rgba(255,255,255,0.4);
+  }
+  .tag.forbidden { color: var(--tag-forbidden); }
+  .tag.allowed { color: var(--tag-allowed); }
+  .tag.conditional { color: var(--tag-conditional); }
+  .tag.research { color: var(--tag-research); }
+  .tag.medical { color: var(--tag-medical); }
+  .tag.tool { color: var(--tag-tool); }
+  .tag.new { color: var(--tag-news); background: rgba(183, 165, 122, 0.15); border-style: dashed; }
+
+  .entry-body {
+    padding: 0.6rem 0 1.2rem;
+    border-left: 2px solid var(--gold);
+    padding-left: 1.3rem;
+    margin-bottom: 0.4rem;
+    max-width: 78ch;
+  }
+  .entry-body p { margin-bottom: 0.9rem; line-height: 1.6; color: var(--ink-2); }
+  .entry-body strong { color: var(--purple); }
+  .entry-body em { font-style: italic; }
+  .entry-body ul { margin: 0.6rem 0 0.9rem 1.2rem; }
+  .entry-body li { margin-bottom: 0.4rem; line-height: 1.55; color: var(--ink-2); }
+  .entry-key {
+    background: rgba(183, 165, 122, 0.13);
+    border-left: 2px solid var(--gold);
+    padding: 0.7rem 1rem;
+    margin: 0.4rem 0 1rem;
+    font-size: 0.95rem;
+    color: var(--ink-2);
+  }
+  .entry-key strong { font-weight: 600; }
+  .entry-links { display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem; font-size: 0.88rem; padding-top: 0.4rem; }
+  .entry-links a::before {
+    content: "↗ ";
+    color: var(--gold-2);
+    font-size: 0.85em;
+  }
+
+  /* ==== Type key ==== */
+  .type-key {
+    background: rgba(255,255,255,0.55);
+    border: 1px solid var(--rule-soft);
+    padding: 1.1rem 1.3rem;
+    margin: 1.8rem 0 0;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.8rem 1.4rem;
+    align-items: center;
+  }
+  .type-key-label {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--gold-2);
+    border-right: 1px solid var(--rule-soft);
+    padding-right: 1.2rem;
+  }
+  .type-key-tags { display: flex; flex-wrap: wrap; gap: 0.3rem 0.5rem; }
+  .type-key .tag { font-size: 0.62rem; }
+
+  /* ==== Quick facts ==== */
+  .quickfacts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0 0;
+  }
+  .fact {
+    background: var(--paper);
+    padding: 1rem 1.1rem;
+    border-top: 3px solid var(--purple);
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+  .fact strong {
+    display: block;
+    font-family: "Fraunces", serif;
+    font-variation-settings: "opsz" 24;
+    font-weight: 500;
+    color: var(--purple);
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+  }
+
+  /* ==== How-to ==== */
+  .how-to {
+    background: rgba(255,255,255,0.4);
+    border: 1px solid var(--rule-soft);
+    padding: 1.2rem 1.4rem;
+    margin: 2rem 0 0;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: var(--ink-2);
+  }
+  .how-to strong { color: var(--purple); }
+
+  /* ==== Footer ==== */
+  footer {
+    margin-top: 5rem;
+    border-top: 2px solid var(--purple);
+    padding: 2rem;
+    background: var(--paper);
+    font-size: 0.85rem;
+    color: var(--ink-2);
+    text-align: center;
+    line-height: 1.6;
+  }
+  footer .key-sources { margin-top: 0.6rem; font-family: "IBM Plex Mono", monospace; font-size: 0.72rem; letter-spacing: 0.05em; }
+  footer .key-sources a { margin: 0 0.4rem; }
+
+  /* ==== Responsive ==== */
+  @media (max-width: 720px) {
+    .masthead { padding: 1.6rem 1.2rem 1.2rem; }
+    .masthead-flex { flex-direction: column; align-items: flex-start; }
+    .masthead-meta { text-align: left; border-left: none; border-top: 1px solid var(--rule-soft); padding: 0.8rem 0 0; }
+    .notes { padding: 1rem 1.2rem 0; }
+    main { padding: 2rem 1.2rem 3rem; }
+    .toc { padding: 0.55rem 1.2rem; }
+    .section-head { grid-template-columns: auto 1fr; gap: 0.8rem; }
+    .section-head .sub { grid-column: 2; }
+    .entry summary { grid-template-columns: 1fr; gap: 0.6rem; }
+    .entry summary::after { display: none; }
+    .entry-body { padding-left: 0.9rem; }
+  }
+
+  /* Print friendliness */
+  @media print {
+    .toc, footer { display: none; }
+    .entry { break-inside: avoid; }
+    details:not([open]) > *:not(summary) { display: none; }
+    details summary::after { display: none; }
+    body { background: white; }
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-flex">
+    <div class="masthead-left">
+      <div class="eyebrow">University of Washington · AI Policy Reference</div>
+      <h1>AI Use Policies at the <em>University&nbsp;of&nbsp;Washington</em></h1>
+      <p class="deck">A comprehensive reference to publicly available policies, guidelines, and statements governing the use of artificial intelligence in UW courses, programs, and units — across all three campuses.</p>
+    </div>
+    <div class="masthead-meta">
+      <strong>Edition</strong>
+      Vol. 2 · May 2026<br>
+      Compiled by Vice Provost for AI<br>
+      Noah Smith, with Claude Opus 4.7
+    </div>
+  </div>
+</header>
+
+<div class="notes">
+  <div class="note warn">
+    <strong>Caveat lector</strong>
+    Compiled from publicly discoverable UW web pages as of May 2026. AI policies evolve rapidly. Summaries are not authoritative — always verify at the source links provided and check your current course syllabus.
+  </div>
+  <div class="note">
+    <strong>How to use this page</strong>
+    Press <kbd>Ctrl/Cmd + F</kbd> to search for a course, department, or term. Click any entry to expand it. All linked sources open at the official UW page.
+  </div>
+  <div class="note">
+    <strong>Contribute</strong>
+    To submit a missing policy or correction, contact the Office of the Vice Provost for AI through <a href="https://www.ai.uw.edu/about/contact-us/">AI@UW</a>.
+  </div>
+</div>
+
+<nav class="toc">
+  <div class="toc-inner">
+    <span class="toc-label">Sections</span>
+    <a href="#university-wide">I · University-Wide</a>
+    <a href="#schools-seattle">II · Seattle Schools &amp; Colleges</a>
+    <a href="#graduate">III · Graduate &amp; Research</a>
+    <a href="#medicine">IV · Medicine &amp; Health</a>
+    <a href="#bothell">V · Bothell</a>
+    <a href="#tacoma">VI · Tacoma</a>
+    <a href="#it-tools">VII · IT &amp; Tools</a>
+    <a href="#libraries">VIII · Libraries &amp; Literacy</a>
+    <a href="#external">IX · State &amp; Local Context</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- ==== Type Key + Quick Facts ==== -->
+
+<div class="type-key">
+  <div class="type-key-label">Policy type key</div>
+  <div class="type-key-tags">
+    <span class="tag forbidden">Forbidden</span>
+    <span class="tag allowed">Allowed</span>
+    <span class="tag conditional">Conditional</span>
+    <span class="tag">Guidance</span>
+    <span class="tag research">Research</span>
+    <span class="tag medical">Medical / Clinical</span>
+    <span class="tag tool">Tool / Infrastructure</span>
+    <span class="tag new">New in this edition</span>
+  </div>
+</div>
+
+<div class="quickfacts">
+  <div class="fact"><strong>No university-wide ban</strong>UW has no overarching AI prohibition. Each instructor sets course-level policy under the Student Conduct Code.</div>
+  <div class="fact"><strong>UW-approved AI tools</strong>UW-IT supports a growing portfolio — Purple (UW's in-house GenAI), Tillicum (GPU computing), Microsoft Copilot, ChatGPT Edu, GitHub Copilot, and Zoom AI Companion.</div>
+  <div class="fact"><strong>AI@UW launched</strong>The university-wide AI initiative was established in November 2025 with a $10M Simonyi gift.</div>
+  <div class="fact"><strong>This edition</strong>May 2026. Reflects changes since the v1 compilation of February 2026.</div>
+</div>
+
+<div class="how-to">
+  <strong>How to read this directory.</strong> Policies at UW exist at multiple levels — central university, individual schools and colleges, and course or program level. This page collects publicly discoverable policy documents and points to their official sources. <strong>Always check your course syllabus first</strong> — instructor-level policy overrides general school guidance.
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION I — UNIVERSITY-WIDE                                  -->
+<!-- ============================================================ -->
+
+<section id="university-wide">
+  <div class="section-head">
+    <div class="section-num">I</div>
+    <div>
+      <h2>University-Wide Policies &amp; Initiatives</h2>
+      <div class="sub">All three campuses · Seattle, Bothell, Tacoma</div>
+    </div>
+  </div>
+
+  <details class="entry">
+    <summary>
+      <div>
+        <div class="entry-title">AI@UW — University-Wide AI Initiative</div>
+        <div class="entry-org">Office of the Provost · Vice Provost for AI</div>
+        <div class="tags"><span class="tag">Guidance</span><span class="tag new">New</span></div>
+      </div>
+    </summary>
+    <div class="entry-body">
+      <p>Established November 2025 via a $10M foundational gift from Charles and Lisa Simonyi, AI@UW is the university's coordinating vehicle for AI strategy, investment, and engagement. Noah Smith (Amazon Professor of Machine Learning, Allen School) was appointed inaugural Vice Provost for AI and the inaugural Charles &amp; Lisa Simonyi Endowed Chair for AI and Emerging Technologies.</p>
+      <p>The initiative operationalizes the strategic framework developed by the AI Task Force — the Washington AI Initiative for Society, Teaching, and Research (WAISTAR) — across four core areas: Education, Research, Student Experience, and Operations. AI@UW also funds an AI governance committee, student scholarships, the SEED-AI grants, and computing resources.</p>
+      <p>The AI@UW website is the canonical entry point for university-wide AI resources, including ethical guidelines, an AI experts directory, communities of practice, copyright and fair-use guidance, and a regulations tracker.</p>
+      <div class="entry-links">
+        <a href="https://www.ai.uw.edu/">AI@UW main site</a>
+        <a href="https://www.ai.uw.edu/about/leadership/">Leadership</a>
+        <a href="https://www.washington.edu/news/2025/11/18/10-million-gift-from-charles-and-lisa-simonyi-establishes-aiuw-to-advance-artificial-intelligence-and-emerging-technologies/">Founding gift announcement</a>
+        <a href="https://www.ai.uw.edu/about/ai-task-force/">AI Task Force</a>
+      </div>
+    </div>
+  </details>
+
+  <details class="entry">
+    <summary>
+      <div>
+        <div class="entry-title">AI Tools and Academic Integrity — Message to All UW Students</div>
+        <div class="entry-org">Office of the VP for Student Life · All campuses</div>
+        <div class="tags"><span class="tag">Guidance</span><span class="tag conditional">Conditional</span></div>
+      </div>
+    </summary>
+    <div class="entry-body">
+      <p>The system-wide letter from Vice President for Student Life Denzil J. Suite — sent to students on all three campuses — establishes UW's baseline expectation: AI use without instructor permission may violate the Student Conduct Code, which defines cheating as "the unauthorized use of assistance, including technology, in completing assignments or exams." Some instructors may encourage AI; others may prohibit it.</p>
+      <div class="entry-key"><strong>Key takeaway:</strong> No blanket prohibition or permission. Defer to each instructor's syllabus. If unsure, ask before using AI.</div>
+      <div class="entry-links">
+        <a href="https://www.washington.edu/studentlife/2023/10/11/ai-tools-and-academic-integrity/">Official source (UW Student Life)</a>
+        <a href="https://www.tacoma.uw.edu/chancellor/ai-tools-and-academic-integrity">UW Tacoma version</a>
+      </div>
+    </div>
+  </details>
+
+  <details class="entry">
+    <summary>
+      <div>
+        <div class="entry-title">Student Conduct Code — Academic Misconduct (Chapter 209, WAC 478-121)</div>
+        <div class="entry-org">Community Standards &amp; Student Conduct (CSSC) · All campuses</div>
+        <div class="tags"><span class="tag">Guidance</span></div>
+      </div>
+    </summary>
+    <div class="entry-body">
+      <p>The formal conduct code defines academic misconduct to include "the unauthorized use of assistance, including technology." AI tools fall under this definition when used without instructor permission. Chapter 209 of the Student Governance Policies provides detailed definitions including cheating, plagiarism, and unauthorized collaboration; Chapter 210 covers the disciplinary process.</p>
+      <div class="entry-links">
+        <a href="https://www.washington.edu/cssc/for-students/academic-misconduct/">Academic Misconduct page (CSSC)</a>
+        <a href="https://policy.uw.edu/directory/sgp/sgp-209-student-conduct-policy-for-academic-misconduct-and-behavioral-misconduct/">Chapter 209 (Student Governance Policies)</a>
+      </div>
+    </div>
+  </details>
+
+  <details class="entry">
+    <summary>
+      <div>
+        <div class="entry-title">Sample AI Syllabus Statements — Teaching@UW</div>
+        <div class="entry-org">Teaching@UW Network · All campuses</div>
+        <div class="tags"><span class="tag">Guidance</span><span class="tag forbidden">Prohibit template</span><span class="tag allowed">Allow template</span><span class="tag conditional">Conditional template</span></div>
+      </div>
+    </summary>
+    <div class="entry-body">
+      <p>Teaching@UW — UW's Center for Teaching and Learning — maintains the authoritative collection of sample syllabus language for instructors across all three campuses, vetted by the Faculty Council for Teaching and Learning. Three policy stances are modeled:</p>
+      <ul>
+        <li><strong>Full prohibition:</strong> "All work submitted for this course must be your own. Any use of generative AI tools when working on assignments is forbidden. Use of generative AI will be considered academic misconduct and subject to investigation."</li>
+        <li><strong>Allowed without restriction:</strong> Students encouraged to use AI (specifically UW's version of Copilot) with proper citation. Notes that AI results may be biased or inaccurate.</li>
+        <li><strong>Conditional / assignment-by-assignment:</strong> AI permission is specified per assignment; all AI use must be cited; only UW-approved tools are privacy-safe.</li>
+      </ul>
+      <p>The page also lists what every AI syllabus statement should articulate: <em>use</em>, <em>why</em>, <em>consequences</em>, <em>questions</em>, and a <em>privacy reminder</em> about Copilot.</p>
+      <div class="entry-links">
+        <a href="https://teaching.washington.edu/course-design/ai/sample-ai-syllabus-statements/">Sample syllabus statements</a>
+        <a href="https://teaching.washington.edu/course-design/ai/">AI + Teaching overview</a>
+        <a href="https://teaching.washington.edu/course-design/ai/ai-ethical-issues/">Ethical &amp; social issues page</a>
+      </div>
+    </div>
+  </details>
+
+  <details class="entry">
+    <summary>
+      <div>
+        <div class="entry-title">AI + Teaching Faculty Learning Community &amp; Online Course</div>
+        <div class="entry-org">Teaching@UW · Faculty &amp; instructors, all campuses</div>
+        <div class="tags"><span class="tag">Guidance</span><span class="tag allowed">Allowed</span><span class="tag new">Updated</span></div>
+      </div>
+    </summary>
+    <div class="entry-body">
+      <p>Teaching@UW runs an ongoing <strong>AI + Teaching Faculty Learning Community</strong>, meeting at 3:30 p.m. Pacific on Zoom the first Tuesday of every month for instructors from all three campuses to share practice and resources.</p>
+      <p>Teaching@UW also offers a 4-week, fully online, asynchronous course — <strong>Using AI to Advance Learning</strong> — that explores evidence-based teaching strategies using UW's version of Copilot. The Summer 2026 offering runs July 6 – August 2; a certificate of completion is available. Instructors from any UW campus are eligible.</p>
+      <div class="entry-links">
+        <a href="https://teaching.washington.edu/learn/ai-to-advance-learning/">AI + Teaching online course</a>
+        <a href="https://teaching.washington.edu/course-design/ai/">Faculty Learning Community sign-up</a>
+      </div>
+    </div>
+  </details>
+
+  <details class="entry">
+    <summary>
+      <div>
+        <div class="entry-title">SEED-AI Grants — Supporting Educational Excellence and Discovery with AI</div>
+        <div class="entry-org">AI@UW · Charles &amp; Lisa Simonyi Launch Fund for AI</div>
+        <div class="tags"><span class="tag">Guidance</span><span class="tag new">New</span></div>
+      </div>
+    </summary>
+    <div class="entry-body">
+      <p>SEED-AI funds exploratory faculty-led projects on how AI can enhance learning and teaching across disciplines. The inaugural call (December 2025) drew submissions across the university; <strong>36 grants were awarded in April 2026</strong>, ranging from $1,000 to $50,000 each. The program is jointly executed by the Vice Provost for AI / AI@UW, the Allen School, the Center for Teaching and Learning, the College of Engineering (Chemical Engineering, Civil &amp; Environmental Engineering, Electrical &amp; Computer Engineering, Human Centered Design &amp; Engineering), the eScience Institute, Foster School of Business, and UW-IT.</p>
+      <p>Grantees will summarize results at a campus-wide event in 2026–27; another SEED-AI call is anticipated within a year.</p>
+      <div class="entry-links">
+        <a href="https://www.ai.uw.edu/resources/supporting-educational-excellence-and-discovery-with-ai-grants-seed-ai-2026/">SEED-AI 2026 call</a>
+        <a href="https://www.ai.uw.edu/aiuw-awards-36-seed-ai-grants-in-its-inaugural-funding-call/">Inaugural awards announcement</a>
+      </div>
+    </div>
+  </details>
+
+  <details class="entry">
+    <summary>
+      <div>
+        <div class="entry-title">AI Task Force Town Halls &amp; Recommendations Report</div>
+        <div class="entry-org">Office of the Provost · AI Task Force</div>
+        <div class="tags"><span class="tag">Guidance</span><span class="tag new">New</span></div>
+      </div>
+    </summary>
+    <div class="entry-body">
+      <p>The AI Task Force — convened by Provost Tricia Serio and then-President Ana Mari Cauce — produced the <strong>WAISTAR</strong> framework (Washington AI Initiative for Society, Teaching, and Research) covering Education, Research, Student Experience, and Operations. The full task force recommendations report (PDF and slide deck) is publicly available.</p>
+      <p>The 2024 Town Hall series produced seven recorded sessions covering: What Is AI?, AI for Research, AI Education, AI for Administration, AI for Student Success, AI for Teaching &amp; Learning, and AI Infrastructure. The Task Force's AI Perspectives Speaker Series continues in 2025–26.</p>
+      <div class="entry-links">
+        <a href="https://www.washington.edu/provost/2025/01/30/ai-town-hall-links/">Town hall recordings &amp; speaker series</a>
+        <a href="https://uw-s3-cdn.s3.us-west-2.amazonaws.com/wp-content/uploads/sites/11/2024/10/02150921/AI-Task-Force-recommendations-1.pdf">Recommendations report (PDF)</a>
+        <a href="https://uw-s3-cdn.s3.us-west-2.amazonaws.com/wp-content/uploads/sites/11/2024/09/24112042/Recommendations-from-the-AI-Task-Force-slides.pdf">Recommendations (slides)</a>
+        <a href="https://www.washington.edu/provost/2024/09/24/update-on-the-work-of-the-ai-task-force/">Provost's task force update</a>
+      </div>
+    </div>
+  </details>
+
+  <details class="entry">
+    <summary>
+      <div>
+        <div class="entry-title">UW–Microsoft Expanded AI Partnership</div>
+        <div class="entry-org">Office of the President · Microsoft · February 2026</div>
+        <div class="tags"><span class="tag">Guidance</span><span class="tag tool">Tool / Infrastructure</span><span class="tag new">New</span></div>
+      </div>
+    </summary>
+    <div class="entry-body">
+      <p>Announced February 2026 (and amplified by AI@UW in April 2026), the expanded UW–Microsoft partnership accelerates AI research, expands access to advanced computing, and adds new courses and applied learning pathways to prepare Washington State's workforce. Microsoft's investment underpins UW's continued use of Copilot as the enterprise-supported GenAI tool.</p>
+      <div class="entry-links">
+        <a href="https://www.washington.edu/news/2026/02/24/uw-and-microsoft-expand-relationship-to-enhance-ai-learning-and-research-with-aim-to-prepare-washingtons-workforce-for-the-future/">Announcement (UW News)</a>
+        <a href="https://www.ai.uw.edu/uw-and-microsoft-deepen-collaboration-to-expand-access-innovation-and-ai-skills/">AI@UW summary</a>
+      </div>
+    </div>
+  </details>
+
+  <details class="entry">
+    <summary>
+      <div>
+        <div class="entry-title">AI@UW Resources — Ethical Guidelines, Experts, Copyright, Communities of Practice</div>
+        <div class="entry-org">AI@UW</div>
+        <div class="tags"><span class="tag">Guidance</span><span class="tag new">New</span></div>
+      </div>
+    </summary>
+    <div class="entry-body">
+      <p>AI@UW's Resources hub gathers cross-cutting reference material:</p>
+      <ul>
+        <li><strong>Ethical Guidelines</strong> — UW's articulated principles for responsible AI use.</li>
+        <li><strong>AI Experts directory</strong> — searchable index of UW faculty working on AI.</li>
+        <li><strong>Communities of Practice</strong> — including the cross-campus UW AI Community of Practice (<a href="http://bit.ly/uwaicop">bit.ly/uwaicop</a>).</li>
+        <li><strong>Copyright and Fair Use</strong> — guidance specific to AI-generated and AI-trained content.</li>
+        <li><strong>Regulations tracker</strong> — federal, state, and municipal regulatory developments.</li>
+        <li><strong>RAISE</strong> (Responsibility in AI Systems and Experiences) — a coalition of UW labs across disciplines advocating for AI aligned with human ethics and values.</li>
+      </ul>
+      <div class="entry-links">
+        <a href="https://www.ai.uw.edu/resources/">Resources hub</a>
+        <a href="https://www.ai.uw.edu/resources/ethical-guidelines/">Ethical guidelines</a>
+        <a href="https://www.ai.uw.edu/resources/ai-experts/">AI experts</a>
+        <a href="https://www.ai.uw.edu/resources/community-of-practice/">Communities of practice</a>
+        <a href="https://www.ai.uw.edu/resources/copyright-and-fair-use/">Copyright &amp; fair use</a>
+        <a href="https://www.ai.uw.edu/resources/regulations/">Regulations tracker</a>
+        <a href="https://www.raise.uw.edu/raise-homepage-new/">RAISE</a>
+      </div>
+    </div>
+  </details>
+
+  <details class="entry">
+    <summary>
+      <div>
+        <div class="entry-title">Tech Policy Lab — Law, iSchool, Allen School</div>
+        <div class="entry-org">Cross-disciplinary research lab · Seattle</div>
+        <div class="tags"><span class="tag">Guidance</span><span class="tag research">Research</span></div>
+      </div>
+    </summary>
+    <div class="entry-body">
+      <p>The Tech Policy Lab is a long-running interdisciplinary collaboration of the UW School of Law, the iSchool, and the Allen School. It tracks legal and regulatory AI policy developments and produces research informing university and external policy on AI, cybersecurity, and technology governance.</p>
+      <div class="entry-links">
+        <a href="https://techpolicylab.uw.edu/">Tech Policy Lab</a>
+        <a href="https://www.ai.uw.edu/resources/regulations/">AI Regulations resource page</a>
+      </div>
+    </div>
+  </details>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION II — SEATTLE SCHOOLS & COLLEGES                      -->
+<!-- ============================================================ -->
+
+<section id="schools-seattle">
+  <div class="section-head">
+    <div class="section-num">II</div>
+    <div>
+      <h2>Schools &amp; Colleges — UW Seattle</h2>
+      <div class="sub">Arts &amp; Sciences, Engineering, iSchool, Foster, Law, Environment, and more</div>
+    </div>
+  </div>
+
+  <details class="entry">
+    <summary>
+      <div>
+        <div class="entry-title">College of Engineering — Faculty Guidance for Academic Integrity</div>
+        <div class="entry-org">UW College of Engineering</div>
+        <div class="tags"><span class="tag">Guidance</span><span class="tag conditional">Conditional</span></div>
+      </div>
+    </summary>
+    <div class="entry-body">
+      <p>The College of Engineering explicitly defers to instructor judgement: <em>"The University of Washington has no overarching policy on student use of generative AI. The College of Engineering, likewise, defers to the judgement of the instructor."</em> The College endorses assignment-level variation — AI may be fully prohibited in one course and permitted in another depending on learning objectives.</p>
+      <p>Sample syllabus language is provided covering full prohibition, intermediate positions, and reporting workflows referring suspected misconduct to the College Dean's Office and CSSC.</p>
+      <div class="entry-links">
+        <a href="https://www.engr.washington.edu/mycoe/academic/integrity">CoE academic integrity page</a>
+      </div>
+    </div>
+  </details>
+
+  <details class="entry">
+    <summary>
+      <div>
+        <div class="entry-title">Paul G. Allen School — AI Education in the Allen School</div>
+        <div class="entry-org">Paul G. Allen School of Computer Science &amp; Engineering</div>
+        <div class="tags"><span class="tag allowed">Allowed</span><span class="tag">Guidance</span></div>
+      </div>
+    </summary>
+    <div class="entry-body">
+      <p>The Allen School maintains a dedicated page describing how AI is integrated into its curriculum across <strong>core topics</strong> (CSE 446 Machine Learning, CSE 447 Natural Language Processing, CSE 455 Computer Vision, CSE 473 AI, CSE 478 Autonomous Robotics, CSE 493G1 Deep Learning), <strong>AI and software</strong> (AI-Assisted Software Engineering, first piloted Fall 2025; a Using AI-Coding Tools pilot is scheduled for Fall 2026), <strong>AI ethics and societal impact</strong> (CSE 480 Computer Ethics Seminar, with a 100-level Principles, Applications, and Impacts of AI course piloting Winter 2027), <strong>rotating special topics</strong> (Big Ideas in AI, Human-AI Interaction, Systems for Machine Learning, and more), <strong>capstones</strong> (Human-AI Interaction, Machine Learning, Networks &amp; Mobile AI, Robotics), and <strong>non-major courses</strong> (CSE 415 Intro to AI, CSE 416 Intro to ML). Specific course AI policies are set by individual instructors.</p>
+      <div class="entry-links">
+        <a href="https://www.cs.washington.edu/academics/undergraduate/ai-education/">AI Education in the Allen School</a>
+        <a href="https://www.cs.washington.edu/research/artificial-intelligence/">Allen School AI research</a>
+      </div>
+    </div>
+  </details>
+
+  <details class="entry">
+    <summary>
+      <div>
+        <div class="entry-title">Allen School — Graduate Certificate in Modern AI Methods</div>
+        <div class="entry-org">Paul G. Allen School · Part-time evening · In-person Seattle</div>
+        <div class="tags"><span class="tag allowed">Allowed</span><span class="tag new">Updated</span></div>
+      </div>
+    </summary>
+    <div class="entry-body">
+      <p>A stackable in-person 16-credit graduate certificate for working professionals and recent graduates, launched Fall 2025. Four courses (4 credits each), one weekday evening per week on UW Seattle, covering deep learning, computer vision, NLP, and a project-based culminating course. Credits stack toward the MS in AI &amp; ML for Engineering or the ME in Multidisciplinary Engineering.</p>
+      <div class="entry-links">
+        <a href="https://www.cs.washington.edu/academics/graduate/certificate-modern-ai/">Modern AI Methods overview</a>
+        <a href="https://news.cs.washington.edu/2025/05/28/stackable-graduate-certificate-modern-ai-methods/">Allen School announcement</a>
+      </div>
+    </div>
+  </details>
+
+  <details class="entry">
+    <summary>
+      <div>
+        <div class="entry-title">Information School — AI Specialization (MSIM) &amp; AI for Organizations Certificate</div>
+        <div class="entry-org">UW iSchool — MSIM, MLIS, Informatics</div>
+        <div class="tags"><span class="tag allowed">Allowed</span><span class="tag">Guidance</span><span class="tag new">Updated</span></div>
+      </div>
+    </summary>
+    <div class="entry-body">
+      <p>The iSchool formalized an AI Specialization within the Master of Science in Information Management (MSIM) in 2024. Beginning <strong>Autumn 2026</strong>, all MSIM students — residential and online — will follow an identical three-course sequence:</p>
+      <ul>
+        <li><strong>IMT 521</strong> Foundations of Artificial Intelligence</li>
+        <li><strong>IMT 522</strong> AI Governance and Value Creation: Managing Change, Risk, and Innovation</li>
+        <li><strong>IMT 523</strong> Implementing and Managing Generative AI Systems</li>
+      </ul>
+      <p>Current 2025–26 alternative electives for residential students include IMT 526 (Building and Applying LLMs), IMT 598 Generative AI Ethics, IMT 598 Epistemological Foundations of AI, and IMT 598 Responsible AI.</p>
+      <p>Separately, the iSchool announced a new <strong>Graduate Certificate in AI for Organizations</strong> — a 9-month online program launching Autumn 2026 for working professionals.</p>
+      <div class="entry-links">
+        <a href="https://ischool.uw.edu/programs/msim/specializations/artificial-intelligence">MSIM AI Specialization</a>
+        <a href="https://ischool.uw.edu/programs/certificate-ai-organizations">AI for Organizations certificate</a>
+      </div>
+    </div>
+  </details>
+
+  <details class="entry">
+    <summary>
+      <div>
+        <div class="entry-title">Foster School of Business — AI at Foster</div>
+        <div class="entry-org">Michael G. Foster School of Business</div>
+        <div class="tags"><span class="tag allowed">Allowed</span><span class="tag">Guidance</span><span class="tag new">Updated</span></div>
+      </div>
+    </summary>
+    <div class="entry-body">
+      <p>Foster's school-wide AI strategy spans four pillars: Teaching, Research, Knowledge Dissemination, and Operational Effectiveness. Foster articulates six AI learning objectives for every student: explain core AI concepts; apply AI tools for business productivity; design AI-enabled business solutions; evaluate AI's strategic business impact; assess AI ethics; cultivate lifelong AI learning mindsets.</p>
+      <p>A school-wide generative AI programming assignment, originated by Prof. Léonard Boussioux, is now adopted across Foster. Foster's <strong>AI Ambassadors</strong> include Boussioux, Tayfun Keskin, Mana Heshmati, Elina Hwang, Stephanie Lee, Lea Stern, Zikun Ye, and Uttara Ananthakrishnan. Recurring activities include Boussioux's GenAI bootcamps, the MSIS Demo Day, the UW Foster Global AI Summit (first held March 2025), AI Hackathons, and an AI &amp; Big Data in Finance Forum.</p>
+      <div class="entry-links">
+        <a href="https://foster.uw.edu/about-foster-school/ai-at-foster/">AI at Foster</a>
+      </div>
+    </div>
+  </details>
+
+  <details class="entry">
+    <summary>
+      <div>
+        <div class="entry-title">College of Education — AmplifyLearn.AI &amp; AmplifyGAIN National Center</div>
+        <div class="entry-org">UW College of Education · Prof. Min Sun, Director of AI for Education</div>
+        <div class="tags"><span class="tag research">Research</span><span class="tag allowed">Allowed</span><span class="tag new">New</span></div>
+      </div>
+    </summary>
+    <div class="entry-body">
+      <p>The UW College of Education hosts one of the most substantial AI initiatives at UW. The <strong>AmplifyLearn.AI Center</strong>, founded in 2023 and led by Prof. Min Sun (Director of AI for Education), brings together researchers, educators, and technology developers to study and guide how generative AI can improve K-12 teaching and learning. The center has secured approximately <strong>$17 million in federal funding</strong> over the past two years.</p>
+      <p>Nested within AmplifyLearn is <strong>AmplifyGAIN</strong>, a $10 million IES-funded national R&amp;D center — one of four selected under the U.S. Department of Education's U-GAIN (Using Generative AI to Augment Teaching and Learning) initiative. AmplifyGAIN focuses on K-12 generative AI in math and science, with expanded pilot testing in Washington state school districts.</p>
+      <p>Core programs and tools include:</p>
+      <ul>
+        <li><strong>Colleague AI</strong> — a specialized AI assistant designed to empower K-12 teachers; thousands of teachers and administrators have used it. Spun out as an EdTech platform.</li>
+        <li><strong>ISEA Fellowship</strong> (Innovation Science for Education Analytics) — an IES-funded data science training program in AI/ML for education research, run in partnership with the eScience Institute and faculty at the University of Oregon, University of Maryland, and Vanderbilt.</li>
+        <li><strong>AICE Certification</strong> and <strong>EPP Collaborative</strong> — capacity-building programs for AI in education.</li>
+      </ul>
+      <div class="entry-links">
+        <a href="https://education.uw.edu/research/center/amplifylearnai">AmplifyLearn.AI (UW)</a>
+        <a href="https://www.amplifylearn.ai/">AmplifyLearn.AI site</a>
+        <a href="https://education.uw.edu/news/feature/interdisciplinary-cross-sector-team-led-uws-dr-min-sun-awarded-10-million-ies-grant">AmplifyGAIN grant announcement</a>
+        <a href="https://www.amplifylearn.ai/isea/">ISEA Fellowship</a>
+      </div>
+    </div>
+  </details>
+
+  <details class="entry">
+    <summary>
+      <div>
+        <div class="entry-title">College of the Environment — AI &amp; Academic Integrity Guidelines</div>
+        <div class="entry-org">UW College of the Environment</div>
+        <div class="tags"><span class="tag">Guidance</span><span class="tag forbidden">Prohibit template</span><span class="tag allowed">Allow template</span></div>
+      </div>
+    </summary>
+    <div class="entry-body">
+      <p>The College of the Environment provides instructors with AI-specific misconduct prevention guidance and sample syllabus language. The prohibition template reads: <em>"All work submitted for this course must be your own. Any use of generative AI tools, such as ChatGPT, when working on assignments is forbidden. Use of generative AI will be considered academic misconduct and subject to investigation."</em> An "allowed without restriction" variant requires citation of any AI tools used.</p>
+      <p>Turnitin is available through Canvas. Guidance discourages posting course materials to external AI-training platforms (Course Hero, Chegg, etc.).</p>
+      <div class="entry-links">
+        <a href="https://environment.uw.edu/intranet/academics/academic-integrity/preventing-academic-misconduct/">Preventing academic misconduct (CoEnv)</a>
+        <a href="https://environment.uw.edu/intranet/teaching/policies-and-guidelines/syllabus-guidelines-and-statements/">Syllabus guidelines (CoEnv)</a>
+      </div>
+    </div>
+  </details>
+
+  <details class="entry">
+    <summary>
+      <div>
+        <div class="entry-title">Evans School — Admissions AI Policy &amp; Tech Policy Teaching</div>
+        <div class="entry-org">Daniel J. Evans School of Public Policy &amp; Governance</div>
+        <div class="tags"><span class="tag forbidden">Forbidden (admissions)</span><span class="tag">Guidance</span><span class="tag new">New</span></div>
+      </div>
+    </summary>
+    <div class="entry-body">
+      <p>The Evans School maintains one of the few publicly visible, explicit <strong>admissions</strong> AI policies at UW. Applied to both the MPA and PhD applications, the policy reads:</p>
+      <div class="entry-key"><em>"Applicants are expected to create and submit accurate and original application materials by the deadlines without the assistance of Artificial Intelligence (AI) content generators, such as ChatGPT, except for minor editorial assistance. Issues of dishonesty may result in denial of admission, rescinding an offer of admission, and/or revoking funding/scholarship."</em></div>
+      <p>Evans also offers <strong>PUBPOL 586 Technology Law &amp; Policy</strong>, a case-based course covering AI, digital privacy, algorithmic decision systems, and online speech. The school's <strong>Theory to Practice</strong> series has hosted public-facing webinars on AI and public policy (Profs. Justin Bullock and Afra Mashhadi, 2023).</p>
+      <div class="entry-links">
+        <a href="https://evans.uw.edu/graduate-professional-programs/mpa/mpa-admissions/">MPA admissions (AI policy)</a>
+        <a href="https://evans.uw.edu/graduate-professional-programs/phd/ph-d-admissions/">PhD admissions (AI policy)</a>
+        <a href="https://evans.uw.edu/courses/pubpol-586-technology-law-and-policy/">PUBPOL 586 Tech Law &amp; Policy</a>
+      </div>
+    </div>
+  </details>
+
+  <details class="entry">
+    <summary>
+      <div>
+        <div class="entry-title">School of Law — Tech Law &amp; Public Policy Clinic</div>
+        <div class="entry-org">UW School of Law · Gallagher Law Library</div>
+        <div class="tags"><span class="tag allowed">Allowed</span><span class="tag">Guidance</span></div>
+      </div>
+    </summary>
+    <div class="entry-body">
+      <p>Students in UW Law's Technology Law and Public Policy Clinic (Tech-Law Clinic) have contributed directly to Washington State AI policy, including the inaugural report of the Washington State AI Task Force (December 2024). 2L and 3L students conduct policy research with the Attorney General's Office on AI, including judicial AI applications.</p>
+      <p>The Gallagher Law Library maintains a dedicated AI resource page addressing the impact of AI on legal education and the practice of law.</p>
+      <div class="entry-links">
+        <a href="https://www.law.uw.edu/news-events/news/2025/ai-task-force">UW Law students &amp; AI policy</a>
+        <a href="https://lib.law.uw.edu/c.php?g=1387996">Gallagher Law Library AI guide</a>
+        <a href="https://techpolicylab.uw.edu/">Tech Policy Lab</a>
+      </div>
+    </div>
+  </details>
+
+  <details class="entry">
+    <summary>
+      <div>
+        <div class="entry-title">Global Innovation Exchange — Generative AI for Business Leaders</div>
+        <div class="entry-org">UW Global Innovation Exchange (GIX) · Professional Education</div>
+        <div class="tags"><span class="tag allowed">Allowed</span></div>
+      </div>
+    </summary>
+    <div class="entry-body">
+      <p>GIX offers a three-day, in-person non-credit professional program co-developed by UW experts in computer science, business, and law. It is designed for decision-makers, leaders, and policymakers seeking practical and strategic GenAI fluency. AI tools are actively used as part of instruction. Custom organizational delivery is available.</p>
+      <div class="entry-links">
+        <a href="https://gix.uw.edu/professional/generative-ai-for-business-leaders">Generative AI for Business Leaders</a>
+      </div>
+    </div>
+  </details>
+
+  <details class="entry">
+    <summary>
+      <div>
+        <div class="entry-title">College of Engineering — AI &amp; Machine Learning Stacked Programs</div>
+        <div class="entry-org">UW College of Engineering · Multiple departments</div>
+        <div class="tags"><span class="tag allowed">Allowed</span><span class="tag new">New</span></div>
+      </div>
+    </summary>
+    <div class="entry-body">
+      <p>The College of Engineering offers a stackable <strong>MS in AI and Machine Learning for Engineering</strong>, designed for working engineers; it can be completed fully online and combines a foundational AI &amp; ML certificate with one discipline-specific data-intensive certificate plus a two-quarter applied capstone. Eligible component certificates include:</p>
+      <ul>
+        <li><strong>Graduate Certificate in AI &amp; ML for Engineering</strong> (online)</li>
+        <li><strong>Graduate Certificate in Modern AI Methods</strong> (Allen School; in-person)</li>
+        <li><strong>Graduate Certificate in Human Centered AI</strong> (HCDE; in-person)</li>
+        <li><strong>Graduate Certificate in Data-Driven Dynamic Systems &amp; Control for Engineering</strong> (ME; online)</li>
+        <li><strong>Graduate Certificate in Data Analytics for Systems Operations</strong> (ISE)</li>
+        <li><strong>Graduate Certificate in Data Science for Materials Engineering</strong> (MSE)</li>
+      </ul>
+      <p>The CoE also hosts the <strong>Cross-Pacific AI Initiative (X-PAI)</strong> — a long-term research collaboration with NVIDIA, Amazon, and the University of Tsukuba — and the <strong>AI Center for Dynamics &amp; Control</strong> (directed by Prof. Steve Brunton).</p>
+      <div class="entry-links">
+        <a href="https://www.engr.washington.edu/admission/professional-masters-certificates/masters-artificial-intelligence-and-machine-learning">MS in AI &amp; ML for Engineering</a>
+        <a href="https://www.engr.washington.edu/admission/professional-masters-certificates/artificial-intelligence-and-machine-learning-certificate">AI &amp; ML for Engineering certificate</a>
+        <a href="https://www.hcde.washington.edu/hcai">Human Centered AI certificate (HCDE)</a>
+        <a href="https://xpai.engr.uw.edu/">Cross-Pacific AI Initiative</a>
+      </div>
+    </div>
+  </details>
+
+  <details class="entry">
+    <summary>
+      <div>
+        <div class="entry-title">School of Art + Art History + Design — School &amp; Course Policies</div>
+        <div class="entry-org">UW School of Art + Art History + Design · College of Arts &amp; Sciences</div>
+        <div class="tags"><span class="tag">Guidance</span><span class="tag forbidden">Course-level prohibitions</span><span class="tag conditional">Course-level conditional</span><span class="tag new">New</span></div>
+      </div>
+    </summary>
+    <div class="entry-body">
+      <p>The School of Art + Art History + Design is one of the few UW schools with an explicit AI/academic-integrity statement at the <strong>school level</strong>, published on its General Policies page. The statement notes that AI may violate the Student Conduct Code's prohibition on unauthorized use of assistance and instructs students to read each syllabus for course-specific expectations.</p>
+      <p>Design course syllabi offer some of the clearest publicly visible examples at UW of how individual courses translate that policy into practice — including a notably granular and instructive intermediate model:</p>
+      <ul>
+        <li><strong>DESIGN 150</strong> (all sections, multiple quarters) — full prohibition matching the Teaching@UW template.</li>
+        <li><strong>DESIGN 166</strong> — granular: spell-check, Grammarly, and Photoshop content-aware fill are permitted; AI image generation (Midjourney, DALL-E), AI brainstorming, AI layout templating, and posting student work to AI-training platforms are forbidden.</li>
+        <li><strong>DESIGN 369</strong> — actively encouraged with attribution and ethical reflection: "you should still be the author, with AI as an optional aid."</li>
+      </ul>
+      <p>The DESIGN 166 statement in particular is a useful template for any course needing a middle-ground policy more specific than the standard three Teaching@UW options.</p>
+      <div class="entry-links">
+        <a href="https://art.washington.edu/general-policies">School general policies</a>
+        <a href="https://art.washington.edu/courses/2025/autumn/design/150/a">DESIGN 150 (full prohibition example)</a>
+        <a href="https://art.washington.edu/courses/2025/winter/design/166/a">DESIGN 166 (granular conditional example)</a>
+        <a href="https://art.washington.edu/courses/2024/spring/design/369/a">DESIGN 369 (encouraged-with-attribution example)</a>
+      </div>
+    </div>
+  </details>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION III — GRADUATE & RESEARCH                            -->
+<!-- ============================================================ -->
+
+<section id="graduate">
+  <div class="section-head">
+    <div class="section-num">III</div>
+    <div>
+      <h2>Graduate School &amp; Research</h2>
+      <div class="sub">Dissertations, theses, research conduct, graduate teaching</div>
+    </div>
+  </div>
+
+  <details class="entry">
+    <summary>
+      <div>
+        <div class="entry-title">Effective and Responsible Use of AI in Research — UW Graduate School</div>
+        <div class="entry-org">UW Graduate School · Office of Academic Affairs</div>
+        <div class="tags"><span class="tag research">Research</span><span class="tag conditional">Conditional</span></div>
+      </div>
+    </summary>
+    <div class="entry-body">
+      <p>Published December 2024 and adapted from Georgia Tech's guidance with refinement by the UW Graduate School Council and cross-campus stakeholders, this is the canonical UW reference for AI use in graduate research and the writing of dissertations, theses, and manuscripts.</p>
+      <p>The guidance covers appropriate vs. inappropriate AI use; attribution and citation of AI tools across discipline-specific style guides (MLA, APA, Chicago); privacy risks of submitting data to AI tools; accuracy and credibility concerns with AI-generated content; and key discussion questions faculty should raise with graduate students. Tools mentioned include Writefull and EndNote.</p>
+      <div class="entry-links">
+        <a href="https://grad.uw.edu/advice/effective-and-responsible-use-of-ai-in-research/">Graduate School AI research guidance</a>
+      </div>
+    </div>
+  </details>
+
+  <details class="entry">
+    <summary>
+      <div>
+        <div class="entry-title">AI@UW Research Tools and Guidance Hub</div>
+        <div class="entry-org">AI@UW · UW-IT · Library partners</div>
+        <div class="tags"><span class="tag research">Research</span><span class="tag tool">Tool / Infrastructure</span><span class="tag new">New</span></div>
+      </div>
+    </summary>
+    <div class="entry-body">
+      <p>A consolidated research entry point linking Copilot access, UW-IT technical guidelines, Graduate School research guidance, the Health Sciences Library AI guide, and Gallagher Law Library AI resources. Useful as a single starting page for new researchers integrating AI into their work.</p>
+      <div class="entry-links">
+        <a href="https://www.ai.uw.edu/research/tools-and-guidance/">Research tools and guidance</a>
+        <a href="https://www.ai.uw.edu/research/hubs-and-centers/">Research hubs and centers</a>
+        <a href="https://www.ai.uw.edu/research/funding/">Research funding</a>
+      </div>
+    </div>
+  </details>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION IV — UW MEDICINE & HEALTH PROFESSIONS                -->
+<!-- ============================================================ -->
+
+<section id="medicine">
+  <div class="section-head">
+    <div class="section-num">IV</div>
+    <div>
+      <h2>UW Medicine &amp; Health Professions</h2>
+      <div class="sub">School of Medicine, GME / UME, Nursing, Health Sciences</div>
+    </div>
+  </div>
+
+  <details class="entry">
+    <summary>
+      <div>
+        <div class="entry-title">AI Guidelines for Residency &amp; Fellowship Applications — UW GME / UME</div>
+        <div class="entry-org">UW Graduate &amp; Undergraduate Medical Education</div>
+        <div class="tags"><span class="tag medical">Medical / Clinical</span><span class="tag conditional">Conditional</span></div>
+      </div>
+    </summary>
+    <div class="entry-body">
+      <p>Explicit guidelines for medical students using AI in residency and fellowship applications, anchored in four principles:</p>
+      <ul>
+        <li><strong>Authenticity:</strong> Use AI to enhance your own work, not replace it; content must accurately reflect your experiences and skills.</li>
+        <li><strong>Privacy:</strong> Most LLMs store prompts and responses; never input SSNs, confidential patient data, or proprietary information.</li>
+        <li><strong>Plagiarism:</strong> Do not replicate AI-generated content from others; personalize AI suggestions.</li>
+        <li><strong>Disclosure:</strong> Varies by application system (ERAS, NRMP) — follow program-specific policies.</li>
+      </ul>
+      <div class="entry-links">
+        <a href="https://sites.uw.edu/uwgme/ai/">UW GME AI guidelines</a>
+      </div>
+    </div>
+  </details>
+
+  <details class="entry">
+    <summary>
+      <div>
+        <div class="entry-title">UW Medicine Generative AI Interim Guidance (NetID required)</div>
+        <div class="entry-org">UW Medicine · Internal SharePoint</div>
+        <div class="tags"><span class="tag medical">Medical / Clinical</span><span class="tag">Guidance</span></div>
+      </div>
+    </summary>
+    <div class="entry-body">
+      <p>UW Medicine maintains separate, authoritative GenAI guidelines for clinical and health-research contexts. These are referenced by UW-IT as the controlling source for healthcare and medical-research AI use. The interim guidance PDF is accessible to those with a UW NetID via the Vitals document repository.</p>
+      <p>Public-facing summary: AI use in clinical and health-research contexts must comply with HIPAA, UW data governance policies, and UW Medicine's specific approved-tool list. Only UW-approved services may be used with University data.</p>
+      <div class="entry-links">
+        <a href="https://uwnetid.sharepoint.com/sites/og_uwm_internal_comms/vitals_document_repository/Generative%20AI%20at%20UW%20Medicine/Forms/AllItems.aspx?id=%2Fsites%2Fog%5Fuwm%5Finternal%5Fcomms%2Fvitals%5Fdocument%5Frepository%2FGenerative%20AI%20at%20UW%20Medicine%2FUW%2DMedicine%2DLLM%2DInterim%2DGuidance%2DGenerative%2DAI%2Epdf">UW Medicine LLM Interim Guidance (NetID)</a>
+        <a href="https://it.uw.edu/guides/security-authentication/artificial-intelligence-guidelines/">UW-IT AI guidelines (references UW Medicine)</a>
+      </div>
+    </div>
+  </details>
+
+  <details class="entry">
+    <summary>
+      <div>
+        <div class="entry-title">UW Health Sciences Library — AI Research Guide</div>
+        <div class="entry-org">UW Health Sciences Library</div>
+        <div class="tags"><span class="tag medical">Medical / Clinical</span><span class="tag research">Research</span><span class="tag new">New</span></div>
+      </div>
+    </summary>
+    <div class="entry-body">
+      <p>The Health Sciences Library's AI overview guide addresses definitions, uses, limitations, bias, cost, and other practical concerns for AI in health sciences research. Useful as a discipline-specific complement to UW-IT and UW Medicine guidance.</p>
+      <div class="entry-links">
+        <a href="https://guides.lib.uw.edu/hsl/ai">Health Sciences Library AI guide</a>
+      </div>
+    </div>
+  </details>
+
+  <details class="entry">
+    <summary>
+      <div>
+        <div class="entry-title">AI in Nursing Research &amp; Digital Health</div>
+        <div class="entry-org">UW School of Nursing · UW Tacoma School of Nursing &amp; Healthcare Leadership</div>
+        <div class="tags"><span class="tag research">Research</span><span class="tag medical">Medical / Clinical</span></div>
+      </div>
+    </summary>
+    <div class="entry-body">
+      <p>The UW School of Nursing's Digital Health Innovation Hub integrates AI in both research and curriculum, including work on AI chatbots for mental-health support. UW Tacoma's School of Nursing &amp; Healthcare Leadership runs related work, such as AI-based cognitive training to reduce social isolation in older adults. No standalone classroom AI policy has been publicly published; the UW Student Conduct Code, course-level policies, and UW Medicine research guidance apply.</p>
+      <div class="entry-links">
+        <a href="https://nursing.uw.edu/">UW School of Nursing</a>
+      </div>
+    </div>
+  </details>
+
+  <details class="entry">
+    <summary>
+      <div>
+        <div class="entry-title">School of Public Health — Faculty Resource, Teaching Hub, &amp; MPH Practicum Policy</div>
+        <div class="entry-org">UW School of Public Health · Office of Education</div>
+        <div class="tags"><span class="tag">Guidance</span><span class="tag forbidden">Forbidden (practicum)</span><span class="tag conditional">Conditional</span><span class="tag new">New</span></div>
+      </div>
+    </summary>
+    <div class="entry-body">
+      <p>SPH has produced school-level AI guidance in several forms. Associate Dean for Education <strong>Liz Kirk</strong> developed a faculty resource document covering what ChatGPT is, UW-specific resources, sample syllabus language, and a possible instructor announcement to students. The Curriculum and Education Policy Committee (CEPC) convened an AI workgroup tasked with understanding student AI use and developing school-wide policies.</p>
+      <p>The <strong>SPH Teaching Support site</strong> ("Current Chatter on AI") aggregates ongoing AI-in-teaching resources, citation guidance, and external commentary for SPH instructors.</p>
+      <p>The most concrete policy is for the <strong>MPH Practicum</strong>, which sets a strict baseline:</p>
+      <div class="entry-key"><em>"Students are NOT allowed to use AI for the SPH written and visual assignments under any circumstances. The use of generative AI tools for Site Deliverables is not permitted unless explicitly approved by the student's Practicum Site Supervisor and Faculty Adviser, and the student has received appropriate orientation on the site's policies regarding AI use."</em></div>
+      <div class="entry-links">
+        <a href="https://sph.washington.edu/faculty/newsletter/ChatGPT-AI">SPH faculty resource (Liz Kirk)</a>
+        <a href="https://sites.uw.edu/sphta/current-chatter-on-artificial-intelligence/">SPH Teaching Support: Current Chatter on AI</a>
+        <a href="https://sph.washington.edu/mph-practicum/students">MPH Practicum AI policy</a>
+      </div>
+    </div>
+  </details>
+
+  <details class="entry">
+    <summary>
+      <div>
+        <div class="entry-title">Institute for Medical Data Science</div>
+        <div class="entry-org">UW School of Medicine · College of Engineering · School of Public Health</div>
+        <div class="tags"><span class="tag research">Research</span><span class="tag medical">Medical / Clinical</span><span class="tag tool">Tool / Infrastructure</span><span class="tag new">New</span></div>
+      </div>
+    </summary>
+    <div class="entry-body">
+      <p>A cross-school institute at the intersection of artificial intelligence, machine learning, and healthcare, jointly overseen by the School of Medicine, the College of Engineering, and the School of Public Health. Launched at the 2023 UW Medical Data Science Symposium and continuing to grow, the institute is a primary locus for UW's AI/ML work on clinical data, electronic health records, medical imaging, wearable-device data, and population-health applications. Useful entry point for researchers seeking institutional infrastructure for medical AI work.</p>
+      <div class="entry-links">
+        <a href="https://www.geekwire.com/2023/uw-forms-medical-data-science-institute-focused-on-ai-machine-learning-healthcare/">Institute background (GeekWire)</a>
+      </div>
+    </div>
+  </details>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION V — UW BOTHELL                                       -->
+<!-- ============================================================ -->
+
+<section id="bothell">
+  <div class="section-head">
+    <div class="section-num">V</div>
+    <div>
+      <h2>UW Bothell</h2>
+      <div class="sub">Campus-specific policies and statements</div>
+    </div>
+  </div>
+
+  <details class="entry">
+    <summary>
+      <div>
+        <div class="entry-title">AI Tools and Academic Integrity — UW Bothell Students</div>
+        <div class="entry-org">UW Bothell · Chancellor's Office</div>
+        <div class="tags"><span class="tag">Guidance</span><span class="tag conditional">Conditional</span></div>
+      </div>
+    </summary>
+    <div class="entry-body">
+      <p>UW Bothell students receive the same system-wide AI and academic integrity communication as Seattle and Tacoma. The campus does not maintain a separate AI policy distinct from the university-wide guidance; all programs operate under instructor discretion with the Student Conduct Code (WAC 478-121) applying as on other UW campuses. Teaching@UW resources are shared across campuses.</p>
+      <div class="entry-links">
+        <a href="https://www.washington.edu/studentlife/2023/10/11/ai-tools-and-academic-integrity/">System-wide message</a>
+        <a href="https://teaching.washington.edu/course-design/ai/">Teaching@UW AI resources</a>
+        <a href="https://www.uwb.edu/">UW Bothell home</a>
+      </div>
+    </div>
+  </details>
+
+  <details class="entry">
+    <summary>
+      <div>
+        <div class="entry-title">UW Bothell &amp; Cascadia College — AI Guide for Students (Campus Library)</div>
+        <div class="entry-org">UW Bothell / Cascadia College Campus Library</div>
+        <div class="tags"><span class="tag">Guidance</span><span class="tag new">New</span></div>
+      </div>
+    </summary>
+    <div class="entry-body">
+      <p>A jointly maintained student-facing AI basics and usage guide produced by the UW Bothell and Cascadia College Campus Library. It is referenced from AI@UW's "Using AI Responsibly" page as a primary student resource, and is useful well beyond the Bothell community.</p>
+      <div class="entry-links">
+        <a href="https://guides.lib.uw.edu/usingAI">Using AI (library guide)</a>
+      </div>
+    </div>
+  </details>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION VI — UW TACOMA                                       -->
+<!-- ============================================================ -->
+
+<section id="tacoma">
+  <div class="section-head">
+    <div class="section-num">VI</div>
+    <div>
+      <h2>UW Tacoma</h2>
+      <div class="sub">Campus-specific policies, programs, and statements</div>
+    </div>
+  </div>
+
+  <details class="entry">
+    <summary>
+      <div>
+        <div class="entry-title">AI Tools and Academic Integrity — UW Tacoma</div>
+        <div class="entry-org">UW Tacoma · Office of the Chancellor</div>
+        <div class="tags"><span class="tag">Guidance</span><span class="tag conditional">Conditional</span></div>
+      </div>
+    </summary>
+    <div class="entry-body">
+      <p>UW Tacoma's version of the system-wide AI message reiterates that using AI "without your instructor's permission may violate academic standards of the University" under the Student Conduct Code. Students are directed to review each course syllabus and contact CSSC with conduct questions.</p>
+      <div class="entry-links">
+        <a href="https://www.tacoma.uw.edu/chancellor/ai-tools-and-academic-integrity">UW Tacoma AI &amp; academic integrity</a>
+      </div>
+    </div>
+  </details>
+
+  <details class="entry">
+    <summary>
+      <div>
+        <div class="entry-title">AI in Healthcare Education — UW Tacoma School of Nursing &amp; Healthcare Leadership</div>
+        <div class="entry-org">UW Tacoma School of Nursing &amp; Healthcare Leadership</div>
+        <div class="tags"><span class="tag medical">Medical / Clinical</span><span class="tag research">Research</span></div>
+      </div>
+    </summary>
+    <div class="entry-body">
+      <p>The school engages with AI in research contexts, including work on AI-based cognitive training to reduce social isolation in older adults. No separate AI classroom policy document is publicly available; instructor-set course policies govern student AI use, and the school operates under UW system-wide and UW Medicine health-research AI guidance.</p>
+      <div class="entry-links">
+        <a href="https://www.tacoma.uw.edu/snhl">UW Tacoma SNHL</a>
+      </div>
+    </div>
+  </details>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION VII — IT, APPROVED TOOLS & INFRASTRUCTURE            -->
+<!-- ============================================================ -->
+
+<section id="it-tools">
+  <div class="section-head">
+    <div class="section-num">VII</div>
+    <div>
+      <h2>IT, Approved Tools &amp; Infrastructure</h2>
+      <div class="sub">Tool approvals, data governance, privacy, security, recordkeeping</div>
+    </div>
+  </div>
+
+  <details class="entry">
+    <summary>
+      <div>
+        <div class="entry-title">UW-IT — Generative AI General Use Guidelines</div>
+        <div class="entry-org">UW Information Technology · Last updated September 16, 2025</div>
+        <div class="tags"><span class="tag">Guidance</span><span class="tag conditional">Conditional</span></div>
+      </div>
+    </summary>
+    <div class="entry-body">
+      <p>UW-IT's guidelines require that only UW-approved services be used with University data. Key requirements:</p>
+      <ul>
+        <li>Public data (classification Level 1) may be used with GenAI; restricted data (Levels 2–4) requires appropriate security and privacy controls.</li>
+        <li>Disclose GenAI use when relevant — particularly in published research and coursework.</li>
+        <li>Maintain detailed records of GenAI use, especially when personal data is involved (via TrustArc personal data inventory).</li>
+        <li>High-risk uses (hiring, admissions, performance evaluations) require a privacy impact assessment from uwprivacy@uw.edu.</li>
+        <li>Users are "ultimately responsible and accountable" for all GenAI outputs.</li>
+      </ul>
+      <p>UW-IT offers complimentary training, tool review, architectural guidance, and security assessments for units evaluating AI tools.</p>
+      <div class="entry-links">
+        <a href="https://it.uw.edu/guides/security-authentication/artificial-intelligence-guidelines/">UW-IT GenAI guidelines</a>
+        <a href="https://it.uw.edu/initiatives/artificial-intelligence-ai/">UW-IT AI initiative</a>
+      </div>
+    </div>
+  </details>
+
+  <details class="entry">
+    <summary>
+      <div>
+        <div class="entry-title">UW-Approved AI Tools — Purple, Tillicum, Copilot, ChatGPT Edu &amp; More</div>
+        <div class="entry-org">UW-IT · All campuses · Page last updated February 17, 2026</div>
+        <div class="tags"><span class="tag tool">Tool / Infrastructure</span><span class="tag conditional">Conditional</span><span class="tag new">Significantly updated</span></div>
+      </div>
+    </summary>
+    <div class="entry-body">
+      <p><strong>Only UW-approved services and applications may be used with University data.</strong> UW-IT now supports a growing portfolio of AI tools rather than a single approved option. The current set:</p>
+      <ul>
+        <li><strong>Purple</strong> — UW's in-house, NetID-gated generative AI tool for students, faculty, staff, and researchers. Centrally funded for three years, with a free, unified portal for chat, coding, data analysis, presentation generation, and research. Includes the UW AI Support Agent and a Deep Research Agent, and supports user-built agents (over 100 created during the pilot). Rolling out broadly in 2026 with privacy commitments (transient, anonymous, unrecorded sessions). Not yet approved for UW Medicine use. <em>Rollout has been bumpy</em> — UW-IT delayed the AI@UW launch-event debut and The Daily reported a January 2026 misconfiguration that briefly exposed access beyond the pilot group.</li>
+        <li><strong>Tillicum</strong> — UW's state-of-the-art GPU-accelerated research computing platform.</li>
+        <li><strong>Microsoft 365 Copilot Chat</strong> — text and image generation in the browser; available to all UW Microsoft users. <strong>Copilot for Microsoft 365 Premium</strong> (Word, Excel, Outlook integration) is coming.</li>
+        <li><strong>ChatGPT Edu</strong> — secure, UW-managed ChatGPT for faculty and staff for everyday tasks.</li>
+        <li><strong>GitHub Copilot</strong> — AI-assisted coding for developers.</li>
+        <li><strong>Zoom AI Companion</strong> — real-time transcription, translation, and meeting summaries.</li>
+        <li><strong>Workday AI</strong> — vendor invoice text recognition and financial process automation.</li>
+      </ul>
+      <p>Other tools (consumer ChatGPT, Google Gemini, Claude, etc.) are not prohibited for personal use but do not carry UW's data-privacy agreement. Sensitive, confidential, or personally identifiable University data must not be entered into unapproved tools.</p>
+      <p>UW-IT also publishes a <strong>UW AI Strategy</strong> document setting two-year goals for shared guidelines, expanded capabilities, a data strategy, and proficiency-building, plus an <strong>AI consultations</strong> service and an <strong>AI events calendar</strong>.</p>
+      <div class="entry-links">
+        <a href="https://it.uw.edu/guides/artificial-intelligence/">UW-IT AI services overview</a>
+        <a href="https://it.uw.edu/guides/artificial-intelligence/purple/">Purple — UW's GenAI tool</a>
+        <a href="https://it.uw.edu/uw-it/uw-it-strategy/technology-strategy-roadmap/ai-strategy/">UW AI Strategy</a>
+        <a href="https://uwconnect.uw.edu/it?id=kb_article_view&amp;sysparm_article=KB0036077">Tillicum (GPU)</a>
+        <a href="https://uwconnect.uw.edu/it?id=kb_article_view&amp;sysparm_article=KB0034403">Microsoft Copilot KB</a>
+        <a href="https://uwconnect.uw.edu/it?id=kb_article_view&amp;sysparm_article=KB0035423">GitHub Copilot KB</a>
+        <a href="https://uwconnect.uw.edu/it?id=kb_article_view&amp;sysparm_article=KB0035021">Zoom AI Companion</a>
+      </div>
+    </div>
+  </details>
+
+  <details class="entry">
+    <summary>
+      <div>
+        <div class="entry-title">Records Management — AI Guidance for UW Records</div>
+        <div class="entry-org">UW Finance · Records Management Services</div>
+        <div class="tags"><span class="tag">Guidance</span><span class="tag new">New</span></div>
+      </div>
+    </summary>
+    <div class="entry-body">
+      <p>UW Records Management Services maintains AI-specific guidance for compliance with records-protection and preservation laws. Required reading for any unit using GenAI to generate, transform, or store records subject to UW's records-retention obligations.</p>
+      <div class="entry-links">
+        <a href="https://finance.uw.edu/recmgt/UW-records-ai-guidance">Records Management AI guidance</a>
+      </div>
+    </div>
+  </details>
+
+  <details class="entry">
+    <summary>
+      <div>
+        <div class="entry-title">Turnitin &amp; AI Detection — Site License via Canvas</div>
+        <div class="entry-org">UW-IT · Canvas integration</div>
+        <div class="tags"><span class="tag tool">Tool / Infrastructure</span><span class="tag">Guidance</span></div>
+      </div>
+    </summary>
+    <div class="entry-body">
+      <p>UW holds a site license for Turnitin, integrated with Canvas. Instructors can enable similarity checking per assignment. Turnitin now includes AI writing detection features, though their accuracy is widely disputed. Teaching@UW notes that no technology currently exists that can reliably identify AI-generated content, and cautions against reliance on AI detection alone. Posting course materials to third-party AI-training sites (Course Hero, Chegg) may also violate course policies and should be addressed in syllabi.</p>
+      <div class="entry-links">
+        <a href="https://environment.uw.edu/intranet/academics/academic-integrity/preventing-academic-misconduct/">Turnitin context (CoEnv)</a>
+        <a href="https://teaching.washington.edu/course-design/ai/sample-ai-syllabus-statements/">Note on AI detection limits</a>
+      </div>
+    </div>
+  </details>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION VIII — LIBRARIES & LITERACY                          -->
+<!-- ============================================================ -->
+
+<section id="libraries">
+  <div class="section-head">
+    <div class="section-num">VIII</div>
+    <div>
+      <h2>Libraries &amp; AI Literacy</h2>
+      <div class="sub">Student-facing literacy resources and discipline-specific guides</div>
+    </div>
+  </div>
+
+  <details class="entry">
+    <summary>
+      <div>
+        <div class="entry-title">UW Libraries — Critical AI Literacy Module</div>
+        <div class="entry-org">UW Libraries · Undergraduate Research Services</div>
+        <div class="tags"><span class="tag">Guidance</span><span class="tag new">New</span></div>
+      </div>
+    </summary>
+    <div class="entry-body">
+      <p>An online module on effective and critical use of AI for learning. The module addresses how to use AI without outsourcing the learning, creativity, and social connection that are central to a university education. Useful for students, and easily linkable from course syllabi.</p>
+      <div class="entry-links">
+        <a href="https://sites.uw.edu/libugr/topics/critical-ai-literacy/">Critical AI literacy module</a>
+      </div>
+    </div>
+  </details>
+
+  <details class="entry">
+    <summary>
+      <div>
+        <div class="entry-title">UW Health Sciences Library — AI Research Guide</div>
+        <div class="entry-org">UW Health Sciences Library</div>
+        <div class="tags"><span class="tag medical">Medical / Clinical</span><span class="tag research">Research</span></div>
+      </div>
+    </summary>
+    <div class="entry-body">
+      <p>Discipline-specific guide for AI in health sciences research; cross-listed with the Medicine section above.</p>
+      <div class="entry-links">
+        <a href="https://guides.lib.uw.edu/hsl/ai">Health Sciences Library AI guide</a>
+      </div>
+    </div>
+  </details>
+
+  <details class="entry">
+    <summary>
+      <div>
+        <div class="entry-title">Gallagher Law Library — AI Resources</div>
+        <div class="entry-org">UW School of Law · Marian Gould Gallagher Law Library</div>
+        <div class="tags"><span class="tag research">Research</span><span class="tag">Guidance</span></div>
+      </div>
+    </summary>
+    <div class="entry-body">
+      <p>A research guide focused on the risks, impacts, and uses of AI in legal education and the practice of law. Useful for law students, faculty, and anyone whose work touches legal AI applications.</p>
+      <div class="entry-links">
+        <a href="https://lib.law.uw.edu/c.php?g=1387996">Gallagher Law Library AI guide</a>
+      </div>
+    </div>
+  </details>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION IX — STATE & LOCAL CONTEXT                           -->
+<!-- ============================================================ -->
+
+<section id="external">
+  <div class="section-head">
+    <div class="section-num">IX</div>
+    <div>
+      <h2>State &amp; Local Regulatory Context</h2>
+      <div class="sub">External AI guidance and policies that bear on UW operations</div>
+    </div>
+  </div>
+
+  <details class="entry">
+    <summary>
+      <div>
+        <div class="entry-title">Washington State Attorney General — AI Task Force &amp; Report</div>
+        <div class="entry-org">Washington State Office of the Attorney General</div>
+        <div class="tags"><span class="tag">Guidance</span><span class="tag new">New</span></div>
+      </div>
+    </summary>
+    <div class="entry-body">
+      <p>The Washington AG's AI Task Force convenes state agencies, industry, academia (including UW Law students), and the public on AI policy. The inaugural report (December 2024) sets out recommendations across consumer protection, government use, judicial applications, and equity.</p>
+      <div class="entry-links">
+        <a href="https://www.atg.wa.gov/aitaskforce">WA AG AI Task Force</a>
+        <a href="https://agportal-s3bucket.s3.us-west-2.amazonaws.com/uploadedfiles/2024%20AI%20Task%20Force%20Report.pdf?VersionId=2hKCaDeJaZ5L6BtFX9oqQg_WaY.KOCpw">2024 Task Force report (PDF)</a>
+      </div>
+    </div>
+  </details>
+
+  <details class="entry">
+    <summary>
+      <div>
+        <div class="entry-title">WaTech — Interim Guidelines for Generative AI in Washington State Government</div>
+        <div class="entry-org">Washington State Office of the Chief Information Officer (WaTech)</div>
+        <div class="tags"><span class="tag">Guidance</span><span class="tag new">New</span></div>
+      </div>
+    </summary>
+    <div class="entry-body">
+      <p>WaTech's interim guidelines apply to state agencies and provide a useful comparator for UW's institutional approach. They cover purposeful and responsible use, data handling, procurement, and disclosure requirements.</p>
+      <div class="entry-links">
+        <a href="https://watech.wa.gov/policies/interim-guidelines-purposeful-and-responsible-use-generative-artificial-intelligence-ai-washington">WaTech interim guidelines</a>
+      </div>
+    </div>
+  </details>
+
+  <details class="entry">
+    <summary>
+      <div>
+        <div class="entry-title">City of Seattle — Generative AI Policy &amp; Responsible AI Program</div>
+        <div class="entry-org">Seattle Information Technology Department</div>
+        <div class="tags"><span class="tag">Guidance</span><span class="tag new">New</span></div>
+      </div>
+    </summary>
+    <div class="entry-body">
+      <p>Seattle's GenAI policy and broader Responsible AI Program are useful reference points for municipal-scale AI governance, especially given UW's deep ties to the city's public-sector and civic-tech communities.</p>
+      <div class="entry-links">
+        <a href="https://www.seattle.gov/documents/Departments/SeattleIT/City-of-Seattle-Generative-Artificial-Intelligence-Policy.pdf">Seattle GenAI Policy (PDF)</a>
+        <a href="https://www.seattle.gov/tech/data-privacy/the-citys-responsible-use-of-artificial-intelligence">Seattle Responsible AI Program</a>
+      </div>
+    </div>
+  </details>
+
+  <details class="entry">
+    <summary>
+      <div>
+        <div class="entry-title">City of Tacoma — Generative AI Guidelines</div>
+        <div class="entry-org">City of Tacoma Information Technology</div>
+        <div class="tags"><span class="tag">Guidance</span><span class="tag new">New</span></div>
+      </div>
+    </summary>
+    <div class="entry-body">
+      <p>The City of Tacoma publishes its own GenAI guidelines for municipal use, of practical relevance to UW Tacoma and to faculty/staff who collaborate with city agencies.</p>
+      <div class="entry-links">
+        <a href="https://www.cityoftacoma.org/government/city_departments/information_technology/generative_artificial_intelligence_guidelines">Tacoma GenAI guidelines</a>
+      </div>
+    </div>
+  </details>
+</section>
+
+</main>
+
+<footer>
+  <div><strong>UW AI Policy Directory</strong> · Community reference · Not an official University of Washington publication.</div>
+  <div>All policy links direct to official UW or governmental sources. Last compiled May 2026.</div>
+  <div class="key-sources">
+    Key hubs:
+    <a href="https://www.ai.uw.edu/">AI@UW</a>·
+    <a href="https://teaching.washington.edu/course-design/ai/">Teaching@UW</a>·
+    <a href="https://it.uw.edu/guides/security-authentication/artificial-intelligence-guidelines/">UW-IT GenAI</a>·
+    <a href="https://grad.uw.edu/advice/effective-and-responsible-use-of-ai-in-research/">Graduate School</a>
+  </div>
+</footer>
+
+</body>
+</html>

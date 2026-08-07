@@ -4,7 +4,7 @@ title: "Contacting Noah Smith"
 author_profile: true
 ---
 
- I spend a lot of time reading and writing email. I wish I had more time for advising my students, learning new things, thinking about my research, and writing papers. Every message I take the time to read chips away at that time; please respect this fact when writing to me.
+I spend a lot of time reading and writing email. I wish I had more time for advising my students, learning new things, thinking about my research, and writing papers. Every message I take the time to read chips away at that time; please respect this fact when writing to me.
 
 (If you're not sure how to email, or you're finding that emailing professors is not getting you the results you want, consider reading [this article on how to email](http://matt.might.net/articles/how-to-email/) or [these tips](http://www.pgbovine.net/email-tips.htm).)
 
@@ -14,6 +14,7 @@ Here is a quick, imperfect guide to emailing me.
 
 ### Please [email](mailto:nasmith@cs.washington.edu) me if:
 
+* you are my colleague at UW or Ai2, or you have a leadership role around AI at a university
 * you have specific technical questions about my research (it's always good to CC my coauthors in case they can answer a question faster or better than I can)
 * you're interested in a postdoc (please note: at this time, I don't have any open positions, but updates will be posted here)
 * you are attending a conference I might be attending (most years I go to some subset of ACL, EMNLP, NAACL, COLM, ISMIR, and one or two others in machine learning, computational social science, or some other related topic) and want to set up a time to chat
