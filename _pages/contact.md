@@ -4,9 +4,7 @@ title: "Contacting Noah Smith"
 author_profile: true
 ---
 
-I spend a lot of time reading and writing email. I wish I had more time for advising my students, learning new things, thinking about my research, and writing papers. Every message I take the time to read chips away at that time; please respect this fact when writing to me.
-
-(If you're not sure how to email, or you're finding that emailing professors is not getting you the results you want, consider reading [this article on how to email](http://matt.might.net/articles/how-to-email/) or [these tips](http://www.pgbovine.net/email-tips.htm).)
+I spend a lot of time reading and writing email. I wish I had more time for advising my students, learning new things, thinking about my research, and writing papers. Every message I take the time to read chips away at that time; please respect this fact when writing to me. In particular, please do not use generative AI to produce a message and then ask me to spend my time reading it. AI-generated email slop is not a courtesy or a sign of effort: it is a way of transferring the cost of communication from the sender to the recipient, and I find that profoundly disrespectful.  And for people who have been reading and writing email for more than 30 years, it's very obvious when a message is AI slop.
 
 The most common question I get in email is whether I am taking Ph.D. students in the next cycle.  I do take Ph.D. students most years (and the UW NLP group takes Ph.D. students every year).  I expect that 2026 will be a typical year.
 
