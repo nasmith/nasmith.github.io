@@ -11,7 +11,7 @@ redirect_from:
 [Noah Smith](https://nasmith.github.io) is a computer scientist working in several fields of artificial intelligence research.  He recently wrote [**Language Models: A Guide for the Perplexed**](https://arxiv.org/pdf/2311.17301.pdf), a general-audience tutorial, and he directs the [OLMo](https://allenai.org/olmo) open language modeling effort. He is the PI of the NSF- and NVIDIA-supported project "[Open Multimodal AI Infrastructure to Accelerate Science](https://allenai.org/omai)."
 
 Broadly, his research targets algorithms that process data encoding language, music, and more, to augment human capabilities.  He also works on core problems of research methodology like evaluation.
-You can watch [videos of some of his talks](talks), read his [papers](publications), and learn about his research group, [Noah's ARK](http://www.ark.cs.washington.edu).  Smith is most proud of his mentoring accomplishments:  as of 2025, he has graduated 32 Ph.D. students and mentored 18 postdocs, with 28 alumni now in faculty positions around the world. 23 of his undergraduate/masters mentees have gone on to Ph.D. programs.  His group's alumni have started companies and are technological leaders both inside and outside the tech industry.
+You can watch [videos of some of his talks](talks), read his [papers](publications), and learn about his research group, [Noah's ARK](http://www.ark.cs.washington.edu).  Smith is most proud of his mentoring accomplishments:  as of 2026, he has graduated 35 Ph.D. students and mentored 21 postdocs, with 32 alumni now in faculty positions around the world. Over 20 of his undergraduate/masters mentees have gone on to Ph.D. programs.  His group's alumni have started companies and are technological leaders both inside and outside the tech industry.
 
 ### Appointments & Education
 
@@ -24,6 +24,7 @@ Smith was the general chair of [EMNLP 2022](https://2022.emnlp.org/).  He has se
 
 ### Recognition
 
+In 2026, Smith received the University of Washington [Faculty Lecture Award](https://www.cs.washington.edu/allen-school-blog/noah-a-smith-university-faculty-lecture-award/), "intended to honor current or emeriti faculty whose research, scholarship, or art is widely recognized by their peers and whose achievements have had a substantial impact on their profession, on the research or performance of others, and perhaps on society as a whole."
 Smith was elected a Fellow of the Association for Computational Linguistics "for significant contributions to linguistic structure prediction, computational social sciences, and improving NLP research methodology" (2020).  UW's [Sounding Board](https://sounding-board.github.io/) team, led by Profs. [Mari Ostendorf](https://people.ece.uw.edu/ostendorf/), [Yejin Choi](https://homes.cs.washington.edu/~yejin/), and Noah Smith, won the inaugural Amazon Alexa Prize in 2017.
 Smith's research was recognized with an Amazon professorship "to enhance the University’s ability to recruit and retain distinguished faculty in machine learning" (2021&ndash;2025), a UW Innovation award "to stimulate innovation among faculty from a
   range of disciplines and to reward some of their most terrific
