@@ -10,7 +10,8 @@ redirect_from:
 
 [Noah Smith](https://nasmith.github.io) is a computer scientist working in several fields of artificial intelligence research.  He recently wrote [**Language Models: A Guide for the Perplexed**](https://arxiv.org/pdf/2311.17301.pdf), a general-audience tutorial, and he directs the [OLMo](https://allenai.org/olmo) open language modeling effort. He is the PI of the NSF- and NVIDIA-supported project "[Open Multimodal AI Infrastructure to Accelerate Science](https://allenai.org/omai)."
 
-Broadly, his research targets algorithms that process data encoding language, music, and more, to augment human capabilities.  He also works on core problems of research methodology like evaluation.
+His research targets systems that process data to augment human capabilities.  He also works on core problems of research methodology like evaluation.  He's recently become especially excited about the potential for multimodal AI as a tool for musicians; a recurring theme is human-understandable and -editable musical <i>notation</i>.  Recent projects include timestamped transcription of musical performances ([Rubato](https://arxiv.org/pdf/2605.24291)) and digitization of sheet music images ([Legato 2](https://arxiv.org/abs/2607.05769)).
+
 You can watch [videos of some of his talks](talks), read his [papers](publications), and learn about his research group, [Noah's ARK](http://www.ark.cs.washington.edu).  Smith is most proud of his mentoring accomplishments:  as of 2026, he has graduated 35 Ph.D. students and mentored 21 postdocs, with 32 alumni now in faculty positions around the world. Over 20 of his undergraduate/masters mentees have gone on to Ph.D. programs.  His group's alumni have started companies and are technological leaders both inside and outside the tech industry.
 
 ### Appointments & Education
