@@ -7,18 +7,19 @@
 <div itemscope itemtype="http://schema.org/Person">
 
   <div class="author__avatar">
+    {% comment %} Random photo on every page load: drop images into /images/bio/ {% endcomment %}
     {% assign bio_photos = site.static_files | where_exp: "f", "f.path contains '/images/bio/'" %}
     {% if bio_photos.size > 0 %}
     	{% assign first_photo = bio_photos | sample %}
     	<img id="author__avatar--random"
-    	     src="{{ first_photo.path | prepend: base_path }}"
+    	     src="{{ first_photo.path | replace: ' ', '%20' | prepend: base_path }}"
     	     class="author__avatar" alt="{{ author.name }}"
-    	     data-photos="{% for f in bio_photos %}{{ f.path | prepend: base_path }}{% unless forloop.last %},{% endunless %}{% endfor %}">
+    	     data-photos="{% for f in bio_photos %}{{ f.path | replace: ' ', '%20' | prepend: base_path }}{% unless forloop.last %}|{% endunless %}{% endfor %}">
     	<script>
     	  (function () {
     	    var img = document.getElementById('author__avatar--random');
     	    if (!img) return;
-    	    var list = (img.getAttribute('data-photos') || '').split(',').filter(Boolean);
+    	    var list = (img.getAttribute('data-photos') || '').split('|').filter(Boolean);
     	    if (list.length > 1) img.src = list[Math.floor(Math.random() * list.length)];
     	  })();
     	</script>
