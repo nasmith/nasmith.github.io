@@ -80,7 +80,7 @@ analytics:
 
 # Site Author
 author:
-  name             : 
+  name             : "Noah A. Smith"
   avatar           : "CSE-2024-10.jpg"
   bio              : "נח שמיד
 
@@ -129,7 +129,7 @@ author:
   xing             :
   youtube          :
   wikipedia        :
-  linkedin         : "https://www.linkedin.com/in/noah-smith-0322511a4/"
+  linkedin         : "noah-smith-0322511a4"
 
 
 # Reading Files
